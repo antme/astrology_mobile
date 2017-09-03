@@ -6,7 +6,8 @@ ul{list-style-type: none}
 .con-cj{padding:10px 20px;}
 .con-u2{line-height: 5em;}
 .con-u3{height: auto;}
-.con-u3 .title{font-size: 20px;height: 5em;line-height: 5em;text-align: center;color: #595797}
+/*height: 5em;line-height: 5em;*/
+.con-u3 .title{font-size: 20px;text-align: center;color: #595797}
 .con-u3 .a-list li{margin-top:15px;text-align: center;}
 .con-u3 .a-list li a{display:inline-block;width:200px;height:2.5em;line-height: 2.5em;background-color: #6a68ab;border-radius:1.25em;color: #fff;}
 .con-u3 .a-list li a.last{background-color:#dbedff; }
