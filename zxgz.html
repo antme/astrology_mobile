@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<title>四元素测试报告</title>
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/pgwmodal.min.css">
+</head>
+<body>
+    <div class="header">
+        <span class="h-l"><a href="#"  onclick="history.go(-1);"><img height="20px" src="./img/h01.png" /></a></span>
+        <label>四元素测试报告</label>
+        <span class="h-r">···</span>
+    </div>
+    <div class="content">
+        <div class="con-ti con-u2" id="question_expand_div"><img height="20px" src="./img/t01.png"  onclick="expandQuestion();"/>
+        </div>
+        
+        <div class="con-ti con-u3" id="question_list_div" style="display:none;">
+          <div class="title">请选择正在纠结的问题</div>
+          <div class="a-list" style="height: 210px; display: inline-block; overflow: scroll;">
+            <ul  id="question_list">
+              
+            </ul>
+          </div>
+        </div>
+        <div class="con-cn">
+          <div class="con-fist">
+             <a><img src="./img/u1.png" /></a>
+          </div>
+          <div class="con-two">
+             <a class="c-t-1"><img src="./img/u2.png"></a>
+             <a class="c-t-2"><img src="./img/u3.png"></a>
+          </div>
+          <div class="con-btn">
+            <label class="t" onclick="makezxgz();">占星骰子帮你选</label>
+            <label>￥9.9/次</label>
+          </div>
+        </div>
+        <div class="hist">
+          <a>骰子历史记录</a>
+        </div>
+    </div>
+     <div class="floot-menu">
+      <ul>
+        <li class="menu-s">
+          <a href="/astrology_mobile/index.html"><label>首页</label></a>
+        </li>
+        <li class="menu-g">
+          <a href="/astrology_mobile/gr.html"><label>个人星盘</label></a>
+        </li>
+        <li class="menu-l">
+          <a  href="/astrology_mobile/gr.html"><label>两人合盘</label></a>
+        </li>
+        <li class="menu-z">
+          <a  href="/astrology_mobile/gr-detail.html"><label>个人中心</label></a>
+        </li>
+      </ul>
+    </div>
+    <script type="text/javascript" src="./js/zepto.min.js"></script>
+    <script type="text/javascript" src="./js/pgwmodal.min.js"></script>
+    <script>
+    	var questionId="";
+    	$.get('/astrology/question/list', function(response){
+    		response.forEach(function(e){
+    			$("#question_list").append("<li onclick=\"selectQuestion('" + e.uuid + "');\"><a id='" + e.uuid + "'>" + e.title  + "</a></li>");		
+    		});
+    	});
+    	
+    	function selectQuestion(id){
+    		questionId = id;
+    		$("#question_list a").css("background-color","#6a68ab");
+    		$("#"+id).css("background-color","#ffb6b7");
+    	}
+    	
+    	
+    	function expandQuestion(){
+    		$("#question_expand_div").hide();
+    		$(".con-two").hide();
+    		$(".con-fist").hide();
+    		$("#question_list_div").show();
+    	}
+    	
+    	function makezxgz(){
+    		if(questionId==""){
+    			$.pgwModal({
+    			    content: '请选择你正在纠结的问题'
+    			}); 	
+    		}
+    	}
+    </script>
+</body>
+</html>
