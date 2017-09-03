@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<title>请输入您的星盘信息</title>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/datepicker.css">
+<link rel="stylesheet" href="../css/swiper.min.css"/>
+<link rel="stylesheet" href="../css/zepto.swiper.address.1.0.0.min.css"/>
+</head>
+<body>
+    <div class="header">
+        <span class="h-l"><a href="#"><img height="20px" src="./img/h01.png" /></a></span>
+        <label>请输入您的星盘信息</label>
+    </div>
+    <div class="content">
+       <form>
+           <div class="form-item">
+             <div class="item-l">
+               <span class="i"><img height="18px" src="./img/add02.png" /></span>
+               <span>名字</span>
+             </div>
+             <div class="item-r">
+               <span><input type="text" value="可爱的小双子" /></span>
+               <span><img height="18px" src="./img/add01.png" /></span>
+             </div>
+           </div>
+           <div class="form-item">
+              <div class="item-l">
+                <span class="i"><img height="18px" src="./img/add03.png" /></span>
+                <span> 性别</span>
+              </div>
+              <div class="item-r">
+                <div id="sexBtn" class="sexBtn">
+                   <div id="n" class="open">男</div>
+                   <div id="v" class="close">女</div>
+                </div>
+            </div>
+            </div>
+            <div class="form-item">
+                <div class="item-l">
+                  <span class="i"><img height="18px" src="./img/add04.png" /></span>
+                  <span>出生时间</span>
+                </div>
+                <div class="item-r">
+                    <span><input type="text" class="textdatetime" value="" placeholder="请选择时间" /></span>
+                    <span><img height="18px" src="./img/add01.png" /></span>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="item-l">
+                  <span class="i"><img height="18px" src="./img/add04.png" /></span>
+                  <span>出生地点</span>
+                </div>
+                <div class="item-r">
+                    <span><input id="address01" type="text" value="可爱的小双子" /></span>
+                    <span><img height="18px" src="./img/add01.png" /></span>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="item-l">
+                  <span class="i"><img height="18px" src="./img/add04.png" /></span>
+                  <span>现居地</span>
+                </div>
+                <div class="item-r">
+                    <span><input id="address02" type="text" value="可爱的小双子" /></span>
+                    <span><img height="18px" src="./img/add01.png" /></span>
+                </div>
+            </div>
+            <a class="sub-btn">确   认</a>
+       </form>
+    </div>
+    <script type="text/javascript" src="./js/swiper.min.js"></script>
+    <script type="text/javascript" src="./js/zepto.min.js"></script>
+    <script type="text/javascript" src="./js/iscroll.js"></script>
+    <script type="text/javascript" src="./js/datepicker.js"></script>
+    <script type="text/javascript" src="./js/zepto.swiper.address.1.0.0.min.js"></script>
+    <script type="text/javascript" src="./js/data.js"></script>
+    <script>
+        $("#sexBtn").click(function(){
+          if($("#sexBtn").find("#n").hasClass('open')){
+            $("#sexBtn").find("#n").removeClass('open').addClass('close');
+            $("#sexBtn").find("#v").removeClass('close').addClass('open');
+          }else{
+            $("#sexBtn").find("#v").removeClass('open').addClass('close');
+            $("#sexBtn").find("#n").removeClass('close').addClass('open');
+          }
+        });
+        $(function(){
+          $('.textdatetime').date({
+            theme:'datetime'
+          });
+        })
+        var abc = $("body").address({
+          objId:'',
+          complete: function (date) {
+              var str = JSON.stringify(date);
+              str = JSON.parse(str);
+              if(this.objId!==""){
+                $("#"+this.objId).val(str.province + " " + str.city +" " + str.region);
+                console.log(typeof str);
+              }
+              return date;
+          },
+          onInit: function () {
+              console.log("init")
+          },
+          getProvinceList: function (cb) {
+              cb(data.pronvince);
+          },
+          getCityList: function (provinceId, cb) {
+              cb(data.city[provinceId]);
+          },
+          getRegionList: function (provinceId, cityId, cb) {
+              cb(data.region[cityId]);
+          },
+          isSecondLevel: false
+      });
+      $("#address01").click(function(){
+          abc.show();
+          abc.objId = 'address01';
+      });
+      $("#address02").click(function(){
+          abc.show();
+          abc.objId = 'address02';
+      })
+    </script>
+</body>
+</html>

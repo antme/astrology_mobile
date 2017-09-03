@@ -1,0 +1,75 @@
+html,body,div,span,ul,li,a,label,table,tr,td,input,button{border: 0;margin: 0;padding: 0;}
+a{text-decoration: none;}
+body{font-size: 14px;padding-bottom: 5em;font-weight: 100;}
+ul{list-style-type: none}
+.con-ti{height: 5em;background-color: #dbedff;text-align: center;padding:10px 0;}
+.con-cj{padding:10px 20px;}
+.con-u2{line-height: 5em;}
+.con-u3{height: auto;}
+.con-u3 .title{font-size: 20px;height: 5em;line-height: 5em;text-align: center;color: #595797}
+.con-u3 .a-list li{margin-top:15px;text-align: center;}
+.con-u3 .a-list li a{display:inline-block;width:200px;height:2.5em;line-height: 2.5em;background-color: #6a68ab;border-radius:1.25em;color: #fff;}
+.con-u3 .a-list li a.last{background-color:#dbedff; }
+.con-cn{padding:10px;}
+.con-cn li{float: left;width:33%;padding: 10px 0;text-align: center}
+.con-cn li img{width:70%;}
+.con-cn .con-btn{height:4em;border-radius: 6px;background-color: #6a68ab;color: #fff;margin-top:1em;text-align: center}
+.con-cn .con-btn label{display: inline-block;width: 100%;}
+.con-cn .con-btn label.t{font-size: 18px;margin:5px 0;}
+.con-cn .see{background-color: #ffb6b7;color:#595797;line-height: 3.5em;}
+.con-cn .con-fist{height:10em;text-align: center;margin-top: 1em;}
+.con-cn .con-fist img,.con-cn .con-two img{height:7em;}
+.con-cn .con-two{height:10em;margin-top: 1em;}
+.con-cn .con-two a.c-t-1{float: left;margin-left: 10px;}
+.con-cn .con-two a.c-t-2{float: right;margin-right: 10px;}
+.hist{height:4em;line-height: 4em;text-align: center;border-top:6px solid #6a68ab;margin-top:1em;color: #595797}
+.hist2{height:4em;text-align: center;border-top:6px solid #6a68ab;color: #595797}
+.hist2 .btn-list1{margin-top:1em;overflow: hidden;}
+.hist2 .btn-list1 li{float: left;width:25%;text-align: center;}
+.hist2 .btn-list1 li a{display: inline-block;background: url('../img/btn01.png') no-repeat; background-size: 27em;width:5.1em;height:6em;}
+.hist2 .btn-list1 li a.a1{background-position: 0 0;}
+.hist2 .btn-list1 li a.a2{background-position: -102px 0;}
+.hist2 .btn-list1 li a.a3{background-position: -204px 0;}
+.hist2 .btn-list1 li a.a4{background-position: -306px 0;}
+.hist2 .btn-list2{margin: 5px;overflow: hidden;}
+.hist2 .btn-list2 li{float: left;width:33%;}
+.hist2 .btn-list2 li a{display: block;margin:0px 5px;height:40px;line-height:40px;border-radius: 5px;background-color: #6a68ab;color: #fff;}
+.notice{color:#cdcdcd;}
+
+.floot-menu{position: fixed;bottom: 0px;left: 0px;width: 100%;height:5em;background-color: #595797;}
+.floot-menu li{width: 25%;float:left;height:5em;color:#fff;text-align: center}
+.floot-menu li.menu-s{background: url(../img/menu1.png) no-repeat center 5px;background-size:3em; }
+.floot-menu li.menu-g{background: url(../img/menu3.png) no-repeat center 5px;background-size:3em;}
+.floot-menu li.menu-l{background: url(../img/menu4.png) no-repeat center 5px;background-size:3em;}
+.floot-menu li.menu-z{background: url(../img/menu5.png) no-repeat center 5px;background-size:3em;}
+.floot-menu li a{display: inline-block;width:100%;height:100%;}
+.floot-menu li label{padding-top:50px;display: inline-block}
+
+.detail{margin:10px;overflow: hidden}
+.detail li{float: left;width:33%;text-align: center;margin-top:10px;}
+.detail li a{display: block;margin:0 5px;height:30px;line-height: 30px;border-radius: 10px;background-color: #daedff;color:#595797;}
+.t-no{text-align: center;color: #595797;}
+.sBtn{margin:5px 10px;height:50px;line-height:50px;text-align: center;color: #595797;background-color: #ffb5b4;border-radius: 6px;font-size: 20px;}
+.detail-info{margin-top:10px;}
+.detail-info .info-item{margin:10px 20px;padding:5px;border-radius: 5px;background-color: #daedff;color:#595797;}
+.detail-info .info-item .cn{text-indent: 2em;}
+
+.grxx{position: absolute;width:260px;height:200px;left:50%;margin-left: -130px;top:40%;margin-top:-100px;}
+.grwx{position: absolute;left: 20px;right:20px;bottom:7em;height:40px;line-height:40px;border-radius: 6px;color: #fff;text-align: center;background-color: #6a6aaa;}
+
+.header{height:40px;line-height: 40px;background-color: #595797;position: relative;text-align: center;color:#fff;}
+.header .h-l{position: absolute;left:10px;top:10px;height:20px;display: inline-block;line-height: 20px;}
+.header .h-r{position: absolute;right:10px;top:10px;height:20px;display: inline-block;line-height: 20px;}
+
+.form-item{margin:10px 10px 0;height:50px;line-height:50px;border-radius: 15px;background-color: #dceeff;}
+.form-item .item-l{float: left;margin-left: 15px;font-size: 18px;}
+.form-item .item-l .i{width:15px;display: inline-block}
+.form-item .item-l img,.form-item .item-r img{vertical-align: middle}
+.form-item .item-r{float: right;margin-right: 15px;font-size: 18px;}
+.form-item .item-r input{background-color:transparent;text-align: right;font-size: 18px;height:20px;line-height: 21px;font-weight: 100;}
+
+.form-item .item-r .sexBtn{height:34px;width:80px;border-radius: 17px;background-color: #fff;margin-top:8px;font-size: 16px;}
+.form-item .item-r .sexBtn .open{float:left;margin:1px;width:50px;line-height:32px;text-align: center;color: #fff;background-color: #595996;height:32px;border-radius: 17px;display: inline-block;z-index:999999;}
+.form-item .item-r .sexBtn .close{float:left;width:26px;display: inline-block;height:34px;line-height: 34px;text-align: center;}
+
+.sub-btn{margin:20px 10px 0;height:50px;line-height:50px;border-radius: 15px;background-color: #ffb6b6;display:block;color: #fff;text-align: center;font-size: 18px;}
