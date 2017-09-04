@@ -26,16 +26,22 @@
         </div>
        <div class="xingzuoBtn">明星星座</div>
        <div class="detail-info" id="stars_list" style="display:inline-block; text-align: center;">
-          
-        
+     
           
         </div>
         
          <div class="xingzuoBtn">星座故事</div>
+         
+       <div class="detail-info" id="story_list" style="display:inline-block; text-align: left;">
+          
+     
+        </div>
     </div>
     
     <script type="text/javascript" src="./js/zepto.min.js"></script>
     <script type="text/javascript" src="./js/common.js"></script>
+    <script type="text/javascript" src="./js/pgwmodal.min.js"></script>
+    
     
     <script>
     	var urlparameters = GetRequestParameters(); 
@@ -57,10 +63,13 @@
     		});
     		
     		results[0].stars.forEach(function(e){
-    				console.log(e.stars);
     			$("#stars_list").append("<div class='info-item'>" + e.stars + "</div>");
- 
-    			
+
+    		});
+    		
+    		results[0].stories.forEach(function(e){
+    			$("#story_list").append("<div class='story_info_item'>" + e.stories + "</div>");
+
     		});
 
     	});

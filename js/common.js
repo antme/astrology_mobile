@@ -10,3 +10,72 @@ function GetRequestParameters() {
  }
  return theRequest;
 }
+
+
+
+function loadUserInfo(){
+	
+	$.post('/astrology/user/get', function(response){
+		  if(response.length > 0){
+			  var user = response[0];
+			  $("#name").val(user.name);
+			  $("#birthday").val(user.birthDay);
+			  $("#address01").val(user.birth_address);
+			  $("#address02").val(user.live_address);
+			  
+			  var sex = user.sex;
+			  if(sex == "女"){
+				  $("#sexBtn").click();
+			  }
+		  }
+	});
+	
+}
+function submitUserInfo(){
+	  var birthday = $("#birthday").val();
+	  var name = $("#name").val();
+	  var address01 = $("#address01").val();
+	  var address02 = $("#address02").val();
+	  
+	  if(name == ""){
+		  $.pgwModal({
+		    	content: '请输入名字'
+		  }); 
+		  return;
+	  }
+	  
+	  if(birthday == ""){
+		  $.pgwModal({
+		    	content: '请输入出生时间'
+		  }); 
+		  return;
+	  }
+	  
+	  if(address01 == ""){
+		  $.pgwModal({
+		    	content: '请输入出生地点'
+		  }); 
+		  return;
+	  }
+	  
+	  if(address02 == ""){
+		  $.pgwModal({
+		    	content: '请输入居住地点'
+		  }); 
+		  return;
+	  }
+
+	  var data = {
+		name:name,
+		birthDay:birthday,
+		birth_address:address01,
+		live_address:address02,
+		sex:sex
+	  }
+
+	  
+	  $.post('/astrology/user/add',data, function(response){
+		  
+  	  });
+	
+}
