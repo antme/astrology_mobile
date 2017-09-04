@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<title>感情密码</title>
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="header">
+        <span class="h-l"><a href="index.html"><img height="20px" src="./img/h01.png" /></a></span>
+        <label id="xingzuo_label"></label>
+        <!-- <span class="h-r">···</span> -->
+      </div>
+    <div class="content">
+    	 <div class="xingzuoBtn">星座标签</div>
+        <div class="detail">
+          <ul id="tag_list">
+          
+          </ul>
+        </div>
+       <div class="xingzuoBtn">明星星座</div>
+       <div class="detail-info" id="stars_list" style="display:inline-block; text-align: center;">
+          
+        
+          
+        </div>
+        
+         <div class="xingzuoBtn">星座故事</div>
+    </div>
+    
+    <script type="text/javascript" src="./js/zepto.min.js"></script>
+    <script type="text/javascript" src="./js/common.js"></script>
+    
+    <script>
+    	var urlparameters = GetRequestParameters(); 
+    	var xingzuo_name= urlparameters['xz'];
+    	$.get('/astrology/constellation/get?xingzuo_name=' + xingzuo_name, function(results){
+    		if(xingzuo_name=="baiyang"){
+    			$("#xingzuo_label").html("白羊座信息");
+    		}
+    		console.log(results[0]);
+    		results[0].tags.forEach(function(e){
+    			var tags = e.tags.split(" ");
+    			tags.forEach(function(tag){
+    				if(tag.trim().length>0){
+    					$("#tag_list").append("<li>" + tag + "</li>");
+    				}
+    				
+    			});
+    			
+    		});
+    		
+    		results[0].stars.forEach(function(e){
+    				console.log(e.stars);
+    			$("#stars_list").append("<div class='info-item'>" + e.stars + "</div>");
+ 
+    			
+    		});
+
+    	});
+    	
+    </script>
+</body>
+</html>

@@ -65,6 +65,8 @@
     </div>
     <script type="text/javascript" src="./js/zepto.min.js"></script>
     <script type="text/javascript" src="./js/pgwmodal.min.js"></script>
+    <script type="text/javascript" src="./js/common.js"></script>
+    
     <script>
     	var questionId="";
     	$.get('/astrology/question/list', function(response){
@@ -92,6 +94,9 @@
     			$.pgwModal({
     			    content: '请选择你正在纠结的问题'
     			}); 	
+    		}else{
+    			var urlparameters = GetRequestParameters();
+    			window.location.href="xingpan.html?questionId=" + questionId + "$xingzuo=" +  urlparameters['xz'];
     		}
     	}
     </script>

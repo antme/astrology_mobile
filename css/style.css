@@ -24,7 +24,7 @@ ul{list-style-type: none}
 .con-cn .con-two a.c-t-1{float: left;margin-left: 10px;}
 .con-cn .con-two a.c-t-2{float: right;margin-right: 10px;}
 .hist{height:4em;line-height: 4em;text-align: center;border-top:6px solid #6a68ab;margin-top:1em;color: #595797}
-.hist2{height:4em;text-align: center;border-top:6px solid #6a68ab;color: #595797}
+.hist2{height:200px;text-align: center;border-top:6px solid #6a68ab;color: #595797}
 .hist2 .btn-list1{margin-top:1em;overflow: hidden;}
 .hist2 .btn-list1 li{float: left;width:25%;text-align: center;}
 .hist2 .btn-list1 li a{display: inline-block;background: url('../img/btn01.png') no-repeat; background-size: 27em;width:5.1em;height:6em;}
@@ -51,8 +51,9 @@ ul{list-style-type: none}
 .detail li a{display: block;margin:0 5px;height:30px;line-height: 30px;border-radius: 10px;background-color: #daedff;color:#595797;}
 .t-no{text-align: center;color: #595797;}
 .sBtn{margin:5px 10px;height:50px;line-height:50px;text-align: center;color: #595797;background-color: #ffb5b4;border-radius: 6px;font-size: 20px;}
+.xingzuoBtn{margin:5px 10px;height:50px;line-height:50px;text-align: center;color: #595797;background-color: #ffb5b4;border-radius: 6px;font-size: 20px;}
 .detail-info{margin-top:10px;}
-.detail-info .info-item{margin:10px 20px;padding:5px;border-radius: 5px;background-color: #daedff;color:#595797;}
+.detail-info .info-item{margin:10px 20px;padding:5px;border-radius: 5px;background-color: #daedff;color:#595797;text-align:center;}
 .detail-info .info-item .cn{text-indent: 2em;}
 
 .grxx{position: absolute;width:260px;height:200px;left:50%;margin-left: -130px;top:40%;margin-top:-100px;}
@@ -74,3 +75,23 @@ ul{list-style-type: none}
 .form-item .item-r .sexBtn .close{float:left;width:26px;display: inline-block;height:34px;line-height: 34px;text-align: center;}
 
 .sub-btn{margin:20px 10px 0;height:50px;line-height:50px;border-radius: 15px;background-color: #ffb6b6;display:block;color: #fff;text-align: center;font-size: 18px;}
+
+.info-item img{
+	margin-left: 5px;
+    height: 30%;
+    width: 30%;
+}
+
+.start_info{
+	float:left;
+	margin:5px;
+	width: 30%;
+}
+.start_info img{
+	width:100%;
+	height:100%;
+}
+
+#stars_list{
+	background-color:#daedff;
+}
