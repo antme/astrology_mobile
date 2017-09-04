@@ -13,6 +13,8 @@
 <link rel="stylesheet" href="./css/datepicker.css">
 <link rel="stylesheet" href="./css/swiper.min.css"/>
 <link rel="stylesheet" href="./css/zepto.swiper.address.1.0.0.min.css"/>
+<link rel="stylesheet" href="./css/pgwmodal.min.css">
+
 </head>
 <body>
     <div class="header">
@@ -27,7 +29,7 @@
                <span>名字</span>
              </div>
              <div class="item-r">
-               <span><input type="text" value="可爱的小双子" /></span>
+               <span><input type="text" value="" id="name"/></span>
                <span><img height="18px" src="./img/add01.png" /></span>
              </div>
            </div>
@@ -49,7 +51,7 @@
                   <span>出生时间</span>
                 </div>
                 <div class="item-r">
-                    <span><input type="text" class="textdatetime" value="" placeholder="请选择时间" /></span>
+                    <span><input type="text" class="textdatetime" value="" placeholder="请选择时间" id="birthday"/></span>
                     <span><img height="18px" src="./img/add01.png" /></span>
                 </div>
             </div>
@@ -59,7 +61,7 @@
                   <span>出生地点</span>
                 </div>
                 <div class="item-r">
-                    <span><input id="address01" type="text" value="可爱的小双子" /></span>
+                    <span><input id="address01" type="text" value="" /></span>
                     <span><img height="18px" src="./img/add01.png" /></span>
                 </div>
             </div>
@@ -69,11 +71,11 @@
                   <span>现居地</span>
                 </div>
                 <div class="item-r">
-                    <span><input id="address02" type="text" value="可爱的小双子" /></span>
+                    <span><input id="address02" type="text" value="" /></span>
                     <span><img height="18px" src="./img/add01.png" /></span>
                 </div>
             </div>
-            <a class="sub-btn">确   认</a>
+            <a class="sub-btn" onclick="submitUserInfo();">确   认</a>
        </form>
     </div>
      <div class="floot-menu">
@@ -98,14 +100,21 @@
     <script type="text/javascript" src="./js/datepicker.js"></script>
     <script type="text/javascript" src="./js/zepto.swiper.address.1.0.0.min.js"></script>
     <script type="text/javascript" src="./js/data.js"></script>
+   <script type="text/javascript" src="./js/pgwmodal.min.js"></script>
+       <script type="text/javascript" src="./js/common.js"></script>
+   
+    
     <script>
+    	var sex = "男";
         $("#sexBtn").click(function(){
           if($("#sexBtn").find("#n").hasClass('open')){
             $("#sexBtn").find("#n").removeClass('open').addClass('close');
             $("#sexBtn").find("#v").removeClass('close').addClass('open');
+            sex = "女";
           }else{
             $("#sexBtn").find("#v").removeClass('open').addClass('close');
             $("#sexBtn").find("#n").removeClass('close').addClass('open');
+            sex = "男";
           }
         });
         $(function(){
@@ -146,6 +155,8 @@
           abc.show();
           abc.objId = 'address02';
       })
+      
+     loadUserInfo();
     </script>
 </body>
 </html>
