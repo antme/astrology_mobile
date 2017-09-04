@@ -15,7 +15,7 @@ function GetRequestParameters() {
 
 function loadUserInfo(){
 	
-	$.post('/astrology/user/get', function(response){
+	$.post(url_path + '/astrology/user/get', function(response){
 		  if(response.length > 0){
 			  var user = response[0];
 			  $("#name").val(user.name);
@@ -74,7 +74,7 @@ function submitUserInfo(){
 	  }
 
 	  
-	  $.post('/astrology/user/add',data, function(response){
+	  $.post(url_path + '/astrology/user/add',data, function(response){
 		  
   	  });
 	

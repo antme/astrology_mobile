@@ -10,6 +10,8 @@
 <meta content="telephone=no" name="format-detection">
 <title>感情密码</title>
 <link rel="stylesheet" href="./css/style.css">
+<script type="text/javascript" src="./js/path.js"></script>
+
 </head>
 <body>
     <div class="header">
@@ -46,7 +48,7 @@
     <script>
     	var urlparameters = GetRequestParameters(); 
     	var xingzuo_name= urlparameters['xz'];
-    	$.get('/astrology/constellation/get?xingzuo_name=' + xingzuo_name, function(results){
+    	$.get(url_path + '/astrology/constellation/get?xingzuo_name=' + xingzuo_name, function(results){
     		if(xingzuo_name=="baiyang"){
     			$("#xingzuo_label").html("白羊座信息");
     		}
