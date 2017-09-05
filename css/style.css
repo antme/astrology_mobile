@@ -44,7 +44,7 @@ ul{list-style-type: none}
 .floot-menu li.menu-l{background: url(../img/menu4.png) no-repeat center 5px;background-size:3em;}
 .floot-menu li.menu-z{background: url(../img/menu5.png) no-repeat center 5px;background-size:3em;}
 .floot-menu li a{display: inline-block;width:100%;height:100%;}
-.floot-menu li label{padding-top:50px;display: inline-block}
+.floot-menu li label{padding-top:50px;display: inline-block;color:white;}
 
 .detail{margin:10px;overflow: hidden}
 .detail li{float: left;width:33%;text-align: center;margin-top:10px;}
@@ -56,8 +56,8 @@ ul{list-style-type: none}
 .detail-info .info-item{margin:10px 20px;padding:5px;border-radius: 5px;background-color: #daedff;color:#595797;text-align:center;}
 .detail-info .info-item .cn{text-indent: 2em;}
 
-.grxx{position: absolute;width:260px;height:200px;left:50%;margin-left: -130px;top:40%;margin-top:-100px;}
-.grwx{position: absolute;left: 20px;right:20px;bottom:7em;height:40px;line-height:40px;border-radius: 6px;color: #fff;text-align: center;background-color: #6a6aaa;}
+.grxx{position: absolute;width:260px;height:200px;left:50%;margin-left: -130px;top:30%;margin-top:-100px;}
+.grwx{position: absolute;left: 20px;right:20px;bottom:9em;height:40px;line-height:40px;border-radius: 6px;color: #fff;text-align: center;background-color: #6a6aaa;}
 
 .header{height:40px;line-height: 40px;background-color: #595797;position: relative;text-align: center;color:#fff;}
 .header .h-l{position: absolute;left:10px;top:10px;height:20px;display: inline-block;line-height: 20px;}
@@ -68,7 +68,7 @@ ul{list-style-type: none}
 .form-item .item-l .i{width:15px;display: inline-block}
 .form-item .item-l img,.form-item .item-r img{vertical-align: middle}
 .form-item .item-r{float: right;margin-right: 15px;font-size: 18px;}
-.form-item .item-r input{background-color:transparent;text-align: right;font-size: 18px;height:20px;line-height: 21px;font-weight: 100;}
+.form-item .item-r input{background-color:transparent;text-align: right;height:20px;line-height: 21px;font-weight: 100;}
 
 .form-item .item-r .sexBtn{height:34px;width:80px;border-radius: 17px;background-color: #fff;margin-top:8px;font-size: 16px;}
 .form-item .item-r .sexBtn .open{float:left;margin:1px;width:50px;line-height:32px;text-align: center;color: #fff;background-color: #595996;height:32px;border-radius: 17px;display: inline-block;z-index:999999;}
@@ -84,8 +84,9 @@ ul{list-style-type: none}
 
 .start_info{
 	float:left;
-	margin:5px;
+	margin-left:8px;
 	width: 30%;
+	font-size:10px;
 }
 .start_info img{
 	width:100%;

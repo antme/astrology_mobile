@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="header">
-        <span class="h-l"><a href="index.html"><img height="20px" src="./img/h01.png" /></a></span>
+        <!-- <span class="h-l"><a href="index.html"><img height="20px" src="./img/h01.png" /></a></span> -->
         <label id="xingzuo_label"></label>
         <!-- <span class="h-r">···</span> -->
       </div>
@@ -51,6 +51,28 @@
     	$.get(url_path + '/astrology/constellation/get?xingzuo_name=' + xingzuo_name, function(results){
     		if(xingzuo_name=="baiyang"){
     			$("#xingzuo_label").html("白羊座信息");
+    		}else if(xingzuo_name=="jinniu"){
+    			$("#xingzuo_label").html("金牛座信息");
+    		}else if(xingzuo_name=="shuangzi"){
+    			$("#xingzuo_label").html("双子座信息");
+    		}else if(xingzuo_name=="juxie"){
+    			$("#xingzuo_label").html("巨蟹座信息");
+    		}else if(xingzuo_name=="shizi"){
+    			$("#xingzuo_label").html("狮子座信息");
+    		}else if(xingzuo_name=="chunv"){
+    			$("#xingzuo_label").html("处女座信息");
+    		}else if(xingzuo_name=="tianping"){
+    			$("#xingzuo_label").html("天秤座信息");
+    		}else if(xingzuo_name=="tianxie"){
+    			$("#xingzuo_label").html("天蝎座信息");
+    		}else if(xingzuo_name=="sheshou"){
+    			$("#xingzuo_label").html("射手座信息");
+    		}else if(xingzuo_name=="mojie"){
+    			$("#xingzuo_label").html("摩羯座信息");
+    		}else if(xingzuo_name=="shuiping"){
+    			$("#xingzuo_label").html("水瓶座信息");
+    		}else if(xingzuo_name=="shuangyu"){
+    			$("#xingzuo_label").html("双鱼座信息");
     		}
     		console.log(results[0]);
     		results[0].tags.forEach(function(e){
