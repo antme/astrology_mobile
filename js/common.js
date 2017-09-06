@@ -12,6 +12,10 @@ function GetRequestParameters() {
 }
 
 
+function hasUserInfo(){
+	
+
+}
 
 function loadUserInfo(){
 	

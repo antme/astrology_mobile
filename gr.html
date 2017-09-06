@@ -10,10 +10,24 @@
 <meta content="telephone=no" name="format-detection">
 <title>个人中心</title>
 <link rel="stylesheet" href="./css/style.css">
+<script type="text/javascript" src="./js/path.js"></script>
+<script type="text/javascript" src="./js/zepto.min.js"></script>
+
+<script type="text/javascript" src="./js/common.js"></script>
+
+<script>
+	$.post(url_path + '/astrology/user/get', function(response){
+		  if(response.length > 0){
+			  window.location.href="xingpan.html";
+		  }else{
+			  $(".content").show();
+		  }
+	});
+</script>
 </head>
 <body>
   
-    <div class="content">
+    <div class="content" style="display:none;">
        <div class="grxx"><a href="gr-detail.html"><img width="260px;" src="./img/gr01.png" /></a></div>
        <div class="grwx">请邀请微信好友，查看他的个人星盘</div>
     </div>
