@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<title>开运锦囊</title>
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/datepicker.css">
+<link rel="stylesheet" href="./css/swiper.min.css"/>
+<link rel="stylesheet" href="./css/zepto.swiper.address.1.0.0.min.css"/>
+<link rel="stylesheet" href="./css/pgwmodal.min.css">
+</head>
+<body>
+    <div class="content">
+        <div class="con-ti con-u3 f16">
+            <div class="titl">我是布纠，感谢你接受我和<label class="r">刘成波</label>的邀请！</div>
+            <div class="y-img"><img width="210px" src="./img/y06.png" /></div>
+        </div>
+        <div class="form-item">
+            <div class="item-l">
+                <span>出生时间（公历）</span>
+            </div>
+            <div class="item-r">
+                <span><input type="text" value="" id="time"/></span>
+                <span><img height="18px" src="./img/add01.png" /></span>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="item-l">
+                <span>出生地点</span>
+            </div>
+            <div class="item-r">
+                <span><input type="text" value="" id="address"/></span>
+                <span><img height="18px" src="./img/add01.png" /></span>
+            </div>
+        </div>
+        <a class="sub-btn c1" onclick="">前往查看你的星盘报告</a>
+    </div>
+    <script type="text/javascript" src="./js/swiper.min.js"></script>
+    <script type="text/javascript" src="./js/zepto.min.js"></script>
+    <script type="text/javascript" src="./js/iscroll.js"></script>
+    <script type="text/javascript" src="./js/datepicker.js"></script>
+    <script type="text/javascript" src="./js/zepto.swiper.address.1.0.0.min.js"></script>
+    <script type="text/javascript" src="./js/data.js"></script>
+    <script>
+        $(function(){
+          $('#time').date({
+            theme:'datetime'
+          });
+        })
+        var abc = $("body").address({
+          objId:'',
+          complete: function (date) {
+              var str = JSON.stringify(date);
+              str = JSON.parse(str);
+              if(this.objId!==""){
+                $("#"+this.objId).val(str.province + " " + str.city +" " + str.region);
+                console.log(typeof str);
+              }
+              return date;
+          },
+          onInit: function () {
+              console.log("init")
+          },
+          getProvinceList: function (cb) {
+              cb(data.pronvince);
+          },
+          getCityList: function (provinceId, cb) {
+              cb(data.city[provinceId]);
+          },
+          getRegionList: function (provinceId, cityId, cb) {
+              cb(data.region[cityId]);
+          },
+          isSecondLevel: false
+      });
+      $("#address").click(function(){
+          abc.show();
+          abc.objId = 'address';
+      });
+    </script>
+</body>
+</html>

@@ -135,8 +135,46 @@ ul{list-style-type: none}
 .grxx-list li label{font-size:16px;margin-left:16px;float: left;font-weight: 300;}
 .grxx-list li a{margin-right:16px;float:right;margin-top:5px;}
 .f20{font-size:20px;}
+.f16{font-size:16px;}
 
 .grbg-list{margin:17px 13px;}
 .grbg-list li{background-color: #90b2f0;border-radius: 16px;height: 51px;margin-top:5px;line-height: 51px;color:#fff;text-align: center;}
 .grbg-list li label{font-size:16px;margin-left:16px;font-weight: 300;}
 .grbg-list li a{margin-right:16px;float:right;margin-top:5px;}
+
+.l-t{margin: 20px 0px;text-align: center;}
+.l-t span{width:63px;height:63px;line-height:63px;border-radius: 31px;font-size:40px;display: inline-block;text-align: center;margin:0px 40px;}
+.l-t span.r{background-color: #ffbab9;color:#595797;}
+.l-t span.g{background-color: #a0f3ff;color:#595797;}
+
+.i-list{margin:0px 20px;}
+.i-list li{margin-bottom: 10px;background-color: #daedff;border-radius: 16px;color:#595797;padding:10px;}
+.i-list li .title{font-size: 20px;text-align: center;}
+.i-list li .text{font-size: 16px;text-indent: 2em;}
+
+.y-list{margin:10px 20px;text-align: center;}
+.y-list li{margin-bottom: 10px;background-color: #daedff;border-radius: 16px;color:#595797;padding:10px;}
+.y-list li .title{font-size: 20px;}
+.y-list li .img{margin-top:17px;}
+.y-list li .text{font-size: 14px;}
+.y-list li .top17{margin-top:17px;font-weight: 300;}
+.y-list li .top17-2{font-weight: 300;font-size: 60px;}
+.y-list li .t-i{text-align: left;margin-top:20px;}
+.y-list li .t-i div{text-indent: 2em;}
+
+.titl{color: #595797;font-weight: 300;}
+.titl .r{color:#f6312b;}
+.y-img{margin-top:40px;}
+.c1{color:#595797;margin-top:50px;}
+.tag{text-align: center;font-size: 12px;margin-top:20px;}
+.tag span.p{display:inline-block;color: #fff;background-color: #595797;border-radius: 8px;padding:1px 10px;}
+
+.user-info{border-top:10px solid #595797;text-align: center;}
+.user-info .title{font-size: 18px;margin:10px 0;color: #595797;}
+.user-info .user-list{margin-bottom:10px;}
+.user-info .user-list span{display: inline-block;width:100px;height: auto;margin:0 5px;}
+.user-info .user-list span div{width:94px;height: 94px;border-radius: 47px;}
+.user-info .user-list span label{font-size: 10px;display: block;margin-top:5px;}
+.user-info .grwx2{margin:10px;height:40px;line-height:40px;border-radius: 16px;color: #fff;text-align: center;background-color: #6a6aaa;font-size: 16px;}
+.user-info .text{margin:10px;text-indent: 2em;text-align: left;color: #595797;}
+.see-btn{width:100%;text-align:center;height: 60px;line-height: 60px;background-color: #595797;color: #fff;font-size: 26px;font-weight: 300;position: fixed;left:0px;bottom: 0px;}
