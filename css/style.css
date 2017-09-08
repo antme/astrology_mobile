@@ -178,3 +178,10 @@ ul{list-style-type: none}
 .user-info .grwx2{margin:10px;height:40px;line-height:40px;border-radius: 16px;color: #fff;text-align: center;background-color: #6a6aaa;font-size: 16px;}
 .user-info .text{margin:10px;text-indent: 2em;text-align: left;color: #595797;}
 .see-btn{width:100%;text-align:center;height: 60px;line-height: 60px;background-color: #595797;color: #fff;font-size: 26px;font-weight: 300;position: fixed;left:0px;bottom: 0px;}
+
+.question_title{
+    font-size: 21px;
+    text-align: center;
+    color: #595797;
+    margin: 26px 0px;
+}
