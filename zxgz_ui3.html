@@ -35,11 +35,11 @@
         </div>
         <div class="con-cn">
           <div class="con-fist">
-             <a><img src="./img/u1.png" /></a>
+             <a><img src="./img/u1.png" id="xingxin_img"/></a>
           </div>
           <div class="con-two">
-             <a class="c-t-1"><img src="./img/u2.png"></a>
-             <a class="c-t-2"><img src="./img/u3.png"></a>
+             <a class="c-t-1"><img src="./img/u2.png" id="gw_img"></a>
+             <a class="c-t-2"><img src="./img/u3.png" id="xingzuo_img"></a>
           </div>
           <div class="con-btn" id="choose_div">
             <label class="t" onclick="makezxgz();">占星骰子帮你选</label>
@@ -76,6 +76,9 @@
     
     <script>
     	var questionId="";
+    	var xingzuo ="";
+    	var xingxin="";
+    	var gongwei="";
     	$.get(url_path + '/astrology/question/list', function(response){
     		response.forEach(function(e){
     			$("#question_list").append("<li onclick=\"selectQuestion('" + e.uuid + "');\"><a id='" + e.uuid + "'>" + e.title  + "</a></li>");		
@@ -108,6 +111,26 @@
         		zhanxing();
     			
     		}
+    	}
+    	
+
+    	function zhanxing(){
+    		  $.post(url_path + '/astrology/question/zhanxing', function(response){		  
+    				$("#title").html($("#"+questionId).html());
+    				$("#question_expand_div").hide();
+    	    		$(".con-two").show();
+    	    		$(".con-fist").show();
+    	    		$("#question_list_div").hide();
+    	    		$("#question_expand_div_2").show();
+    	    		$("#see_div").show();
+    	    		$("#choose_div").hide();
+    	    	
+    	    		$("#xingxin_img").attr("src",response.xingzuo.uri);
+    	    		$("#gw_img").attr("src",response.gw.uri);
+    	    		$("#xingzuo_img").attr("src",response.xingxing.uri);
+    	    		
+    			  
+    		  });
     	}
     	
     	function showjiedu(){
