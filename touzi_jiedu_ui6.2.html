@@ -10,30 +10,49 @@
 <meta content="telephone=no" name="format-detection">
 <title>占星骰子解读</title>
 <link rel="stylesheet" href="./css/style.css">
+<script type="text/javascript" src="./js/path.js"></script>
+<script type="text/javascript" src="./js/zepto.min.js"></script>
+<script type="text/javascript" src="./js/pgwmodal.min.js"></script>
+<script type="text/javascript" src="./js/common.js"></script>
+    
+<script>
+	var urlparameters = GetRequestParameters();
+	var data = {
+			"questionId":urlparameters['questionId'],
+			"xingzuo_id":urlparameters['xingzuo_id'],
+			"xingxin_id":urlparameters['xingxin_id'],
+			"gongwei_id":urlparameters['gongwei_id']
+	};
+	
+
+</script>
 </head>
+
+
 <body>
     <div class="content">
       <div class="jd-list">
           <ul>
-              <li>
-                <span class="left"><img width="92px" src="./img/jd01.png" /></span>
-                <span class="right">
-                  <div class="title">行星解读</div>
-                  <div class="text">行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读</div>
-                </span>
-              </li>
-              <li>
-                  <span class="left"><img width="92px" src="./img/jd02.png" /></span>
+            	<li>
+                  <span class="left"><img id="xingxin_img" width="92px" src="./img/jd02.png" /></span>
                   <span class="right">
-                    <div class="title">宫位解读</div>
-                    <div class="text">行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读</div>
+                    <div class="title" id="xingxin_title"></div>
+                    <div class="text" id="xingxin_description"></div>
                   </span>
                 </li>
+              <li>
+                <span class="left"><img width="92px" src="./img/jd01.png"  id="xingzuo_img"/></span>
+                <span class="right">
+                  <div class="title" id="xingzuo_title"></div>
+                  <div class="text" id="xingzuo_description"></div>
+                </span>
+              </li>
+            
                 <li>
-                    <span class="left"><img width="92px" src="./img/jd03.png" /></span>
+                    <span class="left"><img id="gw_img" width="92px" src="./img/jd03.png" /></span>
                     <span class="right">
-                      <div class="title">星座解读</div>
-                      <div class="text">行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读行星解读</div>
+                      <div class="title" id="gongwei_title"></div>
+                      <div class="text" id="gongwei_description"></div>
                     </span>
                 </li>
           </ul>
@@ -55,5 +74,22 @@
         </li>
       </ul>
     </div>
+    
+
+<script>
+	$.post(url_path + '/astrology/question/viewquestionresult', data, function(response){		  
+	
+			$("#xingxin_img").attr("src",response.xingzuo.uri);
+			$("#gw_img").attr("src",response.gw.uri);
+			$("#xingzuo_img").attr("src",response.xingxing.uri);
+			
+			$("#xingxin_title").html(response.xingxing.name);
+			$("#gongwei_title").html(response.gw.name+"解读");
+			$("#gongwei_description").html(response.gw.descrption);
+			$("#xingzuo_title").html(response.xingzuo.name+"解读");
+			$("#xingzuo_description").html(response.xingzuo.descrption);
+		 
+	 });
+</script>
 </body>
 </html>

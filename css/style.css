@@ -111,7 +111,7 @@ ul{list-style-type: none}
 }
 
 
-.jd-list{margin:13px;}
+.jd-list{margin-top:13px;margin-left:13px;margin-right:13px; margin-bottom:80px;}
 .jd-list li{margin-top:5px;background-color: #90b2f0;border-radius: 16px;min-height:144px;position: relative;}
 .jd-list li .left{display: inline-block;position: absolute;left:20px;top:20px;}
 .jd-list li .right{display: inline-block;margin-left:132px;margin-right:26px;margin-top:20px;margin-bottom:26px;color:#fff;}

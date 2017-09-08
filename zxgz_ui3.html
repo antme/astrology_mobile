@@ -76,9 +76,9 @@
     
     <script>
     	var questionId="";
-    	var xingzuo ="";
-    	var xingxin="";
-    	var gongwei="";
+    	var xingzuo_id ="";
+    	var xingxin_id="";
+    	var gongwei_id="";
     	$.get(url_path + '/astrology/question/list', function(response){
     		response.forEach(function(e){
     			$("#question_list").append("<li onclick=\"selectQuestion('" + e.uuid + "');\"><a id='" + e.uuid + "'>" + e.title  + "</a></li>");		
@@ -129,13 +129,15 @@
     	    		$("#gw_img").attr("src",response.gw.uri);
     	    		$("#xingzuo_img").attr("src",response.xingxing.uri);
     	    		
+    	    		xingzuo_id = response.xingzuo.entity_id;
+    	    		xingxin_id = response.xingxing.entity_id;
+    	    		gongwei_id = response.gw.entity_id;
     			  
     		  });
     	}
     	
     	function showjiedu(){
-    		var urlparameters = GetRequestParameters();
-			window.location.href="touzi_jiedu_ui6.2.html?questionId=" + questionId;
+			window.location.href="touzi_jiedu_ui6.2.html?questionId=" + questionId + "&xingzuo_id=" +xingzuo_id + "&xingxin_id=" + xingxin_id + "&gongwei_id=" + gongwei_id;
     	}
     </script>
 </body>
