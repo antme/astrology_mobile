@@ -83,3 +83,19 @@ function submitUserInfo(){
   	  });
 	
 }
+
+function zhanxing(){
+	 
+	  $.post(url_path + '/astrology/question/zhanxing', function(response){
+		  
+			$("#title").html($("#"+questionId).html());
+			$("#question_expand_div").hide();
+    		$(".con-two").show();
+    		$(".con-fist").show();
+    		$("#question_list_div").hide();
+    		$("#question_expand_div_2").show();
+    		$("#see_div").show();
+    		$("#choose_div").hide();
+		  
+	  });
+}
