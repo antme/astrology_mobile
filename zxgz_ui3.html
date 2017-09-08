@@ -47,7 +47,7 @@
           </div>
           
           <div class="con-btn see" style="display:none;"  id="see_div">
-            <label class="t">查看解读</label>
+            <label class="t" onclick="showjiedu();">查看解读</label>
           </div>
         </div>
         <div class="hist">
@@ -112,9 +112,13 @@
         		$("#question_expand_div_2").show();
         		$("#see_div").show();
         		$("#choose_div").hide();
-    			//var urlparameters = GetRequestParameters();
-    			//window.location.href="touzi_jiedu_ui6.2.html?questionId=" + questionId + "$xingzuo=" +  urlparameters['xz'];
+    			
     		}
+    	}
+    	
+    	function showjiedu(){
+    		var urlparameters = GetRequestParameters();
+			window.location.href="touzi_jiedu_ui6.2.html?questionId=" + questionId;
     	}
     </script>
 </body>
