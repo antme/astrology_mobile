@@ -16,14 +16,20 @@
 </head>
 <body>
     <div class="content">
-        <div class="con-ti con-u2" id="question_expand_div"><img height="20px" src="./img/t01.png"  onclick="expandQuestion();"/>
+        <div class="con-ti con-u2" id="question_expand_div">
+        	<img height="20px" src="./img/t01.png"  onclick="expandQuestion();"/>
         </div>
-        
+         <div class="con-ti" id="question_expand_div_2" style="display:none;">
+             <div class="question_title" id="title">请选择正在纠结的问题</div>
+        </div>
         <div class="con-ti con-u3" id="question_list_div" style="display:none;">
-          <div class="title">请选择正在纠结的问题</div>
-          <div class="a-list" style="height: 210px; display: inline-block; overflow: scroll;">
+        	<div class="question_title" id="title_1">请选择正在纠结的问题</div>
+          <div class="a-list" style="height: 21em; display: inline-block; overflow: hidden;">
             <ul  id="question_list">
               
+            </ul>
+            <ul>
+            	<li><a class="last"><img height="20px" src="./img/b01.png" /></a></li>
             </ul>
           </div>
         </div>
@@ -35,9 +41,13 @@
              <a class="c-t-1"><img src="./img/u2.png"></a>
              <a class="c-t-2"><img src="./img/u3.png"></a>
           </div>
-          <div class="con-btn">
+          <div class="con-btn" id="choose_div">
             <label class="t" onclick="makezxgz();">占星骰子帮你选</label>
             <label>￥9.9/次</label>
+          </div>
+          
+          <div class="con-btn see" style="display:none;"  id="see_div">
+            <label class="t">查看解读</label>
           </div>
         </div>
         <div class="hist">
@@ -86,14 +96,24 @@
     		$("#question_list_div").show();
     	}
     	
+    	
+    	
     	function makezxgz(){
     		if(questionId==""){
     			$.pgwModal({
     			    content: '请选择你正在纠结的问题'
     			}); 	
     		}else{
-    			var urlparameters = GetRequestParameters();
-    			window.location.href="touzi_jiedu_ui6.2.html?questionId=" + questionId + "$xingzuo=" +  urlparameters['xz'];
+    			$("#title").html($("#"+questionId).html());
+    			$("#question_expand_div").hide();
+        		$(".con-two").show();
+        		$(".con-fist").show();
+        		$("#question_list_div").hide();
+        		$("#question_expand_div_2").show();
+        		$("#see_div").show();
+        		$("#choose_div").hide();
+    			//var urlparameters = GetRequestParameters();
+    			//window.location.href="touzi_jiedu_ui6.2.html?questionId=" + questionId + "$xingzuo=" +  urlparameters['xz'];
     		}
     	}
     </script>
