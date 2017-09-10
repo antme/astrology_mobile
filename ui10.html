@@ -41,5 +41,13 @@
           </ul>
         </div>
     </div>
+    <script>
+        if (window.screen.width < 350 || document.body.clientWidth < 350) {
+            var meta = document.createElement('meta');
+            meta.setAttribute('content', 'width=device-width,initial-scale=0.9,maximum-scale=0.9,user-scalable=0');
+            meta.setAttribute('name', 'viewport');
+            document.head.appendChild(meta);
+        }
+    </script>
 </body>
 </html>
