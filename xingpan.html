@@ -56,7 +56,7 @@
        
        <script type="text/javascript">
        
-       $.get(url_path + '/astrology/user/loadxingpan', function(response){
+		post_ast_request('/astrology/user/loadxingpan',{}, function(response){     
    			$("#xingpan_img").attr("src","/sites/default/files/xingpan/" + response.result.fileName);
    			$("#xingpan_img").show();
     	});

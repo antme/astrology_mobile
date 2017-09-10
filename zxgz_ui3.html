@@ -79,11 +79,12 @@
     	var xingzuo_id ="";
     	var xingxin_id="";
     	var gongwei_id="";
-    	$.get(url_path + '/astrology/question/list', function(response){
-    		response.forEach(function(e){
+		post_ast_request('/astrology/question/list',{}, function(response){
+			response.forEach(function(e){
     			$("#question_list").append("<li onclick=\"selectQuestion('" + e.uuid + "');\"><a id='" + e.uuid + "'>" + e.title  + "</a></li>");		
     		});
-    	});
+		});
+   
     	
     	function selectQuestion(id){
     		questionId = id;
@@ -115,25 +116,26 @@
     	
 
     	function zhanxing(){
-    		  $.post(url_path + '/astrology/question/zhanxing', function(response){		  
-    				$("#title").html($("#"+questionId).html());
-    				$("#question_expand_div").hide();
-    	    		$(".con-two").show();
-    	    		$(".con-fist").show();
-    	    		$("#question_list_div").hide();
-    	    		$("#question_expand_div_2").show();
-    	    		$("#see_div").show();
-    	    		$("#choose_div").hide();
-    	    	
-    	    		$("#xingxin_img").attr("src",response.xingzuo.uri);
-    	    		$("#gw_img").attr("src",response.gw.uri);
-    	    		$("#xingzuo_img").attr("src",response.xingxing.uri);
-    	    		
-    	    		xingzuo_id = response.xingzuo.entity_id;
-    	    		xingxin_id = response.xingxing.entity_id;
-    	    		gongwei_id = response.gw.entity_id;
-    			  
-    		  });
+    		post_ast_request('/astrology/question/zhanxing',{}, function(response){
+    			$("#title").html($("#"+questionId).html());
+				$("#question_expand_div").hide();
+	    		$(".con-two").show();
+	    		$(".con-fist").show();
+	    		$("#question_list_div").hide();
+	    		$("#question_expand_div_2").show();
+	    		$("#see_div").show();
+	    		$("#choose_div").hide();
+	    	
+	    		$("#xingxin_img").attr("src",response.xingzuo.uri);
+	    		$("#gw_img").attr("src",response.gw.uri);
+	    		$("#xingzuo_img").attr("src",response.xingxing.uri);
+	    		
+	    		xingzuo_id = response.xingzuo.entity_id;
+	    		xingxin_id = response.xingxing.entity_id;
+	    		gongwei_id = response.gw.entity_id;
+    			
+    		});
+    		  
     	}
     	
     	function showjiedu(){

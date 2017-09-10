@@ -77,7 +77,8 @@
     
 
 <script>
-	$.post(url_path + '/astrology/question/viewquestionresult', data, function(response){		  
+
+	post_ast_request('/astrology/question/viewquestionresult',data, function(response){   
 	
 			$("#xingxin_img").attr("src",response.xingzuo.uri);
 			$("#gw_img").attr("src",response.gw.uri);

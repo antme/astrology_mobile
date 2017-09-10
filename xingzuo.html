@@ -48,7 +48,8 @@
     <script>
     	var urlparameters = GetRequestParameters(); 
     	var xingzuo_name= urlparameters['xz'];
-    	$.get(url_path + '/astrology/constellation/get?xingzuo_name=' + xingzuo_name, function(results){
+    	post_ast_request('/astrology/constellation/get?xingzuo_name=' + xingzuo_name,{}, function(results){
+    
     		if(xingzuo_name=="baiyang"){
     			$("#xingzuo_label").html("白羊座信息");
     		}else if(xingzuo_name=="jinniu"){

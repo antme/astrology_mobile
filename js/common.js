@@ -1,5 +1,5 @@
 function GetRequestParameters() {
- var url = location.search; //获取url中"?"符后的字串
+ var url = location.search; // 获取url中"?"符后的字串
  var theRequest = new Object();
  if (url.indexOf("?") != -1) {
   var str = url.substr(1);
@@ -19,22 +19,41 @@ function hasUserInfo(){
 
 function loadUserInfo(){
 	
-	$.post(url_path + '/astrology/user/get', function(response){
-		  if(response.length > 0){
-			  var user = response[0];
-			  $("#name").val(user.name);
-			  $("#birthday").val(user.birthDay);
-			  $("#address01").val(user.birth_address);
-			  $("#address02").val(user.live_address);
+	post_ast_request('/astrology/user/get',{}, function(response){
+		if(response.length > 0){
+			 var user = response[0];
+			 $("#name").val(user.name);
+			 $("#birthday").val(user.birthDay);
+			 $("#address01").val(user.birth_address);
+			 $("#address02").val(user.live_address);
 			  
-			  var sex = user.sex;
-			  if(sex == "女"){
+			 var sex = user.sex;
+			 if(sex == "女"){
 				  $("#sexBtn").click();
-			  }
-		  }
+			 }
+		}
 	});
-	
+
 }
+
+function post_ast_request(url, data, callback){
+	
+	$.ajax({
+		type:"post",
+		url:url_path + url,
+		dataType: 'jsonp',
+		jsonp:"callback",
+		data:data,
+		success:function(response,status,xhr){
+			callback(response);
+		},
+		error:function(e){
+			console.log(e);
+		}
+		
+	});
+}
+
 function submitUserInfo(){
 	  var birthday = $("#birthday").val();
 	  var name = $("#name").val();
