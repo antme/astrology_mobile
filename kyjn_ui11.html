@@ -18,20 +18,20 @@
             <li>
                 <div class="title">开运宝石</div>
                 <div class="img"><img width="84px" src="./img/y04.png" /></div>
-                <div class="text">红宝石，石榴石，尖晶石，红电气石或其它红棕石</div>
+                <div class="text" id="relate_j"></div>
             </li>
             <li>
                 <div class="title">对应金属</div>
-                <div class="title top17-2">金</div>
+                <div class="title top17-2" id="relate_m"></div>
             </li>
             <li>
                 <div class="title">幸运颜色</div>
-                <div class="title top17">红棕色，铜色</div>
+                <div class="title top17" id="yanse"></div>
             </li>
             <li>
                 <div class="title">补偿星座</div>
-                <div class="img"><img width="84px" src="./img/y05.png" /></div>
-                <div class="text">水瓶座</div>
+                <div class="img"><img width="84px" src="./img/y05.png" id="re_xingzuo_img"/></div>
+                <div class="text" id="re_xingzuo"></div>
                 <div class="t-i">
                     <div>水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座</div>
                     <div>水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座水瓶座</div>
@@ -48,6 +48,24 @@
             meta.setAttribute('name', 'viewport');
             document.head.appendChild(meta);
         }
+        
+
+    </script>
+    
+     <script type="text/javascript" src="./js/path.js"></script>    
+    <script type="text/javascript" src="./js/zepto.min.js"></script>
+    <script type="text/javascript" src="./js/common.js"></script>
+    <script>
+    	post_ast_request('/astrology/astrology/read_kaiyun',{}, function(response){
+    		console.log(response);
+    		$("#yanse").html(response[0].field_xingyunyanse_value);
+    		$("#relate_m").html(response[0].field_duiyingjinshu_value);
+    		$("#relate_j").html(response[0].field_kaiyunbaoshi_value);
+    		$("#re_xingzuo").html(response[0].xz_name_cn);
+    		$("#re_xingzuo_img").attr("src","/sites/default/files/xz/" + response[0].xz_name_cn +".png");
+
+    		
+    	});
     </script>
 </body>
 </html>
