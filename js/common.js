@@ -20,18 +20,17 @@ function hasUserInfo(){
 function loadUserInfo(){
 	
 	post_ast_request('/astrology/user/get',{}, function(response){
-		if(response.length > 0){
-			 var user = response[0];
-			 $("#name").val(user.name);
-			 $("#birthday").val(user.birthDay);
-			 $("#address01").val(user.birth_address);
-			 $("#address02").val(user.live_address);
+	
+			 $("#name").val(response.name);
+			 $("#birthday").val(response.birthDay);
+			 $("#address01").val(response.birth_address);
+			 $("#address02").val(response.live_address);
 			  
-			 var sex = user.sex;
+			 var sex = response.sex;
 			 if(sex == "女"){
 				  $("#sexBtn").click();
 			 }
-		}
+		
 	});
 
 }

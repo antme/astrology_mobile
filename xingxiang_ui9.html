@@ -14,25 +14,22 @@
 <body>
     <div class="content">
         <div class="l-t">
-          <span class="r">火</span>
-          <span class="g">风</span>
+          <span class="r" id="title"></span>
+        
         </div>
         <div class="i-list">
           <ul>
             <li>
-              <div class="title">火元素</div>
-              <div class="text">火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素</div>
-              <div class="text">火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素</div>
+              <div class="title" id="description_title"></div>
+              <div class="text" id="description_content"></div>
             </li>
             <li>
-              <div class="title">火象性格特质</div>
-              <div class="text">火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素</div>
-              <div class="text">火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素</div>
+              <div class="title" id="xingge_title"></div>
+              <div class="text" id="xingge_content"></div>
             </li>
             <li>
-              <div class="title">火象社交关系</div>
-              <div class="text">火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素</div>
-              <div class="text">火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素火元素</div>
+              <div class="title" id="shejiao_title"></div>
+              <div class="text"  id="shejiao_content"></div>
             </li>
           </ul>
         </div>
@@ -45,5 +42,41 @@
             document.head.appendChild(meta);
         }
     </script>
+    
+    <script type="text/javascript" src="./js/path.js"></script>    
+    <script type="text/javascript" src="./js/zepto.min.js"></script>
+    <script type="text/javascript" src="./js/common.js"></script>
+    
+    <script>
+		post_ast_request('/astrology/astrology/read_xingxiang',{}, function(response){
+		
+			if(response[0].title == "水象星座"){
+				$("#title").html("水");
+				$("#description_title").html("水元素");
+		
+			}else if(response[0].title == "火象星座"){
+				$("#title").html("火");
+				$("#description_title").html("火元素");
+	
+			}else if(response[0].title == "土象星座"){
+				$("#title").html("土");
+				$("#description_title").html("土元素");
+			
+			}else if(response[0].title == "风象星座"){
+				$("#title").html("风");
+				$("#description_title").html("风元素");
+			
+			}
+			$("#xingge_title").html(response[0].title+"性格特质");
+			$("#shejiao_title").html(response[0].title+"社交关系");
+			
+			$("#description_content").html(response[0].body_value);
+			$("#xingge_content").html(response[0].field_xinggetezhi_value);
+			$("#shejiao_content").html(response[0].field_shejiaoguanxi_value);
+			
+		});
+    </script>
+    
+    
 </body>
 </html>
