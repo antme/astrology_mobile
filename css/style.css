@@ -8,18 +8,28 @@ ul{list-style-type: none}
 .con-u3{height: auto;}
 /*height: 5em;line-height: 5em;*/
 .con-u3 .title{font-size: 21px;text-align: center;color: #595797;margin:26px 0px;}
-.con-u3 .a-list li{margin-top:15px;text-align: center;}
+.con-u3 .a-list li{margin-top:15px;text-align: center;padding:1px 0px;}
 .con-u3 .a-list li a{display:inline-block;width:210px;height:2.5em;line-height: 2.5em;background-color: #6a68ab;border-radius:1.25em;color: #fff;}
 .con-u3 .a-list li a.last{background-color:#dbedff; }
 .con-u7{height:auto;position:relative;}
 .con-u7 .title{font-size: 21px;text-align: center;color: #595797;padding:26px 0;margin:0px 50px;}
 .con-u7 .left{position:absolute;left:40px;top:50px;}
 .con-u7 .right{position:absolute;right:40px;top:50px;}
+
 .con-cn{padding:10px;}
+@media screen and (max-width: 400px) { 
+   .con-cn{padding:10px;} 
+} 
+@media screen and (min-width: 400px) { 
+   .con-cn{padding:20px 10px;}
+}
+@media screen and (min-width: 400px) { 
+    .a-list{padding:10px 0px;}
+}
 .con-cn li{float: left;width:33%;margin-top:23px;text-align: center}
 .con-cn li a{display: inline-block;width:80px;height:75px;}
 .con-cn li img{width:80px;}
-.con-cn .con-btn{height:4em;border-radius: 6px;background-color: #6a68ab;color: #fff;margin:19px 0px;text-align: center}
+.con-cn .con-btn{height:60px;border-radius: 6px;background-color: #6a68ab;color: #fff;margin:19px 0px;text-align: center}
 .con-cn .con-btn label{display: inline-block;width: 100%;}
 .con-cn .con-btn label.t{font-size: 18px;margin:5px 0;}
 .con-cn .see{background-color: #ffb6b7;color:#595797;line-height: 3.5em;}
@@ -28,7 +38,7 @@ ul{list-style-type: none}
 .con-cn .con-two{height:10em;margin-top: 1em;}
 .con-cn .con-two a.c-t-1{float: left;margin-left: 10px;}
 .con-cn .con-two a.c-t-2{float: right;margin-right: 10px;}
-.hist{height:71px;line-height: 71px;text-align: center;border-top:6px solid #6a68ab;color: #595797}
+.hist{height:71px;line-height: 71px;text-align: center;border-top:6px solid #6a68ab;color: #595797;font-size: 18px;}
 .hist2{height:200px;text-align: center;border-top:6px solid #6a68ab;color: #595797}
 .hist2 .btn-list1{margin-top:1em;overflow: hidden;}
 .hist2 .btn-list1 li{float: left;width:25%;text-align: center;}
@@ -186,3 +196,4 @@ ul{list-style-type: none}
     color: #595797;
     margin: 26px 0px;
 }
+.pgwModal .pm-content{text-align: center;}
