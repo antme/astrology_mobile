@@ -16,27 +16,27 @@
         <div class="y-list">
           <ul>
             <li>
-                <div class="title">主宰行星</div>
-                <div class="img"><img width="84px" src="./img/y01.png" /></div>
-                <div class="text">太阳</div>
+                <div class="title" >主宰行星</div>
+                <div class="img"><img width="84px" src="./img/y01.png" id="xingxing_img" /></div>
+                <div class="text" id="xingxing"></div>
             </li>
             <li>
                 <div class="title">能量定位</div>
                 <div class="img"><img width="84px" src="./img/y02.png" /></div>
-                <div class="text">火族二座，定座，代表稳定，持久不变</div>
+                <div class="text" id="nengliang_dingwei"></div>
             </li>
             <li>
                 <div class="title">能量性质</div>
                 <div class="img"><img width="84px" src="./img/y03.png" /></div>
-                <div class="text">阳性</div>
+                <div class="text" id="xingzhi"></div>
             </li>
             <li>
                 <div class="title">能量方向</div>
-                <div class="title top17">由内向外，代表外向性格</div>
+                <div class="title top17" id="fangxiang">由内向外，代表外向性格</div>
             </li>
             <li>
                 <div class="title">性格寄语</div>
-                <div class="title top17">由内向外，代表外向性格</div>
+                <div class="title top17" id="xingge">由内向外，代表外向性格</div>
             </li>
           </ul>
         </div>
@@ -54,7 +54,19 @@
     <script type="text/javascript" src="./js/zepto.min.js"></script>
     <script type="text/javascript" src="./js/common.js"></script>
     
-    
+    <script>
+		post_ast_request('/astrology/astrology/read_yunshi',{}, function(response){
+			
+			$("#xingxing").html(response[0].field_xingxing_value);
+			$("#xingxing_img").attr("src","/sites/default/files/xz/" + response[0].field_xingxing_value +".png");
+			
+			$("#nengliang_dingwei").html(response[0].field_nengliangdingwei_value);
+			
+			$("#xingzhi").html(response[0].field_nengliangxingzhi_value);
+			$("#fangxiang").html(response[0].field_nengliangfangxiang_value);
+			$("#xingge").html(response[0].field_xingzuoxinggejiyu_value);
+		});
+    </script>
 </body>
 
 </html>
