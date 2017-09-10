@@ -11,33 +11,23 @@
 <title>感情密码</title>
 <link rel="stylesheet" href="./css/style.css">
 </head>
+
+ <script type="text/javascript">
+	var r_data = [];
+ </script>
 <body>
     <div class="content">
         <div class="detail">
-          <ul>
-            <li><a href="#">金星处女</a></li>
-            <li><a href="#">火星处女</a></li>
-            <li><a href="#">五宫水瓶</a></li>
-            <li><a href="#">月亮五宫</a></li>
-            <li><a href="#">南交五宫</a></li>
-            <li><a href="#">下降白羊</a></li>
+          <ul id="tag">
+           
           </ul>
         </div>
         <div class="t-no">点击标签，查看感情密码的组合解读</div>
-        <div class="sBtn">查 看 解 读</div>
+        <div class="sBtn" id="tip">查 看 解 读</div>
         <div class="detail-info">
-          <div class="info-item">
-            <p>喜欢批评人，压抑冲动</p>
-            <p class="cn">喜欢批评人，压抑冲动喜欢批评人，压抑冲动喜欢批评人，压抑冲动喜欢批评人，压抑冲动喜欢批评人，压抑冲动喜欢批评人，压抑冲动喜欢批评人，压抑冲动喜欢批评人，压抑冲动</p>
-          </div>
-          <div class="info-item">
-              <p>喜欢批评人，压抑冲动</p>
-              <p class="cn">喜欢批评人，压抑冲动喜欢批评人，压抑冲动喜欢批评人，压抑冲动喜欢批评人，压抑冲动喜欢批评人，压抑冲动喜欢批评人，压抑冲动喜欢批评人，压抑冲动喜欢批评人，压抑冲动</p>
-            </div>
-            <div class="info-item">
-                <p>喜欢批评人，压抑冲动</p>
-                <p class="cn">喜欢批评人，压抑冲动喜欢批评人，压抑冲动喜欢批评人，压抑冲动喜欢批评人，压抑冲动喜欢批评人，压抑冲动喜欢批评人，压抑冲动喜欢批评人，压抑冲动喜欢批评人，压抑冲动</p>
-              </div>
+          <div class="info-item" id="descrption">
+           
+   
         </div>
     </div>
        <script type="text/javascript" src="./js/zepto.min.js"></script>
@@ -45,16 +35,28 @@
        <script type="text/javascript" src="./js/path.js"></script>
        
          <script type="text/javascript">
-     	var urlparameters = GetRequestParameters();
-        var data = {
-     		  "type" : urlparameters["type"]
-        }
-	       $.post(url_path + '/astrology/astrology/read_result',data, function(response){
-	   			console.log(response);
-	   			$("#xingpan_img").attr("src","/sites/default/files/xingpan/" + response.result.fileName);
-	   			$("#xingpan_img").show();
-	       });
-   	
+	     	var urlparameters = GetRequestParameters();
+	        var data = {
+	     		  "type" : urlparameters["type"]
+	        }
+	       	$.post(url_path + '/astrology/astrology/read_result',data, function(response){
+	   			response.forEach(function(e){
+	   				$("#tag").append('<li onclick="loadData(\'' + e.title +  '\');"><a href="#">' + e.title + '</a></li>');
+	   			});
+	   			r_data = response;
+	       	});
+
+			function loadData(title){
+				console.log(title);
+				r_data.forEach(function(e){
+					if(e.title == title){
+						$("#descrption").html(e.body_value);
+						$("#tip").html(title+"解读");
+						return;
+					}
+					
+				});
+			}
        </script>
        
 </body>
