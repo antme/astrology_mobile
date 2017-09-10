@@ -14,14 +14,14 @@
 <body>
  
     <div class="content">
-        <div class="con-cj"><img width="100%" src="./img/cj.png" /></div>
+        <div class="con-cj"><img width="100%" src="./img/cj.png" id="xingpan_img" style="display:none;"/></div>
         <div class="hist2">
           <div class="btn-list1">
             <ul>
-              <li><a class="a1" href="ui13.html"></a></li>
-              <li><a class="a2"></a></li>
-              <li><a class="a3"></a></li>
-              <li><a class="a4"></a></li>
+              <li><a class="a1" href="xingpan_result_ui13.html?type=emotion"></a></li>
+              <li><a class="a2" href="xingpan_result_ui13.html?type=businese"></a></li>
+              <li><a class="a3" href="xingpan_result_ui13.html?type=relationship"></a></li>
+              <li><a class="a4" href="xingpan_result_ui13.html?type=fortune"></a></li>
             </ul>
           </div>
           <div class="btn-list2">
@@ -50,6 +50,17 @@
         </li>
       </ul>
     </div>
+        <script type="text/javascript" src="./js/zepto.min.js"></script>
        <script type="text/javascript" src="./js/common.js"></script>
+       <script type="text/javascript" src="./js/path.js"></script>
+       
+       <script type="text/javascript">
+       
+       $.get(url_path + '/astrology/user/loadxingpan', function(response){
+   			$("#xingpan_img").attr("src","/sites/default/files/xingpan/" + response.result.fileName);
+   			$("#xingpan_img").show();
+    	});
+   	
+       </script>
 </body>
 </html>
