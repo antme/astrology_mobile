@@ -96,7 +96,7 @@ function submitUserInfo(){
 	  }
   
 	  $.post(url_path + '/astrology/user/add',data, function(response){
-		  
+		  window.location.href="xingpan.html";
   	  });
 	
 }
