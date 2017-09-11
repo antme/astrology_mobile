@@ -51,7 +51,7 @@
           </div>
         </div>
         <div class="hist">
-          <a>骰子历史记录</a>
+          <a href="touzi_history_ui7.html">骰子历史记录</a>
         </div>
     </div>
      <div class="floot-menu">
@@ -79,6 +79,7 @@
     	var xingzuo_id ="";
     	var xingxin_id="";
     	var gongwei_id="";
+    	var question_name = "";
 		post_ast_request('/astrology/question/list',{}, function(response){
 			response.forEach(function(e){
     			$("#question_list").append("<li onclick=\"selectQuestion('" + e.uuid + "');\"><a id='" + e.uuid + "'>" + e.title  + "</a></li>");		
@@ -88,6 +89,7 @@
     	
     	function selectQuestion(id){
     		questionId = id;
+    		question_name = $("#" + questionId).html();
     		$("#question_list a").css("background-color","#6a68ab");
     		$("#"+id).css("background-color","#ffb6b7");
     	}
@@ -116,7 +118,12 @@
     	
 
     	function zhanxing(){
-    		post_ast_request('/astrology/question/zhanxing',{}, function(response){
+    		var data = {
+    				"question_id" : questionId,
+    				"question_name" : question_name
+    		}
+    		
+    		post_ast_request('/astrology/question/zhanxing',data, function(response){
     			$("#title").html($("#"+questionId).html());
 				$("#question_expand_div").hide();
 	    		$(".con-two").show();
@@ -139,7 +146,7 @@
     	}
     	
     	function showjiedu(){
-			window.location.href="touzi_jiedu_ui6.2.html?questionId=" + questionId + "&xingzuo_id=" +xingzuo_id + "&xingxin_id=" + xingxin_id + "&gongwei_id=" + gongwei_id;
+			window.location.href="touzi_jiedu_ui6.2.html?questionId=" + questionId + "&xingzuo_id=" +xingzuo_id + "&xingxin_id=" + xingxin_id + "&gongwei_id=" + gongwei_id + "$question_name=" + question_name;
     	}
     </script>
     <script>

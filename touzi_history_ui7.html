@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<title>占星骰子</title>
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="content">
+        <div class="con-ti con-u7">
+          <a id="timeLeft" class="left" style="display:none;"><img height="20px" src="./img/left.png" /></a>
+          <div id="changeTime" class="title" ></div>
+          <a id="timeRight" class="right" style="display:none;"><img height="20px" src="./img/right.png" /></a>
+        </div>
+        <div class="ask-list">
+           <ul id="question_list">
+              
+           
+           </ul>
+        </div>
+    </div>
+    <div class="floot-menu">
+      <ul>
+        <li class="menu-s">
+          <a href="/astrology_mobile/index.html"><label>首页</label></a>
+        </li>
+        <li class="menu-g">
+          <a href="/astrology_mobile/gr.html"><label>个人星盘</label></a>
+        </li>
+        <li class="menu-l">
+          <a  href="/astrology_mobile/two_peple_ui15.html"><label>两人合盘</label></a>
+        </li>
+        <li class="menu-z">
+          <a  href="/astrology_mobile/my_info_ui16.html"><label>个人中心</label></a>
+        </li>
+      </ul>
+    </div>
+  	<script type="text/javascript" src="./js/path.js"></script>
+	<script type="text/javascript" src="./js/zepto.min.js"></script>
+	<script type="text/javascript" src="./js/common.js"></script>
+    <script type="text/javascript">
+    	var timeData=[];
+    	var timeIndex = 0;
+    	var last_zx_date = "";
+         var myDate = new Date();
+         $("#timeLeft").click(function(){
+        	 timeIndex = timeIndex -1;
+        	 updateTimeInfo();
+        	
+         });
+         $("#timeRight").click(function(){
+        	 timeIndex = timeIndex +1;
+        	 updateTimeInfo();
+         });
+    </script>
+    
+    <script>
+	    post_ast_request('/astrology/question/listHistoryQuestionDate',{}, function(response){   
+	    	timeData = response;
+	    	timeIndex = response.length;
+	    	updateTimeInfo();
+	    });
+	    
+	    function updateTimeInfo(){
+	    	if(timeData.length == 0){
+	    		$("#changeTime").text("暂无记录");
+	    	}else if(timeData.length == 1){
+	    		$("#changeTime").text(timeData[0].zx_date);
+	    	}else{
+	    		
+	    		if(timeIndex > timeData.length - 1 ){
+	    			$("#timeRight").hide();
+	    			$("#timeLeft").show();
+	    			timeIndex = timeData.length - 1;
+	    		}else if(timeIndex<=0){
+	    			$("#timeRight").show();
+	    			$("#timeLeft").hide();
+	    			if(timeIndex < 0){
+	    				timeIndex = 0;
+	    			}
+	    		}else{
+	    			$("#timeRight").show();
+	    			$("#timeLeft").show();
+	    		}
+	    		var zx_date = timeData[timeData.length-timeIndex-1].zx_date;
+	    		$("#changeTime").text(zx_date);
+	    		
+	    		if(last_zx_date!=zx_date){
+		    		 post_ast_request('/astrology/question/listHistoryQuestionName',{"zx_date":zx_date}, function(response){   
+		    			 
+		    			response.forEach(function(e){
+		    				
+		    				eval("var result = " + e.result);
+		    				console.log(result);
+		    				$("#question_list").append('<li> <a href="touzi_jiedu_ui6.2.html?xingzuo_id=' + result.xingzuo.entity_id + '&xingxin_id='+ result.xingxing.entity_id + '&gongwei_id=' +  result.gw.entity_id +  '&question_name=' + e.question_name + '">' + e.question_name + '</a></li>');
+
+		    			});
+		    			 last_zx_date = zx_date;
+		    		 });
+		    		 
+	    		}
+		
+	    	}
+	    }
+	  
+    </script>
+    <script>
+        if (window.screen.width <=360 || document.body.clientWidth <=360) {
+            var meta = document.createElement('meta');
+            meta.setAttribute('content', 'width=device-width,initial-scale=0.9,maximum-scale=0.9,user-scalable=0');
+            meta.setAttribute('name', 'viewport');
+            document.head.appendChild(meta);
+        }
+    </script>
+</body>
+</html>
