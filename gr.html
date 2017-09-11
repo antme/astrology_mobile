@@ -12,18 +12,18 @@
 <link rel="stylesheet" href="./css/style.css">
 <script type="text/javascript" src="./js/path.js"></script>
 <script type="text/javascript" src="./js/zepto.min.js"></script>
-
 <script type="text/javascript" src="./js/common.js"></script>
 
 <script>
+
 	post_ast_request('/astrology/user/get',{}, function(response){  
-		 $(".content").show();
-		 // if(response && response.name){
-			 // window.location.href="xingpan.html";
-		 // }else{
-			//  $(".content").show();
-		 // }
+		  if(response && response.name){
+			  window.location.href="xingpan.html";
+		  }else{
+			  $(".content").show();
+		 }
 	});
+	
 </script>
 </head>
 <body>
