@@ -71,7 +71,9 @@
 	    	if(timeData.length == 0){
 	    		$("#changeTime").text("暂无记录");
 	    	}else if(timeData.length == 1){
-	    		$("#changeTime").text(timeData[0].zx_date);
+	    		var zx_date = timeData[0].zx_date;
+	    		$("#changeTime").text(zx_date);
+	    		createQuestionList(zx_date);
 	    	}else{
 	    		
 	    		if(timeIndex > timeData.length - 1 ){
@@ -91,22 +93,26 @@
 	    		var zx_date = timeData[timeData.length-timeIndex-1].zx_date;
 	    		$("#changeTime").text(zx_date);
 	    		
-	    		if(last_zx_date!=zx_date){
-		    		 post_ast_request('/astrology/question/listHistoryQuestionName',{"zx_date":zx_date}, function(response){   
-		    			 
-		    			response.forEach(function(e){
-		    				
-		    				eval("var result = " + e.result);
-		    				console.log(result);
-		    				$("#question_list").append('<li> <a href="touzi_jiedu_ui6.2.html?xingzuo_id=' + result.xingzuo.entity_id + '&xingxin_id='+ result.xingxing.entity_id + '&gongwei_id=' +  result.gw.entity_id +  '&question_name=' + e.question_name + '">' + e.question_name + '</a></li>');
-
-		    			});
-		    			 last_zx_date = zx_date;
-		    		 });
-		    		 
-	    		}
+	    		createQuestionList(zx_date);
 		
 	    	}
+	    }
+	    
+	    function createQuestionList(zx_date){
+	    	if(last_zx_date!=zx_date){
+	    		 post_ast_request('/astrology/question/listHistoryQuestionName',{"zx_date":zx_date}, function(response){   
+	    			 
+	    			response.forEach(function(e){
+	    				
+	    				eval("var result = " + e.result);
+	    				console.log(result);
+	    				$("#question_list").append('<li> <a href="touzi_jiedu_ui6.2.html?xingzuo_id=' + result.xingzuo.entity_id + '&xingxin_id='+ result.xingxing.entity_id + '&gongwei_id=' +  result.gw.entity_id +  '&question_name=' + e.question_name + '">' + e.question_name + '</a></li>');
+
+	    			});
+	    			 last_zx_date = zx_date;
+	    		 });
+	    		 
+   		}
 	    }
 	  
     </script>
