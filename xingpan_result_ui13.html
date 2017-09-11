@@ -40,7 +40,7 @@
 	     		  "type" : urlparameters["type"]
 	        }
 	        
-			post_ast_request('/astrology/astrology/read_result',{}, function(response){   
+			post_ast_request('/astrology/astrology/read_result',{data}, function(response){   
 	   			response.forEach(function(e){
 	   				$("#tag").append('<li onclick="loadData(\'' + e.title +  '\');"><a href="#">' + e.title + '</a></li>');
 	   			});
