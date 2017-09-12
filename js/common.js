@@ -12,10 +12,6 @@ function GetRequestParameters() {
 }
 
 
-function hasUserInfo(){
-	
-
-}
 
 function loadUserInfo(){
 	
@@ -99,4 +95,20 @@ function submitUserInfo(){
 		  window.location.href="xingpan.html";
   	  });
 	
+}
+
+function validWeixinUrl(){
+	
+	
+		 
+		var redirect_url = encodeURIComponent(host+"/astrology/redirect/wx");
+		var wxurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx520c15f417810387&redirect_uri=" + redirect_url  + "&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
+		var _wx_id_tst = $.fn.cookie('_wx_id_tst');
+		
+		$.fn.cookie('ast_redirect_url',location.href);
+		console.log(wxurl);
+		if(!_wx_id_tst){
+			window.location.href = wxurl;
+		}
+
 }
