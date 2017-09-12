@@ -13,7 +13,6 @@
 <script type="text/javascript" src="./js/path.js"></script>
 <script type="text/javascript" src="./js/zepto.min.js"></script>
 <script type="text/javascript" src="./js/common.js"></script>
-<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 
 <script>
 	post_ast_request('/astrology/user/get',{}, function(response){  
@@ -30,7 +29,7 @@
   
     <div class="content" style="display:none;">
        <div class="grxx"><a href="gr-detail.html"><img width="260px;" src="./img/gr01.png" /></a></div>
-       <div class="grwx">请邀请微信好友，查看他的个人星盘</div>
+       <div class="grwx" onclick="share();">请邀请微信好友，查看他的个人星盘</div>
     </div>
      <div class="floot-menu">
       <ul>
@@ -48,6 +47,24 @@
         </li>
       </ul>
     </div>
+     <div id="backGround" style="display:none;">
+    </div>
+    <div id="backTitle"  style="display:none;"><img src="./img/ti01.png" /></div> 
+    <script type="text/javascript">
+        $("#backGround").click(function(){
+          $(this).hide();
+          $("#backTitle").hide();
+        });
+        $("#backTitle").click(function(){
+          $(this).hide();
+          $("#backGround").hide();
+        });
+        
+        function share(){
+        	$("#backGround").show();
+        	 $("#backTitle").show();
+        }
+    </script>
     <script>
         if (window.screen.width <= 360 || document.body.clientWidth <= 360) {
             var meta = document.createElement('meta');
