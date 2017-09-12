@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<title></title>
+<link rel="stylesheet" href="./css/style.css">
+<script type="text/javascript" src="./js/path.js"></script>
+<style>
+	.tag .p{
+		margin-top:3px;
+		margin-right:3px;
+	}
+</style>
+</head>
+<body>
+    <div class="content">
+        <div class="con-ti con-u3">
+          <div class="title-img"><img width="108px" src="" id="xz_img" style="display:none;" /></div>
+          <div class="tag" id="tags">
+            <span>星座标签：</span>
+           
+          </div>
+        </div>
+        <div class="user-info">
+          <div class="title">星座人物</div>
+          <div class="user-list" id="user-list">
+            
+          </div>
+        </div>
+        <div class="user-info">
+            <div class="title">星座故事</div>
+            
+            <div id="story_list" style="margin-bottom:55px;">
+            	
+            </div>
+        </div>
+        <a href="gr.html"><div class="see-btn">查看你的个人星盘</div></a>
+    </div>
+    
+    
+     
+    <script type="text/javascript" src="./js/zepto.min.js"></script>
+    <script type="text/javascript" src="./js/common.js"></script>
+    <script type="text/javascript" src="./js/pgwmodal.min.js"></script>
+    
+    
+    <script>
+    
+    
+    	var urlparameters = GetRequestParameters(); 
+    	var xingzuo_name= urlparameters['xz'];
+    	post_ast_request('/astrology/constellation/get?xingzuo_name=' + xingzuo_name,{}, function(results){
+    
+    	
+    		if(xingzuo_name=="baiyang"){
+    			document.title = "白羊座信息";
+    			$("#xz_img").attr("src","/sites/default/files/xz/白羊座.png")
+    			//$("#xingzuo_label").html("白羊座信息");
+    		}else if(xingzuo_name=="jinniu"){
+    			document.title = "金牛座信息";
+    			$("#xz_img").attr("src","/sites/default/files/xz/金牛座.png")
+    			//$("#xingzuo_label").html("金牛座信息");
+    		}else if(xingzuo_name=="shuangzi"){
+    			document.title = "双子座信息";
+    			$("#xz_img").attr("src","/sites/default/files/xz/双子座.png")
+    			//$("#xingzuo_label").html("双子座信息");
+    		}else if(xingzuo_name=="juxie"){
+    			document.title = "巨蟹座信息";
+    			$("#xz_img").attr("src","/sites/default/files/xz/巨蟹座.png")
+    			//$("#xingzuo_label").html("巨蟹座信息");
+    		}else if(xingzuo_name=="shizi"){
+    			document.title = "狮子座信息";
+    			$("#xz_img").attr("src","/sites/default/files/xz/狮子座.png")
+    			//$("#xingzuo_label").html("狮子座信息");
+    		}else if(xingzuo_name=="chunv"){
+    			document.title = "处女座信息";
+    			$("#xz_img").attr("src","/sites/default/files/xz/处女座.png")
+    			//$("#xingzuo_label").html("处女座信息");
+    		}else if(xingzuo_name=="tianping"){
+    			document.title = "天秤座信息";
+    			$("#xz_img").attr("src","/sites/default/files/xz/天秤座.png")
+    			//$("#xingzuo_label").html("天秤座信息");
+    		}else if(xingzuo_name=="tianxie"){
+    			document.title = "天蝎座信息";
+    			$("#xz_img").attr("src","/sites/default/files/xz/天蝎座.png")
+    			//$("#xingzuo_label").html("天蝎座信息");
+    		}else if(xingzuo_name=="sheshou"){
+    			document.title = "射手座信息";
+    			$("#xz_img").attr("src","/sites/default/files/xz/射手座.png")
+    			//$("#xingzuo_label").html("射手座信息");
+    		}else if(xingzuo_name=="mojie"){
+    			document.title = "摩羯座信息";
+    			$("#xz_img").attr("src","/sites/default/files/xz/摩羯座.png")
+    			//$("#xingzuo_label").html("摩羯座信息");
+    		}else if(xingzuo_name=="shuiping"){
+    			document.title = "水瓶座信息";
+    			$("#xz_img").attr("src","/sites/default/files/xz/水瓶座.png")
+    			//$("#xingzuo_label").html("水瓶座信息");
+    		}else if(xingzuo_name=="shuangyu"){
+    			document.title = "双鱼座信息";
+    			$("#xz_img").attr("src","/sites/default/files/xz/双鱼座.png")
+    			//$("#xingzuo_label").html("双鱼座信息");
+    		}
+    		$("#xz_img").show();
+    		
+    		results[0].tags.forEach(function(e){
+    			var tags = e.tags.split(" ");
+    			tags.forEach(function(tag){
+    				if(tag.trim().length>0){
+    				
+    					$("#tags").append('<span class="p">' + tag + '</span>');
+    				}
+    				
+    			});
+    			
+    		});
+    		
+    		results[0].stars.forEach(function(e){
+    			$("#user-list").append( e.stars );
+
+    		});
+    		
+    		results[0].stories.forEach(function(e){
+    			$("#story_list").append("<div class='story_info_item'>" + e.stories + "</div>");
+
+    		});
+
+    	});
+    	
+		</script>
+		
+		
+    <script>
+        if (window.screen.width <=360 || document.body.clientWidth <=360) {
+            var meta = document.createElement('meta');
+            meta.setAttribute('content', 'width=device-width,initial-scale=0.9,maximum-scale=0.9,user-scalable=0');
+            meta.setAttribute('name', 'viewport');
+            document.head.appendChild(meta);
+        }
+    </script>
+</body>
+</html>
