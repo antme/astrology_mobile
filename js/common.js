@@ -102,7 +102,7 @@ function validWeixinUrl(){
 	
 		 
 		var redirect_url = encodeURIComponent(host+"/astrology/redirect/wx");
-		var wxurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx520c15f417810387&redirect_uri=" + redirect_url  + "&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
+		var wxurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5dd7a0373f62385b&redirect_uri=" + redirect_url  + "&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
 		var _wx_id_tst = $.fn.cookie('_wx_id_tst');
 		
 		$.fn.cookie('ast_redirect_url',location.href);
