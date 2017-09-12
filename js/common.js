@@ -98,17 +98,12 @@ function submitUserInfo(){
 }
 
 function validWeixinUrl(){
+	var redirect_url = encodeURIComponent(host+ url_path+"/astrology/redirect/wx");
+	var wxurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5dd7a0373f62385b&redirect_uri=" + redirect_url  + "&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
+	var _wx_id_tst = $.fn.cookie('ast_c_id');
 	
-	
-		 
-		var redirect_url = encodeURIComponent(host+ url_path+"/astrology/redirect/wx");
-		var wxurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5dd7a0373f62385b&redirect_uri=" + redirect_url  + "&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
-		var _wx_id_tst = $.fn.cookie('_wx_id_tst');
-		
-		$.fn.cookie('ast_redirect_url',location.href);
-		console.log(wxurl);
-		if(!_wx_id_tst){
-			window.location.href = wxurl;
-		}
-
+	$.fn.cookie('ast_redirect_url',location.href);
+	if(!_wx_id_tst && window.location.href.indexOf("ast_redirect")==-1){
+		window.location.href = wxurl;
+	}
 }
