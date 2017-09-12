@@ -30,7 +30,7 @@ ul{list-style-type: none}
     }
 }
 
-.con-cn li{float: left;width:33%;margin-top:23px;text-align: center}
+.con-cn li{float: left;width:33%;margin-top:21px;text-align: center}
 .con-cn li a{display: inline-block;width:80px;height:75px;}
 .con-cn li img{width:80px;}
 .con-cn .con-btn{height:60px;border-radius: 6px;background-color: #6a68ab;color: #fff;margin:19px 0px;text-align: center}
@@ -75,8 +75,8 @@ ul{list-style-type: none}
 .detail-info .info-item{margin:10px 20px;padding:5px;border-radius: 5px;background-color: #daedff;color:#595797;}
 .detail-info .info-item .cn{text-indent: 2em;}
 
-.grxx{position: absolute;width:260px;height:200px;left:50%;margin-left: -130px;top:30%;margin-top:-100px;}
-.grwx{position: absolute;left: 20px;right:20px;bottom:7em;height:60px;line-height:60px;border-radius: 6px;color: #fff;text-align: center;background-color: #6a6aaa;font-size: 16px;}
+.grxx{position: absolute;width:300px;height:200px;left:50%;margin-left: -150px;top:30%;margin-top:-100px;}
+.grwx{position: absolute;left: 14px;right:14px;bottom:7em;height:60px;line-height:60px;border-radius: 16px;color: #fff;text-align: center;background-color: #6a6aaa;font-size: 16px;}
 
 .header{height:40px;line-height: 40px;background-color: #595797;position: relative;text-align: center;color:#fff;}
 .header .h-l{position: absolute;left:10px;top:10px;height:20px;display: inline-block;line-height: 20px;}
