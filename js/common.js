@@ -103,9 +103,9 @@ function validWeixinUrl(){
 	var _wx_id_tst = $.fn.cookie('ast_c_id');
 	
 	$.fn.cookie('ast_redirect_url',location.href);
-	if(!_wx_id_tst && window.location.href.indexOf("ast_redirect")==-1){
+	//if(!_wx_id_tst && window.location.href.indexOf("ast_redirect")==-1){
 		window.location.href = wxurl;
-	}
+	//}
 }
 
 function loadWeiXinConfig(){
