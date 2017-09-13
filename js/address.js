@@ -96,6 +96,7 @@ picker.on('picker.select', function (selectedVal, selectedIndex) {
   var text2 = second[selectedIndex[1]].text;
   var text3 = third[selectedIndex[2]] ? third[selectedIndex[2]].text : '';
   document.getElementById(nameEl).setAttribute('value',text1 + ' ' + text2 + ' ' + text3);
+  $('#'+nameEl).val(text1 + ' ' + text2 + ' ' + text3);
 });
 
 picker2.on('picker.select', function (selectedVal, selectedIndex) {
@@ -105,6 +106,7 @@ picker2.on('picker.select', function (selectedVal, selectedIndex) {
   var text4 = house[selectedIndex[3]].text;
   var text5 = mine[selectedIndex[4]].text;
   document.getElementById(timer).setAttribute('value',text1 + '/' + text2 + '/' + text3 + '/' + ' ' + text4 + ':' + text5);
+  $('#'+timer).val(text1 + '/' + text2 + '/' + text3 + '/' + ' ' + text4 + ':' + text5);
   console.log($('#'+timer).val());
 });
 

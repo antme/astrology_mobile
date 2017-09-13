@@ -55,6 +55,7 @@ ul{list-style-type: none}
 .hist2 .btn-list2 li{float: left;width:33%;}
 .hist2 .btn-list2 li a{display: block;margin:0px 5px;height:40px;line-height:40px;border-radius: 5px;background-color: #6a68ab;color: #fff;}
 .notice{color:#cdcdcd;}
+.hist a{color: #595797;}
 
 .floot-menu{position: fixed;bottom: 0px;left: 0px;width: 100%;height:63spx;background-color: #595797;}
 .floot-menu li{width: 25%;float:left;height:59px;color:#fff;text-align: center}
@@ -194,8 +195,8 @@ ul{list-style-type: none}
 .user-info .title{font-size: 18px;margin:10px 0;color: #595797;}
 .user-info .user-list{margin-bottom:10px;}
 .user-info .user-list span{display: inline-block;width:100px;height: auto;margin:0 5px;}
-.user-info .user-list span div{width:94px;height: 94px;border-radius: 47px;display: hidden;}
-.user-info .user-list span label{font-size: 10px;display: block;margin-top:5px;}
+.user-info .user-list span div{width:94px;height: 94px;border-radius: 47px;overflow: hidden;}
+.user-info .user-list span label{font-size: 10px;display: block;margin-top:5px;color: #595797;}
 .user-info .grwx2{margin:10px;height:40px;line-height:40px;border-radius: 16px;color: #fff;text-align: center;background-color: #6a6aaa;font-size: 16px;}
 .user-info .text{margin:10px;text-indent: 2em;text-align: left;color: #595797;}
 .see-btn{width:100%;text-align:center;height: 60px;line-height: 60px;background-color: #595797;color: #fff;font-size: 20px;font-weight: 300;position: fixed;left:0px;bottom: 0px;}
@@ -206,4 +207,4 @@ ul{list-style-type: none}
     color: #595797;
     margin: 26px 0px;
 }
-.pgwModal .pm-content{text-align: center;}
+.pgwModal .pm-body .pm-content{text-align: center;padding: 30px 10px;}
