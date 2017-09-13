@@ -51,7 +51,7 @@ for(var i=0;i<60;i++){
 
 var selectedIndex = [0, 0, 0]; /* 默认选中的地区 */
 
-var selectedIndex2 = [0, 0, 0, 0, 0]; /* 默认选中的地区 */
+var selectedIndex2 = [30, 0, 0, 0, 0]; /* 默认选中的时间 */
 
 var checked = [0, 0, 0]; /* 已选选项 */
 var checked2 = [0, 0, 0, 0, 0]; /* 已选选项 */
@@ -63,6 +63,23 @@ function creatList(obj, list){
   temp.value = index;
   list.push(temp);
   })
+}
+
+var checkTimer = function (times) {
+  var arr = times.split(" ");
+  var ye = arr[0].split("-");
+  var ho = arr[1].split(":");
+  var y = Number(ye[0]);
+  y = y - 1970;
+  var m = Number(ye[1]);
+  m = m - 1;
+  var d = Number(ye[2]);
+  d = d - 1;
+
+  var h = Number(ho[0]);
+  var min = Number(ho[1]);
+  selectedIndex2 = [y, m, d, h, min];
+  picker2.selectedIndex = selectedIndex2;
 }
 
 creatList(city, first);

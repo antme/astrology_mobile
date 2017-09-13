@@ -26,7 +26,7 @@ function loadUserInfo(){
 			 if(sex == "女"){
 				  $("#sexBtn").click();
 			 }
-		
+			 checkTimer(response.birthDay);
 	});
 
 }
