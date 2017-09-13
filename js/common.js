@@ -99,8 +99,9 @@ function submitUserInfo(){
 
 function validWeixinUrl(){
 	var redirect_url = encodeURIComponent(host+ url_path+"/astrology/redirect/wx");
-	var wxurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5dd7a0373f62385b&redirect_uri=" + redirect_url  + "&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
+	var wxurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5dd7a0373f62385b&redirect_uri=" + redirect_url  + "&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
 	var _wx_id_tst = $.fn.cookie('ast_c_id');
+	console.log(wxurl);
 	
 	$.fn.cookie('ast_redirect_url',location.href);
 	if(!_wx_id_tst && window.location.href.indexOf("ast_redirect")==-1){
@@ -112,7 +113,6 @@ function loadWeiXinConfig(){
 	
 	var url = location.href.split('#')[0];
 	post_ast_request("/astrology/redirect/js_sdk", {"url": encodeURIComponent(url)}, function(response){
-		console.log(response);
 		
 		wx.config({
 		    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
