@@ -194,7 +194,7 @@ ul{list-style-type: none}
 .user-info .title{font-size: 18px;margin:10px 0;color: #595797;}
 .user-info .user-list{margin-bottom:10px;}
 .user-info .user-list span{display: inline-block;width:100px;height: auto;margin:0 5px;}
-.user-info .user-list span div{width:94px;height: 94px;border-radius: 47px;}
+.user-info .user-list span div{width:94px;height: 94px;border-radius: 47px;display: hidden;}
 .user-info .user-list span label{font-size: 10px;display: block;margin-top:5px;}
 .user-info .grwx2{margin:10px;height:40px;line-height:40px;border-radius: 16px;color: #fff;text-align: center;background-color: #6a6aaa;font-size: 16px;}
 .user-info .text{margin:10px;text-indent: 2em;text-align: left;color: #595797;}
