@@ -48,7 +48,7 @@
                 </div>
             </div>
             </div>
-            <div class="form-item">
+            <div class="form-item" id="textdatetime">
                 <div class="item-l">
                   <span class="i"><img height="18px" src="./img/add04.png" /></span>
                   <span>出生时间</span>
@@ -64,7 +64,7 @@
                   <span>出生地点</span>
                 </div>
                 <div class="item-r">
-                    <span><input id="address01" type="text" value="" disabled="disabled"/></span>
+                    <span><input id="address01" type="text" value="" /></span>
                     <span><img height="18px" src="./img/add01.png" /></span>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                   <span>现居地</span>
                 </div>
                 <div class="item-r">
-                    <span><input id="address02" type="text" value="" disabled="disabled"/></span>
+                    <span><input id="address02" type="text" value="" /></span>
                     <span><img height="18px" src="./img/add01.png" /></span>
                 </div>
             </div>
@@ -83,7 +83,7 @@
     </div>
      <div class="floot-menu">
       <ul>
-        <li class="menu-s">
+        <li class="menu-s2">
           <a href="/astrology_mobile/index.html"><label>首页</label></a>
         </li>
         <li class="menu-g">
@@ -92,71 +92,46 @@
         <li class="menu-l">
           <a  href="/astrology_mobile/two_peple_ui15.html"><label>两人合盘</label></a>
         </li>
-        <li class="menu-z">
+        <li class="menu-z2">
           <a  href="/astrology_mobile/my_info_ui16.html"><label>个人中心</label></a>
         </li>
       </ul>
     </div>
-    <script type="text/javascript" src="./js/swiper.min.js"></script>
     <script type="text/javascript" src="./js/zepto.min.js"></script>
-    <script type="text/javascript" src="./js/iscroll.js"></script>
-    <script type="text/javascript" src="./js/datepicker.js"></script>
-    <script type="text/javascript" src="./js/zepto.swiper.address.1.0.0.min.js"></script>
     <script type="text/javascript" src="./js/data.js"></script>
    <script type="text/javascript" src="./js/pgwmodal.min.js"></script>
+   <script type="text/javascript" src="./js/city.js"></script>
+   <script type="text/javascript" src="./js/picker.min.js"></script>
+   <script type="text/javascript" src="./js/address.js"></script>
    
     
     <script>
-    	var sex = "男";
-        $("#sexBtn").click(function(){
-          if($("#sexBtn").find("#n").hasClass('open')){
-            $("#sexBtn").find("#n").removeClass('open').addClass('close');
-            $("#sexBtn").find("#v").removeClass('close').addClass('open');
-            sex = "女";
-          }else{
-            $("#sexBtn").find("#v").removeClass('open').addClass('close');
-            $("#sexBtn").find("#n").removeClass('close').addClass('open');
-            sex = "男";
-          }
-        });
-        $(function(){
-          $('.textdatetime').date({
-            theme:'datetime'
-          });
-        })
-        var abc = $("body").address({
-          objId:'',
-          complete: function (date) {
-              var str = JSON.stringify(date);
-              str = JSON.parse(str);
-              if(this.objId!==""){
-                $("#"+this.objId).val(str.province + " " + str.city +" " + str.region);
-                console.log(typeof str);
-              }
-              return date;
-          },
-          onInit: function () {
-              console.log("init")
-          },
-          getProvinceList: function (cb) {
-              cb(data.pronvince);
-          },
-          getCityList: function (provinceId, cb) {
-              cb(data.city[provinceId]);
-          },
-          getRegionList: function (provinceId, cityId, cb) {
-              cb(data.region[cityId]);
-          },
-          isSecondLevel: false
+      var sex = "男";
+      var nameEl = '';
+      var timer = '';
+      $("#sexBtn").click(function(){
+        if($("#sexBtn").find("#n").hasClass('open')){
+          $("#sexBtn").find("#n").removeClass('open').addClass('close');
+          $("#sexBtn").find("#v").removeClass('close').addClass('open');
+          sex = "女";
+        }else{
+          $("#sexBtn").find("#v").removeClass('open').addClass('close');
+          $("#sexBtn").find("#n").removeClass('close').addClass('open');
+          sex = "男";
+        }
       });
       $("#address01_div").click(function(){
-          abc.show();
-          abc.objId = 'address01';
+        picker.show();
+        nameEl = 'address01';
       });
       $("#address02_div").click(function(){
-          abc.show();
-          abc.objId = 'address02';
+        picker.show();
+        nameEl = 'address02';
       })
+      $("#textdatetime").click(function(){
+        picker2.show();
+        timer = 'birthday';
+      });
       
      loadUserInfo();
     </script>
