@@ -94,7 +94,7 @@ ul{list-style-type: none}
 .form-item .item-l img,.form-item .item-r img{vertical-align: middle}
 .form-item .item-r{float: right;margin-right: 15px;font-size: 18px;}
 .form-item .item-l{color: #595797;}
-.form-item .item-r input{background-color:transparent;text-align: right;height:20px;line-height: 21px;font-weight: 100;color: #595797;}
+.form-item .item-r input{background-color:transparent;text-align: right;height:20px;line-height: 21px;font-weight: 100;color: #595797;width:135px;}
 
 .form-item .item-r .sexBtn{height:34px;width:80px;border-radius: 17px;background-color: #fff;margin-top:8px;font-size: 16px;}
 .form-item .item-r .sexBtn .open{float:left;margin:1px;width:50px;line-height:32px;text-align: center;color: #fff;background-color: #595996;height:32px;border-radius: 17px;display: inline-block;z-index:999999;}
