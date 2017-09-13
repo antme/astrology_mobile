@@ -127,7 +127,7 @@ function loadWeiXinConfig(){
 
 var script =document.createElement('script');
 script.setAttribute("type","text/javascript");
-script.setAttribute("src", url_path + '/astrology/astrology/login');
+script.setAttribute("src", url_path + '/astrology/astrology/login?' + new Date().getTime());
 document.getElementsByTagName("head").item(0).appendChild(script)
 
 
