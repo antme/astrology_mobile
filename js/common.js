@@ -96,9 +96,10 @@ function submitUserInfo(){
   	  });
 	
 }
-
+ 
 function login(){
-	var redirect_url = encodeURIComponent(host+ url_path+"/astrology/redirect/wx");
+
+	var redirect_url = encodeURIComponent(host+ url_path+"/astrology/redirect/wx?ast_redirect=" + encodeURIComponent(location.href));
 	var wxurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5dd7a0373f62385b&redirect_uri=" + redirect_url  + "&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
 	window.location.href = wxurl;
 }
