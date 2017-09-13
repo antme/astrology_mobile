@@ -105,8 +105,8 @@ picker2.on('picker.select', function (selectedVal, selectedIndex) {
   var text3 = day[selectedIndex[2]].text;
   var text4 = house[selectedIndex[3]].text;
   var text5 = mine[selectedIndex[4]].text;
-  document.getElementById(timer).setAttribute('value',text1 + '/' + text2 + '/' + text3 + '/' + ' ' + text4 + ':' + text5);
-  $('#'+timer).val(text1 + '/' + text2 + '/' + text3 + '/' + ' ' + text4 + ':' + text5);
+  document.getElementById(timer).setAttribute('value',text1 + '/' + text2 + '/' + text3 + ' ' + text4 + ':' + text5);
+  $('#'+timer).val(text1 + '/' + text2 + '/' + text3 + ' ' + text4 + ':' + text5);
   console.log($('#'+timer).val());
 });
 
