@@ -99,7 +99,6 @@
       </ul>
     </div>
     <script type="text/javascript" src="./js/zepto.min.js"></script>
-    <script type="text/javascript" src="./js/data.js"></script>
    <script type="text/javascript" src="./js/pgwmodal.min.js"></script>
    <script type="text/javascript" src="./js/city.js"></script>
    <script type="text/javascript" src="./js/picker.min.js"></script>
@@ -122,10 +121,13 @@
         }
       });
       $("#address01_div").click(function(){
+        checkAddress($("#address01").val());
         picker.show();
         nameEl = 'address01';
+
       });
       $("#address02_div").click(function(){
+        checkAddress($("#address02").val());
         picker.show();
         nameEl = 'address02';
       })

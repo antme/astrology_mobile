@@ -3,6 +3,9 @@ var first = []; /* 省，直辖市 */
 var second = []; /* 市 */
 var third = []; /* 镇 */
 
+var live_address = "";
+var birth_address = "";
+
 var year = []
 var month = [];
 var day = [];
@@ -49,7 +52,7 @@ for(var i=0;i<60;i++){
 
 
 
-var selectedIndex = [0, 0, 0]; /* 默认选中的地区 */
+var selectedIndex = [1, 1, 1]; /* 默认选中的地区 */
 
 var selectedIndex2 = [30, 0, 0, 0, 0]; /* 默认选中的时间 */
 
@@ -80,6 +83,33 @@ var checkTimer = function (times) {
   var min = Number(ho[1]);
   selectedIndex2 = [y, m, d, h, min];
   picker2.selectedIndex = selectedIndex2;
+}
+
+var checkAddress = function (address) {
+  var c=0;c1=0,c2=0;
+  var ad = address.split(" ");
+  c = city.findIndex(function(node){ 
+    return node.name === ad[0]
+  });
+  second = [];
+  if(c>0){
+    creatList(city[c].sub, second);
+    c1 = city[c].sub.findIndex(function(node){ 
+      return node.name === ad[1]
+    });
+  }
+  third = [];
+  if(c1>0 && city[c].sub[c1].hasOwnProperty('sub')){
+    third = [];
+    creatList(city[c].sub[c1].sub, third);
+    c2 = city[c].sub[c1].sub.findIndex(function(node){ 
+      return node.name === ad[2]
+    });
+  }
+  // picker.refill([first, second, third]);
+  picker.data = [first, second, third];
+  picker.options.data = [first, second, third];
+  picker.selectedIndex = [c, c1, c2];
 }
 
 creatList(city, first);
