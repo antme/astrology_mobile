@@ -58,7 +58,7 @@
 	   			r_data = response;
 	   			if(r_data.length>0){
 	   				var contens = r_data[0].body_value.split("RE_PLACE_ME_xxxxx");
-	   				$("#descrption").html("");
+	   			
 	   				contens.forEach(function(e){
 		   				$("#descrption").append(' <div class="info-item">' + e + '</div>');
 		   			});
@@ -68,6 +68,7 @@
 	       	});
 
 			function loadData(title){
+				$("#descrption").html("");
 				r_data.forEach(function(e){
 					if(e.title == title){
 						var contens = r_data[0].body_value.split("RE_PLACE_ME_xxxxx");
