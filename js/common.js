@@ -138,7 +138,7 @@ alert(url_path);
 if(window.location.href.indexOf("ast_redirect") == -1){
 	var script =document.createElement('script');
 	script.setAttribute("type","text/javascript");
-	script.setAttribute("src", url_path + '/astrology/astrology/login?' + new Date().getTime());
+	script.setAttribute("src", url_path + '/astrology/redirect/login?' + new Date().getTime());
 	document.getElementsByTagName("head").item(0).appendChild(script);
 }
 
