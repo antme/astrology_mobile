@@ -8,7 +8,7 @@
 <meta content="yes" name="apple-mobile-web-app-capable">
 <meta content="black" name="apple-mobile-web-app-status-bar-style">
 <meta content="telephone=no" name="format-detection">
-<title>感情密码</title>
+<title></title>
 <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -38,6 +38,17 @@
 	        var data = {
 	     		  "type" : urlparameters["type"]
 	        }
+	        
+	        if(type == "emotion"){
+	        	document.title = "感情密码";
+	        }else  if(type == "businese"){
+	        	document.title = "事业密码";
+	        } else  if(type == "relationship"){
+	        	document.title = "人际关系";
+	        } else  if(type == "fortune"){
+	        	document.title = "财富密码";
+	        } 
+	        
 	        
 			post_ast_request('/astrology/astrology/read_result',data, function(response){   
 	   			response.forEach(function(e){
