@@ -128,6 +128,7 @@
           sex = "男";
         }
       });
+      
       var abc1 = $("body").address({
           objId:'address01',
           complete: function (date) {
@@ -164,7 +165,7 @@
               return date;
           },
           onInit: function () {
-              console.log("init")
+              console.log(this);
           },
           getProvinceList: function (cb) {
               cb(data.pronvince);
@@ -177,6 +178,32 @@
           },
           isSecondLevel: false
       });
+      
+      post_ast_request('/astrology/user/get',{}, function(response){
+    		
+  		if(response.name){
+  			 $("#name").val(response.name);
+  			
+  			 
+  			 $("#address01").text(response.birth_address);
+  			 $("#address02").text(response.live_address);
+  			 abc1.province = response.birth_address.split(" ")[0];
+  			 abc1.city = response.birth_address.split(" ")[1];
+  			 abc1.region = response.birth_address.split(" ")[2];
+  			
+  			 abc2.province = response.live_address.split(" ")[0];
+  			 abc2.city = response.live_address.split(" ")[1];
+  			 abc2.region = response.live_address.split(" ")[2];
+  			 var sex = response.sex;
+  			 if(sex == "女"){
+  				  $("#sexBtn").click();
+  			 }
+  			 checkTimer(response.birthDay);
+  		}
+  	});
+      
+      
+      
       $("#address01_div").click(function(){
     	  abc1.show();
     	  abc1.objId = 'address01';
@@ -191,7 +218,6 @@
         timer = 'birthday';
       });
       
-     loadUserInfo();
     </script>
     <script>
         if (window.screen.width <= 360 || document.body.clientWidth <= 360) {
