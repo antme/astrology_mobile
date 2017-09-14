@@ -114,20 +114,9 @@
     			    content: '请选择你正在纠结的问题'
     			}); 	
     		}else{
+        		zhanxing();
+
     		
-    		post_ast_request("/astrology/order/reqPreOrderId", {}, function(response){
-			        wx.chooseWXPay({
-			            timestamp: response.timestamp,
-			            nonceStr: response.nonceStr,
-			            package: response.package,
-			            signType: 'SHA1',
-			            paySign: response.paySign,
-			            success: function (payres) {
-			        		zhanxing();
-			            }
-			        });
-	        			
-	        });
         
     			
     		}
