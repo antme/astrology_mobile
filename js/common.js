@@ -17,6 +17,7 @@ function loadUserInfo(){
 	
 	post_ast_request('/astrology/user/get',{}, function(response){
 	
+		if(response.name){
 			 $("#name").val(response.name);
 			
 			 $("#address01").val(response.birth_address);
@@ -27,6 +28,7 @@ function loadUserInfo(){
 				  $("#sexBtn").click();
 			 }
 			 checkTimer(response.birthDay);
+		}
 	});
 
 }
