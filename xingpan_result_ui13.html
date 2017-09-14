@@ -24,11 +24,8 @@
         </div>
         <div class="t-no">点击标签，查看感情密码的组合解读</div>
         <div class="sBtn" id="tip">查 看 解 读</div>
-        <div class="detail-info">
-          <div class="info-item" id="descrption">
-           
-   
-        </div>
+        <div class="detail-info" id="descrption">
+         
     </div>
     </div>
        <script type="text/javascript" src="./js/zepto.min.js"></script>
@@ -48,8 +45,11 @@
 	   			});
 	   			r_data = response;
 	   			if(r_data.length>0){
-	   				r_data[0].body_value.replace("<p> </p>","");
-	   				$("#descrption").html(r_data[0].body_value.replace("<p> </p>",""));
+	   				var contens = r_data[0].body_value.split("RE_PLACE_ME_xxxxx");
+	   				contens.forEach(function(e){
+		   				$("#descrption").append(' <div class="info-item">' + e + '</div>');
+		   			});
+	
 					$("#tip").html(r_data[0].title+"解读");
 	   			}
 	       	});
