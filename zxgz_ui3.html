@@ -84,6 +84,9 @@
     	var xingxin_id="";
     	var gongwei_id="";
     	var question_name = "";
+    	
+    	loadWeiXinConfig();
+    	
 		post_ast_request('/astrology/question/list',{}, function(response){
 			response.forEach(function(e){
     			$("#question_list").append("<li onclick=\"selectQuestion('" + e.uuid + "');\"><a id='" + e.uuid + "'>" + e.title  + "</a></li>");		
@@ -114,10 +117,25 @@
     			    content: '请选择你正在纠结的问题'
     			}); 	
     		}else{
-        		zhanxing();
-
+    			
+    			if(can_pay){
     		
-        
+		    		post_ast_request("/astrology/order/reqPreOrderId", {}, function(response){
+					        wx.chooseWXPay({
+					            timestamp: response.timestamp,
+					            nonceStr: response.nonceStr,
+					            package: response.package,
+					            signType: 'SHA1',
+					            paySign: response.paySign,
+					            success: function (payres) {
+					        		zhanxing();
+					            }
+					        });
+			        			
+			        });
+    			}else{
+    				alert("微信支付初始化失败");
+    			}
     			
     		}
     	}
@@ -154,10 +172,8 @@
     	function showjiedu(){
 			window.location.href="touzi_jiedu_ui6.2.html?questionId=" + questionId + "&xingzuo_id=" +xingzuo_id + "&xingxin_id=" + xingxin_id + "&gongwei_id=" + gongwei_id + "$question_name=" + question_name;
     	}
-    	
-    	
-    	
-    	loadWeiXinConfig();
+   
+    
     </script>
     <script>
         if (window.screen.width <=360 || document.body.clientWidth <=360) {

@@ -11,7 +11,7 @@ function GetRequestParameters() {
  return theRequest;
 }
 
-var can_pary = false;
+var can_pay = false;
 
 
 function loadUserInfo(){
@@ -123,7 +123,7 @@ function loadWeiXinConfig(){
 		});
 		
 		wx.ready(function(){		
-			can_pary = true;            
+			can_pay = true;            
 		});
 
        
