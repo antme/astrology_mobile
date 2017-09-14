@@ -32,10 +32,12 @@
 			        	signType: 'MD5',
 			            paySign: response.paySign,
 			            success: function (payres) {
-			            	window.location.href = "xingpan_result_ui13.html?type=fortune&id=" + report.id;
+			            	
 			            },					            
 			            complete: function(){
-			            	
+			            	post_ast_request("/astrology/astrology/buy_caifu", {"xingpan_report_id":report.id}, function(response){
+			            		window.location.href = "xingpan_result_ui13.html?type=fortune&id=" + report.id;
+			            	});
 			            }
 			        });			        			
 	        });
