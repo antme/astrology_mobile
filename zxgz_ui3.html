@@ -124,7 +124,7 @@
 					        wx.chooseWXPay({
 					            timestamp: response.timestamp,
 					            nonceStr: response.nonceStr,
-					            package: response.package.0,
+					            package: response.package,
 					            signType: 'SHA1',
 					            paySign: response.paySign,
 					            success: function (payres) {
