@@ -131,62 +131,7 @@
           sex = "男";
         }
       });
-      var abc1 = $("body").address({
-          objId:'add_input_1',
-          complete: function (date) {
-              var str = JSON.stringify(date);
-              str = JSON.parse(str);
-              if(this.objId!==""){
-                $("#address01").text(str.province + " " + str.city +" " + str.region);
-              }
-              return date;
-          },
-          onInit: function () {
-              console.log("init")
-          },
-          getProvinceList: function (cb) {
-              cb(data.pronvince);
-          },
-          getCityList: function (provinceId, cb) {
-              cb(data.city[provinceId]);
-          },
-          getRegionList: function (provinceId, cityId, cb) {
-              cb(data.region[cityId]);
-          },
-          isSecondLevel: false
-      });
-      
-      var abc2= $("body").address({
-          objId:'add_input_2',
-          complete: function (date) {
-              var str = JSON.stringify(date);
-              str = JSON.parse(str);
-              if(this.objId!==""){
-                $("#address02").text(str.province + " " + str.city +" " + str.region);
-              }
-              return date;
-          },
-          onInit: function () {
-              console.log("init")
-          },
-          getProvinceList: function (cb) {
-              cb(data.pronvince);
-          },
-          getCityList: function (provinceId, cb) {
-              cb(data.city[provinceId]);
-          },
-          getRegionList: function (provinceId, cityId, cb) {
-              cb(data.region[cityId]);
-          },
-          isSecondLevel: false
-      });
-      $("#address01_div").click(function(){
-          abc1.show();
-          
-      });
-      $("#address02_div").click(function(){
-    	  abc2.show();
-      })
+  
       $("#textdatetime").click(function(){
         picker2.show();
         timer = 'birthday';
@@ -212,6 +157,65 @@
   			 }
   			 checkTimer(response.birthDay);
   		}
+  		
+  		 var abc1 = $("body").address({
+  	          objId:'add_input_1',
+  	          complete: function (date) {
+  	              var str = JSON.stringify(date);
+  	              str = JSON.parse(str);
+  	              if(this.objId!==""){
+  	                $("#address01").text(str.province + " " + str.city +" " + str.region);
+  	              }
+  	              return date;
+  	          },
+  	          onInit: function () {
+  	              console.log("init")
+  	          },
+  	          getProvinceList: function (cb) {
+  	              cb(data.pronvince);
+  	          },
+  	          getCityList: function (provinceId, cb) {
+  	              cb(data.city[provinceId]);
+  	          },
+  	          getRegionList: function (provinceId, cityId, cb) {
+  	              cb(data.region[cityId]);
+  	          },
+  	          isSecondLevel: false
+  	      });
+  	      
+  	      var abc2= $("body").address({
+  	          objId:'add_input_2',
+  	          complete: function (date) {
+  	              var str = JSON.stringify(date);
+  	              str = JSON.parse(str);
+  	              if(this.objId!==""){
+  	                $("#address02").text(str.province + " " + str.city +" " + str.region);
+  	              }
+  	              return date;
+  	          },
+  	          onInit: function () {
+  	              console.log("init")
+  	          },
+  	          getProvinceList: function (cb) {
+  	              cb(data.pronvince);
+  	          },
+  	          getCityList: function (provinceId, cb) {
+  	              cb(data.city[provinceId]);
+  	          },
+  	          getRegionList: function (provinceId, cityId, cb) {
+  	              cb(data.region[cityId]);
+  	          },
+  	          isSecondLevel: false
+  	      });
+  	    
+  	      $("#address01_div").click(function(){
+  	          abc1.show();
+  	          
+  	      });
+  	      $("#address02_div").click(function(){
+  	    	  abc2.show();
+  	      })
+  	      
   		});
       
     </script>
