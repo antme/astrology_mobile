@@ -30,7 +30,7 @@
 
 
 <body>
-    <div class="content">
+    <div class="content" id="content" style="display:none;">
       <div class="jd-list">
           <ul>
             
@@ -85,6 +85,8 @@
 			$("#gongwei_description").html(response.gw.descrption);
 			$("#xingzuo_title").html(response.xingzuo.name+"解读");
 			$("#xingzuo_description").html(response.xingzuo.descrption);
+			
+			$("#content").show();
 		 
 	 });
 </script>
