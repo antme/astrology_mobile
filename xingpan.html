@@ -10,6 +10,42 @@
 <meta content="telephone=no" name="format-detection">
 <title>我的星盘</title>
 <link rel="stylesheet" href="./css/style.css">
+     <script type="text/javascript" src="./js/zepto.min.js"></script>
+               <script type="text/javascript" src="./js/path.js"></script>
+        
+       <script type="text/javascript" src="./js/common.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+
+<script type="text/javascript">
+	loadWeiXinConfig();
+	
+	var report = {};
+	function viewFutrueReport(){
+		
+		
+		if(report.ispay=="0"){
+			post_ast_request("/astrology/order/reqPreOrderId", {"xingpan_report_id":report.id}, function(response){
+			        wx.chooseWXPay({
+			        	timestamp: response.timestamp,
+			        	nonceStr: response.nonceStr,
+			        	package:  response.package,
+			        	signType: 'MD5',
+			            paySign: response.paySign,
+			            success: function (payres) {
+			            	window.location.href = "xingpan_result_ui13.html?type=fortune&id=" + report.id;
+			            },					            
+			            complete: function(){
+			            	
+			            }
+			        });			        			
+	        });
+		
+		}else{
+			window.location.href = "xingpan_result_ui13.html?type=fortune&id=" + report.id;
+		}
+		
+	}
+</script>
 </head>
 <body>
  
@@ -18,10 +54,10 @@
         <div class="hist2">
           <div class="btn-list1">
             <ul>
-              <li><a class="a1" href="xingpan_result_ui13.html?type=emotion"></a></li>
-              <li><a class="a2" href="xingpan_result_ui13.html?type=businese"></a></li>
-              <li><a class="a3" href="xingpan_result_ui13.html?type=relationship"></a></li>
-              <li><a class="a4" href="xingpan_result_ui13.html?type=fortune"></a></li>
+              <li><a class="a1" id="a1" href="#"></a></li>
+              <li><a class="a2" id="a2" href="#"></a></li>
+              <li><a class="a3" id="a3" href="#"></a></li>
+              <li><a class="a4" id="a4" href="#" onclick="viewFutrueReport();"></a></li>
             </ul>
           </div>
           <div class="btn-list2">
@@ -50,16 +86,19 @@
         </li>
       </ul>
     </div>
-        <script type="text/javascript" src="./js/zepto.min.js"></script>
-               <script type="text/javascript" src="./js/path.js"></script>
-        
-       <script type="text/javascript" src="./js/common.js"></script>
+   
        
        <script type="text/javascript">
        
 		post_ast_request('/astrology/user/loadxingpan',{}, function(response){     
    			$("#xingpan_img").attr("src","/sites/default/files/xingpan/" + response.result.fileName);
    			$("#xingpan_img").show();
+   			report = response;
+   			$("#a1").attr("href", "xingpan_result_ui13.html?type=emotion&id=" + response.id);
+   			$("#a2").attr("href", "xingpan_result_ui13.html?type=businese&id=" + response.id);
+   			$("#a3").attr("href", "xingpan_result_ui13.html?type=relationship&id=" + response.id);
+   			
+   			
     	});
    	
        </script>

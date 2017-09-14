@@ -16,22 +16,7 @@ var can_pay = false;
 
 function loadUserInfo(){
 	
-	post_ast_request('/astrology/user/get',{}, function(response){
 	
-		if(response.name){
-			 $("#name").val(response.name);
-			
-			 
-			 $("#address01").text(response.birth_address);
-			 $("#address02").text(response.live_address);
-			  
-			 var sex = response.sex;
-			 if(sex == "女"){
-				  $("#sexBtn").click();
-			 }
-			 checkTimer(response.birthDay);
-		}
-	});
 
 }
 
