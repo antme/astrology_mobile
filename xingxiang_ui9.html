@@ -53,22 +53,30 @@
 			if(response[0].title == "水象星座"){
 				$("#title").html("水");
 				$("#description_title").html("水元素");
+				$("#xingge_title").html("水象性格特质");
+				$("#shejiao_title").html("水象社交关系");
 		
 			}else if(response[0].title == "火象星座"){
 				$("#title").html("火");
 				$("#description_title").html("火元素");
+				$("#xingge_title").html("火象性格特质");
+				$("#shejiao_title").html("火象社交关系");
 	
 			}else if(response[0].title == "土星星座"){
 				$("#title").html("土");
 				$("#description_title").html("土元素");
+				$("#xingge_title").html("土象性格特质");
+				$("#shejiao_title").html("土象社交关系");
 			
 			}else if(response[0].title == "风象星座"){
 				$("#title").html("风");
 				$("#description_title").html("风元素");
+				$("#xingge_title").html("风象性格特质");
+				$("#shejiao_title").html("风象社交关系");
 			
 			}
-			$("#xingge_title").html(response[0].title+"性格特质");
-			$("#shejiao_title").html(response[0].title+"社交关系");
+	
+			
 			
 			$("#description_content").html(response[0].body_value);
 			$("#xingge_content").html(response[0].field_xinggetezhi_value);
