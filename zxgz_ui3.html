@@ -136,10 +136,10 @@
 		    		post_ast_request("/astrology/order/reqPreOrderId", {}, function(response){
 		    			console.log(response);
 					        wx.chooseWXPay({
-					            timestamp: response.timestamp,
-					            nonceStr: response.nonceStr,
-					            package:  response.package,
-					            signType: 'MD5',
+					        	timestamp: response.timestamp,
+					        	nonceStr: response.nonceStr,
+					        	package:  response.package,
+					        	signType: 'MD5',
 					            paySign: response.paySign,
 					            success: function (payres) {
 					            	
