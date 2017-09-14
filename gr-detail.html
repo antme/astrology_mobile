@@ -98,6 +98,9 @@
         </li>
       </ul>
     </div>
+    
+    	<input type="hidden" type="text" value="" id="add_input_1"/>
+    	<input type="hidden" type="text" value="" id="add_input_2"/>
          <script type="text/javascript" src="./js/swiper.min.js"></script>
     
     <script type="text/javascript" src="./js/zepto.min.js"></script>
@@ -128,14 +131,13 @@
           sex = "男";
         }
       });
-      
       var abc1 = $("body").address({
-          objId:'address01',
+          objId:'add_input_1',
           complete: function (date) {
               var str = JSON.stringify(date);
               str = JSON.parse(str);
               if(this.objId!==""){
-                $("#"+this.objId).text(str.province + " " + str.city +" " + str.region);
+                $("#address01").text(str.province + " " + str.city +" " + str.region);
               }
               return date;
           },
@@ -154,18 +156,18 @@
           isSecondLevel: false
       });
       
-      var abc2 = $("body").address({
-          objId:'address02',
+      var abc2= $("body").address({
+          objId:'add_input_2',
           complete: function (date) {
               var str = JSON.stringify(date);
               str = JSON.parse(str);
               if(this.objId!==""){
-                $("#"+this.objId).text(str.province + " " + str.city +" " + str.region);
+                $("#address02").text(str.province + " " + str.city +" " + str.region);
               }
               return date;
           },
           onInit: function () {
-              console.log(this);
+              console.log("init")
           },
           getProvinceList: function (cb) {
               cb(data.pronvince);
@@ -178,6 +180,17 @@
           },
           isSecondLevel: false
       });
+      $("#address01_div").click(function(){
+          abc1.show();
+          
+      });
+      $("#address02_div").click(function(){
+    	  abc2.show();
+      })
+      $("#textdatetime").click(function(){
+        picker2.show();
+        timer = 'birthday';
+      });
       
       post_ast_request('/astrology/user/get',{}, function(response){
     		
@@ -187,36 +200,19 @@
   			 
   			 $("#address01").text(response.birth_address);
   			 $("#address02").text(response.live_address);
-  			 abc1.province = response.birth_address.split(" ")[0];
-  			 abc1.city = response.birth_address.split(" ")[1];
-  			 abc1.region = response.birth_address.split(" ")[2];
+  			 
+  			 $("#add_input_1").val(response.birth_address);
+  			 $("#add_input_2").val(response.live_address);
   			
-  			 abc2.province = response.live_address.split(" ")[0];
-  			 abc2.city = response.live_address.split(" ")[1];
-  			 abc2.region = response.live_address.split(" ")[2];
+  			
+  			  
   			 var sex = response.sex;
   			 if(sex == "女"){
   				  $("#sexBtn").click();
   			 }
   			 checkTimer(response.birthDay);
   		}
-  	});
-      
-      
-      
-      $("#address01_div").click(function(){
-    	  abc1.show();
-    	  abc1.objId = 'address01';
-          
-      });
-      $("#address02_div").click(function(){
-    	  abc2.show();
-    	  abc2.objId = 'address02';
-      })
-      $("#textdatetime").click(function(){
-        picker2.show();
-        timer = 'birthday';
-      });
+  		});
       
     </script>
     <script>
