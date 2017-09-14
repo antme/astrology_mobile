@@ -69,7 +69,10 @@
 			function loadData(title){
 				r_data.forEach(function(e){
 					if(e.title == title){
-						$("#descrption").html(e.body_value);
+						var contens = r_data[0].body_value.split("RE_PLACE_ME_xxxxx");
+						contens.forEach(function(e){
+			   				$("#descrption").append(' <div class="info-item">' + e + '</div>');
+			   			});
 						$("#tip").html(title+"解读");
 						return;
 					}
