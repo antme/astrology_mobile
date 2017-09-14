@@ -98,11 +98,20 @@
         </li>
       </ul>
     </div>
+    <button id="button" style="display:none;"></button>
+         <script type="text/javascript" src="./js/swiper.min.js"></script>
+    
     <script type="text/javascript" src="./js/zepto.min.js"></script>
    <script type="text/javascript" src="./js/pgwmodal.min.js"></script>
    <script type="text/javascript" src="./js/city.js"></script>
    <script type="text/javascript" src="./js/picker.min.js"></script>
    <script type="text/javascript" src="./js/address.js"></script>
+       <script type="text/javascript" src="./js/zepto.swiper.address.1.0.0.min.js"></script>
+   
+       <script type="text/javascript" src="./js/data.js"></script>
+       <script type="text/javascript" src="./js/iscroll.js"></script>
+   
+   
    
     
     <script>
@@ -120,16 +129,41 @@
           sex = "男";
         }
       });
+      var abc = $("body").address({
+          objId:'',
+          complete: function (date) {
+              var str = JSON.stringify(date);
+              str = JSON.parse(str);
+              if(this.objId!==""){
+                $("#"+this.objId).val(str.province + " " + str.city +" " + str.region);
+                console.log(typeof str);
+              }
+              return date;
+          },
+          onInit: function () {
+              console.log("init")
+          },
+          getProvinceList: function (cb) {
+              cb(data.pronvince);
+          },
+          getCityList: function (provinceId, cb) {
+              cb(data.city[provinceId]);
+          },
+          getRegionList: function (provinceId, cityId, cb) {
+              cb(data.region[cityId]);
+          },
+          isSecondLevel: false
+      });
       $("#address01_div").click(function(){
-        checkAddress($("#address01").val());
-        picker.show();
-        nameEl = 'address01';
-
+          abc.show();
+          abc.objId = 'address01';
+          
+          $("#button").focus();
       });
       $("#address02_div").click(function(){
-        checkAddress($("#address02").val());
-        picker.show();
-        nameEl = 'address02';
+          abc.show();
+          abc.objId = 'address02';
+          $("#button").focus();
       })
       $("#textdatetime").click(function(){
         picker2.show();
