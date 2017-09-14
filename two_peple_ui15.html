@@ -10,12 +10,15 @@
 <meta content="telephone=no" name="format-detection">
 <title>两人合盘</title>
 <link rel="stylesheet" href="./css/style.css">
+
+<script type="text/javascript" src="./js/zepto.min.js"></script>
+
 </head>
 <body>
   
     <div class="content">
        <div class="grxx"><a href="#"><img width="300px;" src="./img/kc01.png" /></a></div>
-       <div class="grwx">请邀请微信好友，查看他的个人星盘</div>
+       <div class="grwx" onclick="share();">请邀请微信好友，查看他的个人星盘</div>
     </div>
      <div class="floot-menu">
       <ul>
@@ -33,6 +36,27 @@
         </li>
       </ul>
     </div>
+    
+    <div id="backGround" style="display:none;">
+    </div>
+    <div id="backTitle"  style="display:none;"><img src="./img/ti01.png" /></div> 
+    
+     <script type="text/javascript">
+        $("#backGround").click(function(){
+          $(this).hide();
+          $("#backTitle").hide();
+        });
+        $("#backTitle").click(function(){
+          $(this).hide();
+          $("#backGround").hide();
+        });
+        
+        function share(){
+        	$("#backGround").show();
+        	 $("#backTitle").show();
+        }
+    </script>
+    
     <script>
         if (window.screen.width <=360 || document.body.clientWidth <=360) {
             var meta = document.createElement('meta');
