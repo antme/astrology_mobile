@@ -177,7 +177,7 @@ ul{list-style-type: none}
 .y-list{margin:10px 20px;text-align: center;}
 .y-list li{margin-bottom: 10px;background-color: #daedff;border-radius: 16px;color:#595797;padding:10px;}
 .y-list li .title{font-size: 20px;}
-.y-list li .img{margin-top:17px;height:84px;}
+.y-list li .img{margin-top:17px;}
 .y-list li .text{font-size: 14px;}
 .y-list li .top17{margin-top:17px;font-weight: 300;}
 .y-list li .top17-2{font-weight: 300;font-size: 84px;}
