@@ -11,6 +11,7 @@ function GetRequestParameters() {
  return theRequest;
 }
 
+var can_pary = false;
 
 
 function loadUserInfo(){
@@ -110,6 +111,7 @@ function loadWeiXinConfig(){
 	
 	var url = location.href.split('#')[0];
 	post_ast_request("/astrology/redirect/js_sdk", {"url": encodeURIComponent(url)}, function(response){
+		console.log(response);
 		
 		wx.config({
 		    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -120,12 +122,14 @@ function loadWeiXinConfig(){
 		    jsApiList: ["onMenuShareAppMessage","onMenuShareTimeline"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
 		});
 		
-		alert(location.href.split('#')[0]);
+		wx.ready(function(){		
+			can_pary = true;            
+		});
+
+       
 	
 	});
 }
-
-
 
 var script =document.createElement('script');
 script.setAttribute("type","text/javascript");
