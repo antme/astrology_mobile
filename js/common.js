@@ -21,8 +21,9 @@ function loadUserInfo(){
 		if(response.name){
 			 $("#name").val(response.name);
 			
-			 $("#address01").val(response.birth_address);
-			 $("#address02").val(response.live_address);
+			 
+			 $("#address01").text(response.birth_address);
+			 $("#address02").text(response.live_address);
 			  
 			 var sex = response.sex;
 			 if(sex == "女"){
@@ -53,10 +54,10 @@ function post_ast_request(url, data, callback){
 }
 
 function submitUserInfo(){
-	  var birthday = $("#birthday").val();
+	  var birthday = $("#birthday").text();
 	  var name = $("#name").val();
-	  var address01 = $("#address01").val();
-	  var address02 = $("#address02").val();
+	  var address01 = $("#address01").text();
+	  var address02 = $("#address02").text();
 	  
 	  if(name == ""){
 		  $.pgwModal({
@@ -102,8 +103,9 @@ function submitUserInfo(){
  
 function login(appid){
 
-	var redirect_url = encodeURIComponent(host+ url_path+"/astrology/redirect/wx?ast_redirect=" + encodeURIComponent(location.href));
-	var wxurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + appid +"&redirect_uri=" + redirect_url  + "&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
+	var redirect_url = encodeURIComponent(host+ url_path+"/astrology/redirect/wx");
+	
+	var wxurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + appid +"&redirect_uri=" + redirect_url  + "&response_type=code&scope=snsapi_userinfo&state=" + new Date().getTime() +"#wechat_redirect";
 	window.location.href = wxurl;
 }
 
@@ -131,10 +133,13 @@ function loadWeiXinConfig(){
 	});
 }
 
-var script =document.createElement('script');
-script.setAttribute("type","text/javascript");
-script.setAttribute("src", url_path + '/astrology/astrology/login?' + new Date().getTime());
-document.getElementsByTagName("head").item(0).appendChild(script)
+
+if(window.location.href.indexOf("ast_redirect") == -1){
+	var script =document.createElement('script');
+	script.setAttribute("type","text/javascript");
+	script.setAttribute("src", url_path + '/astrology/astrology/login?' + new Date().getTime());
+	document.getElementsByTagName("head").item(0).appendChild(script);
+}
 
 
 

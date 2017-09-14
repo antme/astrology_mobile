@@ -93,7 +93,15 @@ ul{list-style-type: none}
 .form-item .item-l{float: left;margin-left: 15px;font-size: 18px;}
 .form-item .item-l .i{width:15px;display: inline-block}
 .form-item .item-l img,.form-item .item-r img{vertical-align: middle}
-.form-item .item-r{float: right;margin-right: 15px;font-size: 18px;}
+.form-item .item-r{float: right;margin-right: 15px;}
+.form-item .item-r span{background-color: transparent; 
+    text-align: right;
+    height: 20px;
+    line-height: 21px;
+    font-weight: 100;
+    color: #595797;
+    width: 135px;}
+
 .form-item .item-l{color: #595797;}
 .form-item .item-r input{background-color:transparent;text-align: right;height:20px;line-height: 21px;font-weight: 100;color: #595797;width:135px;}
 

@@ -55,7 +55,7 @@
                   <span>出生时间</span>
                 </div>
                 <div class="item-r">
-                    <span><input type="text" class="textdatetime" value="" placeholder="请选择时间" id="birthday"/></span>
+                    <span id="birthday" >请选择时间</span>
                     <span><img height="18px" src="./img/add01.png" /></span>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                   <span>出生地点</span>
                 </div>
                 <div class="item-r">
-                    <span><input id="address01" type="text" value="" /></span>
+                    <span id="address01"></span>
                     <span><img height="18px" src="./img/add01.png" /></span>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                   <span>现居地</span>
                 </div>
                 <div class="item-r">
-                    <span><input id="address02" type="text" value="" /></span>
+                    <span id="address02"></span>
                     <span><img height="18px" src="./img/add01.png" /></span>
                 </div>
             </div>
@@ -98,7 +98,6 @@
         </li>
       </ul>
     </div>
-    <button id="button" style="display:none;"></button>
          <script type="text/javascript" src="./js/swiper.min.js"></script>
     
     <script type="text/javascript" src="./js/zepto.min.js"></script>
@@ -129,14 +128,13 @@
           sex = "男";
         }
       });
-      var abc = $("body").address({
-          objId:'',
+      var abc1 = $("body").address({
+          objId:'address01',
           complete: function (date) {
               var str = JSON.stringify(date);
               str = JSON.parse(str);
               if(this.objId!==""){
-                $("#"+this.objId).val(str.province + " " + str.city +" " + str.region);
-                console.log(typeof str);
+                $("#"+this.objId).text(str.province + " " + str.city +" " + str.region);
               }
               return date;
           },
@@ -158,12 +156,10 @@
           abc.show();
           abc.objId = 'address01';
           
-          $("#button").focus();
       });
       $("#address02_div").click(function(){
           abc.show();
           abc.objId = 'address02';
-          $("#button").focus();
       })
       $("#textdatetime").click(function(){
         picker2.show();

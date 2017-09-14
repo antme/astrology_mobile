@@ -82,7 +82,7 @@ var checkTimer = function (times) {
   var h = Number(ho[0]);
   var min = Number(ho[1]);
   selectedIndex2 = [y, m, d, h, min];
-  $("#birthday").val(ye[0]+"-"+ye[1]+"-"+ye[2]+ " " + h + ":" +min);
+  $("#birthday").text(ye[0]+"-"+ye[1]+"-"+ye[2]+ " " + h + ":" +min);
   picker2.selectedIndex = selectedIndex2;
 }
 
@@ -154,7 +154,7 @@ picker2.on('picker.select', function (selectedVal, selectedIndex) {
   var text4 = house[selectedIndex[3]].text;
   var text5 = mine[selectedIndex[4]].text;
   document.getElementById(timer).setAttribute('value',text1 + '/' + text2 + '/' + text3 + ' ' + text4 + ':' + text5);
-  $('#'+timer).val(text1 + '/' + text2 + '/' + text3 + ' ' + text4 + ':' + text5);
+  $('#'+timer).text(text1 + '/' + text2 + '/' + text3 + ' ' + text4 + ':' + text5);
   console.log($('#'+timer).val());
 });
 
