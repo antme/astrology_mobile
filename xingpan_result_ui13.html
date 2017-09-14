@@ -58,6 +58,7 @@
 	   			r_data = response;
 	   			if(r_data.length>0){
 	   				var contens = r_data[0].body_value.split("RE_PLACE_ME_xxxxx");
+	   				$("#descrption").html("");
 	   				contens.forEach(function(e){
 		   				$("#descrption").append(' <div class="info-item">' + e + '</div>');
 		   			});
