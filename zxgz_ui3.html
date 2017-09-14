@@ -100,7 +100,7 @@
     	var gongwei_id="";
     	var question_name = "";
     	
-    	//loadWeiXinConfig();
+    	loadWeiXinConfig();
     	
 		post_ast_request('/astrology/question/list',{}, function(response){
 			response.forEach(function(e){
@@ -130,25 +130,30 @@
     		if(questionId==""){
     			$("#dialog2").show();
     		}else{
-    			zhanxing();
+    			
     			if(can_pay){
-	        		
-
-		    		//post_ast_request("/astrology/order/reqPreOrderId", {}, function(response){
-		    		//	console.log(response);
-					//        wx.chooseWXPay({
-					///            timestamp: response.timestamp,
-					//            nonceStr: response.nonceStr,
-					//            package:  response.package,
-					//            signType: 'MD5',
-					//            paySign: response.paySign,
-					//            success: function (payres) {
-					//            }
-				//	        });
+	
+		    		post_ast_request("/astrology/order/reqPreOrderId", {}, function(response){
+		    			console.log(response);
+					        wx.chooseWXPay({
+					            timestamp: response.timestamp,
+					            nonceStr: response.nonceStr,
+					            package:  response.package,
+					            signType: 'MD5',
+					            paySign: response.paySign,
+					            success: function (payres) {
+					            	
+					            },
+					            
+					            complete: function(){
+					            	zhanxing();
+					            }
+					        });
 			        			
-			      //  });
+			        });
     			}else{
-    				//alert("微信支付初始化失败");
+    				alert("微信支付初始化失败");
+    				zhanxing();
     			}
     			
     		}
