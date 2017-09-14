@@ -32,8 +32,9 @@
     </div>
     </div>
        <script type="text/javascript" src="./js/zepto.min.js"></script>
+              <script type="text/javascript" src="./js/path.js"></script>
+       
        <script type="text/javascript" src="./js/common.js"></script>
-       <script type="text/javascript" src="./js/path.js"></script>
        
          <script type="text/javascript">
 	     	var urlparameters = GetRequestParameters();
@@ -47,13 +48,13 @@
 	   			});
 	   			r_data = response;
 	   			if(r_data.length>0){
-	   				$("#descrption").html(r_data[0].body_value);
+	   				r_data[0].body_value.replace("<p> </p>","");
+	   				$("#descrption").html(r_data[0].body_value.replace("<p> </p>",""));
 					$("#tip").html(r_data[0].title+"解读");
 	   			}
 	       	});
 
 			function loadData(title){
-				console.log(title);
 				r_data.forEach(function(e){
 					if(e.title == title){
 						$("#descrption").html(e.body_value);
