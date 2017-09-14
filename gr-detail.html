@@ -152,14 +152,39 @@
           },
           isSecondLevel: false
       });
+      
+      var abc2 = $("body").address({
+          objId:'address02',
+          complete: function (date) {
+              var str = JSON.stringify(date);
+              str = JSON.parse(str);
+              if(this.objId!==""){
+                $("#"+this.objId).text(str.province + " " + str.city +" " + str.region);
+              }
+              return date;
+          },
+          onInit: function () {
+              console.log("init")
+          },
+          getProvinceList: function (cb) {
+              cb(data.pronvince);
+          },
+          getCityList: function (provinceId, cb) {
+              cb(data.city[provinceId]);
+          },
+          getRegionList: function (provinceId, cityId, cb) {
+              cb(data.region[cityId]);
+          },
+          isSecondLevel: false
+      });
       $("#address01_div").click(function(){
-          abc.show();
-          abc.objId = 'address01';
+    	  abc1.show();
+    	  abc1.objId = 'address01';
           
       });
       $("#address02_div").click(function(){
-          abc.show();
-          abc.objId = 'address02';
+    	  abc2.show();
+    	  abc2.objId = 'address02';
       })
       $("#textdatetime").click(function(){
         picker2.show();
