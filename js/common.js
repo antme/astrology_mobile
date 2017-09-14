@@ -105,8 +105,8 @@ function login(appid){
 	
 	var redirect_url = encodeURIComponent(host+ url_path+"/astrology/redirect/wx?ast_redirect=" + encodeURIComponent(location.href));
 	var wxurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + appid +"&redirect_uri=" + redirect_url  + "&response_type=code&scope=snsapi_userinfo&state=" + new Date().getTime() +"#wechat_redirect";
-	alert(wxurl);
-	//window.location.href = wxurl;
+	//alert(wxurl);
+	window.location.href = wxurl;
 
 }
 
