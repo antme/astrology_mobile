@@ -35,7 +35,7 @@ ul{list-style-type: none}
 .con-cn li img{width:80px;}
 .con-cn .con-btn{height:60px;border-radius: 16px;background-color: #6a68ab;color: #fff;margin:19px 0px;text-align: center}
 .con-cn .con-btn label{display: inline-block;width: 100%;}
-.con-cn .con-btn label.t{font-size: 18px;margin:10px 0;}
+.con-cn .con-btn label.t{font-size: 18px;margin:6px 0;}
 .con-cn .see{background-color: #ffb6b7;color:#595797;line-height: 3.5em;}
 .con-cn .con-fist{height:10em;text-align: center;margin-top: 1em;}
 .con-cn .con-fist img,.con-cn .con-two img{height:7em;}

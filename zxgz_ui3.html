@@ -81,11 +81,13 @@
     <div class="weui_dialog_alert" id="dialog2" style="display: none;">
     <div class="weui_mask"></div>
     <div class="weui_dialog">
-        <div class="weui_dialog_bd" style="margin-top:20px;">请选择你正在纠结的问题</div>
+        <div class="weui_dialog_bd" style="margin-top:20px;" id="dialog2_title"></div>
         <div class="weui_dialog_ft">
             <a href="javascript:;" class="weui_btn_dialog primary" onclick='$("#dialog2").hide();'>确定</a>
         </div>
     </div>
+    
+   
 </div>
 
 
@@ -128,11 +130,10 @@
     	
     	function makezxgz(){
     		if(questionId==""){
+    			$("#dialog2_title").text("请选择你正在纠结的问题");
     			$("#dialog2").show();
-    		}else{
-    			
+    		}else{   			
     			if(can_pay){
-	
 		    		post_ast_request("/astrology/order/reqPreOrderId", {}, function(response){
 		    			console.log(response);
 					        wx.chooseWXPay({
@@ -142,18 +143,16 @@
 					        	signType: 'MD5',
 					            paySign: response.paySign,
 					            success: function (payres) {
-					            	
-					            },
-					            
-					            complete: function(){
 					            	zhanxing();
+					            },					            
+					            complete: function(){
+					            	
 					            }
-					        });
-			        			
+					        });			        			
 			        });
     			}else{
-    				alert("微信支付初始化失败");
-    				zhanxing();
+    				$("#dialog2_title").text("微信支付初始化失败,请刷新后再试");
+        			$("#dialog2").show();
     			}
     			
     		}
@@ -164,8 +163,7 @@
     		var data = {
     				"question_id" : questionId,
     				"question_name" : question_name
-    		}
-    		
+    		}    		
     		post_ast_request('/astrology/question/zhanxing',data, function(response){
     			$("#title").html($("#"+questionId).html());
 				$("#question_expand_div").hide();
