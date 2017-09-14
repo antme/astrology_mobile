@@ -18,7 +18,7 @@ function loadUserInfo(){
 	post_ast_request('/astrology/user/get',{}, function(response){
 	
 			 $("#name").val(response.name);
-			 $("#birthday").val(response.birthDay);
+			
 			 $("#address01").val(response.birth_address);
 			 $("#address02").val(response.live_address);
 			  
@@ -97,10 +97,10 @@ function submitUserInfo(){
 	
 }
  
-function login(){
+function login(appid){
 
 	var redirect_url = encodeURIComponent(host+ url_path+"/astrology/redirect/wx?ast_redirect=" + encodeURIComponent(location.href));
-	var wxurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5dd7a0373f62385b&redirect_uri=" + redirect_url  + "&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
+	var wxurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + appid +"&redirect_uri=" + redirect_url  + "&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
 	window.location.href = wxurl;
 }
 

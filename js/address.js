@@ -82,6 +82,7 @@ var checkTimer = function (times) {
   var h = Number(ho[0]);
   var min = Number(ho[1]);
   selectedIndex2 = [y, m, d, h, min];
+  $("#birthday").val(ye[0]+"-"+ye[1]+"-"+ye[2]+ " " + h + ":" +min);
   picker2.selectedIndex = selectedIndex2;
 }
 
