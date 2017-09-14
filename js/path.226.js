@@ -1,2 +1,2 @@
 var url_path="/index.php";
-var host = "https://test.vlvlife.com";
+var host = "http://test.vlvlife.com";
