@@ -17,17 +17,17 @@
           <ul>
             <li>
                 <div class="title" >主宰行星</div>
-                <div class="img"><img width="84px" height="84px" src="./img/y01.png" id="xingxing_img" /></div>
+                <div class="img" style="display:none;"><img width="84px" height="84px" src="./img/y01.png" id="xingxing_img" /></div>
                 <div class="text" id="xingxing"></div>
             </li>
             <li>
                 <div class="title">能量定位</div>
-                <div class="img"><img width="84px" height="84px" src="./img/y02.png" /></div>
+                <div class="img" style="display:none;"><img width="84px" height="84px" src="./img/y02.png" /></div>
                 <div class="text" id="nengliang_dingwei"></div>
             </li>
             <li>
                 <div class="title">能量性质</div>
-                <div class="img"><img width="84px" height="84px" src="./img/y03.png" /></div>
+                <div class="img" style="display:none;"><img width="84px" height="84px" src="./img/y03.png" /></div>
                 <div class="text" id="xingzhi"></div>
             </li>
             <li>
@@ -65,6 +65,8 @@
 			$("#xingzhi").html(response[0].field_nengliangxingzhi_value);
 			$("#fangxiang").html(response[0].field_nengliangfangxiang_value);
 			$("#xingge").html(response[0].field_xingzuoxinggejiyu_value);
+			
+			$(".img").show();
 		});
     </script>
 </body>
