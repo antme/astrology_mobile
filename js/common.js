@@ -134,7 +134,6 @@ function loadWeiXinConfig(){
 }
 
 
-alert(url_path);
 if(window.location.href.indexOf("ast_redirect") == -1){
 	var script =document.createElement('script');
 	script.setAttribute("type","text/javascript");
