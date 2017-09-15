@@ -53,6 +53,8 @@
  
     <div class="content">
         <div class="con-cj"><img width="100%" src="" id="xingpan_img" style="display:none;"/></div>
+         <div class="tag_user" id="tags">
+          <span class="p" id="name"></span><span class="p" id="birthday"></span><span class="p" id="birth_address"></span></div>
         <div class="hist2">
           <div class="btn-list1">
             <ul>
@@ -92,7 +94,12 @@
        
        <script type="text/javascript">
        
-		post_ast_request('/astrology/user/loadxingpan',{}, function(response){     
+       var data = {};
+       var params = GetRequestParameters();
+       if(params['user_data_id']){
+    	   data.user_data_id = params['user_data_id'];
+       }
+		post_ast_request('/astrology/user/loadxingpan',data, function(response){     
    			$("#xingpan_img").attr("src","/sites/default/files/xingpan/" + response.result.fileName);
    			$("#xingpan_img").show();
    			report = response;
@@ -100,6 +107,9 @@
    			$("#a2").attr("href", "xingpan_result_ui13.html?type=businese&id=" + response.id);
    			$("#a3").attr("href", "xingpan_result_ui13.html?type=relationship&id=" + response.id);
    			
+   			$("#name").text(response.user_xingzuo_data.name);
+   			$("#birthday").text(response.user_xingzuo_data.birthDay);
+   			$("#birth_address").text(response.user_xingzuo_data.birth_address);
    			
     	});
    	

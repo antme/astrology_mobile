@@ -43,7 +43,7 @@ ul{list-style-type: none}
 .con-cn .con-two a.c-t-1{float: left;margin-left: 10px;}
 .con-cn .con-two a.c-t-2{float: right;margin-right: 10px;}
 .hist{height:60px;line-height: 60px;text-align: center;border-top:6px solid #6a68ab;color: #595797;font-size: 18px;}
-.hist2{height:200px;text-align: center;border-top:6px solid #6a68ab;color: #595797}
+.hist2{height:200px;text-align: center;border-top:6px solid #6a68ab;color: #595797; }
 .hist2 .btn-list1{margin-top:1em;overflow: hidden;}
 .hist2 .btn-list1 li{float: left;width:25%;text-align: center;}
 .hist2 .btn-list1 li a{display: inline-block;background: url('../img/btn01.png') no-repeat; background-size: 27em;width:5.1em;height:6em;}
@@ -198,6 +198,9 @@ ul{list-style-type: none}
 .c1{color:#595797;margin-top:50px;}
 .tag{text-align: center;font-size: 12px;margin-top:20px;}
 .tag span.p{display:inline-block;color: #fff;background-color: #595797;border-radius: 8px;padding:1px 10px;}
+
+.tag_user{font-size: 12px; color: #fff;background-color: #595797;}
+.tag_user span.p{display:inline-block;color: #fff;background-color: #595797;padding:1px 10px;}
 
 .user-info{border-top:10px solid #595797;text-align: center;}
 .user-info .title{font-size: 18px;margin:10px 0;color: #595797;}

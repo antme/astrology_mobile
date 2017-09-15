@@ -48,12 +48,15 @@
 	    	
 	    	
 	    	response.forEach(function(e){
-				
-				  
-				$("#report_list").append('<li><label>' + e.name + ' 的星盘报告</label><a><img height="20px" src="./img/right2.png" /></a></li>');
+		  
+				$("#report_list").append('<li onclick=loadReport("' + e.id + '")><label>' + e.name + ' 的星盘报告</label><a><img height="20px" src="./img/right2.png" /></a></li>');
 			});
 	    	
 	    });
+	    
+	    function loadReport(id){
+	    	window.location.href="xingpan.html?user_data_id=" + id;
+	    }
     
     
         if (window.screen.width <=360 || document.body.clientWidth <=360) {
