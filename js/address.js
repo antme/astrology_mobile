@@ -16,7 +16,7 @@ var selectYear = 0;
 var selectMonth = 0;
 
 for(var i=0;i<101;i++){
-  year.push({"text":1970+i,"name":i});
+  year.push({"text":1920+i,"name":i});
 }
 
 for(var i=0;i<12;i++){
@@ -54,7 +54,7 @@ for(var i=0;i<60;i++){
 
 var selectedIndex = [1, 1, 1]; /* 默认选中的地区 */
 
-var selectedIndex2 = [30, 0, 0, 0, 0]; /* 默认选中的时间 */
+var selectedIndex2 = [80, 0, 0, 0, 0]; /* 默认选中的时间 */
 
 var checked = [0, 0, 0]; /* 已选选项 */
 var checked2 = [0, 0, 0, 0, 0]; /* 已选选项 */
@@ -73,7 +73,7 @@ var checkTimer = function (times) {
   var ye = arr[0].split("-");
   var ho = arr[1].split(":");
   var y = Number(ye[0]);
-  y = y - 1970;
+  y = y - 1920;
   var m = Number(ye[1]);
   m = m - 1;
   var d = Number(ye[2]);
@@ -160,7 +160,7 @@ picker2.on('picker.select', function (selectedVal, selectedIndex) {
 
 picker2.on('picker.change', function (index, selectedIndex) {
    if (index === 0) {
-    selectYear = 1970 + selectedIndex;
+    selectYear = 1920 + selectedIndex;
     if(selectMonth === 1){
       day=[];
       if(rn(selectYear)){
