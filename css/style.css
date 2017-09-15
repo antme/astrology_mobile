@@ -206,7 +206,7 @@ ul{list-style-type: none}
 .user-info .user-list span div{width:94px;height: 94px;border-radius: 47px;overflow: hidden;}
 .user-info .user-list span label{font-size: 10px;display: block;margin-top:5px;color: #595797;}
 .user-info .grwx2{margin:10px;height:40px;line-height:40px;border-radius: 16px;color: #fff;text-align: center;background-color: #6a6aaa;font-size: 16px;}
-.user-info .text{margin:10px;text-indent: 2em;text-align: left;color: #595797;}
+.user-info .text{margin:10px;text-align: left;color: #595797;}
 .see-btn{width:100%;text-align:center;height: 60px;line-height: 60px;background-color: #595797;color: #fff;font-size: 20px;font-weight: 300;position: fixed;left:0px;bottom: 0px;}
 
 .question_title{
