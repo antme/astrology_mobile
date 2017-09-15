@@ -12,6 +12,8 @@
 <link rel="stylesheet" href="./css/style.css">
 <script type="text/javascript" src="./js/path.js"></script>
 <script type="text/javascript" src="./js/common.js"></script>
+<script type="text/javascript" src="./js/zepto.min.js"></script>
+
 </head>
 <body>
     <div class="content">
@@ -19,10 +21,8 @@
           个人星盘报告
         </div>
         <div class="grbg-list">
-          <ul>
-            <li><label>感情密码</label><a><img height="20px" src="./img/right2.png" /></a></li>
-            <li><label>事业密码</label><a><img height="20px" src="./img/right2.png" /></a></li>
-            <li><label>人际关系</label><a><img height="20px" src="./img/right2.png" /></a></li>
+          <ul id="report_list">
+      
           </ul>
         </div>
     </div>
@@ -43,6 +43,19 @@
       </ul>
     </div>
     <script>
+    
+	    post_ast_request('/astrology/user/list_person_report',{}, function(response){   
+	    	
+	    	
+	    	response.forEach(function(e){
+				
+				  
+				$("#report_list").append('<li><label>' + e.name + ' 的星盘报告</label><a><img height="20px" src="./img/right2.png" /></a></li>');
+			});
+	    	
+	    });
+    
+    
         if (window.screen.width <=360 || document.body.clientWidth <=360) {
             var meta = document.createElement('meta');
             meta.setAttribute('content', 'width=device-width,initial-scale=0.9,maximum-scale=0.9,user-scalable=0');

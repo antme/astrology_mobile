@@ -12,6 +12,8 @@
 <link rel="stylesheet" href="./css/style.css">
 <script type="text/javascript" src="./js/path.js"></script>
 <script type="text/javascript" src="./js/common.js"></script>
+<script type="text/javascript" src="./js/zepto.min.js"></script>
+
 </head>
 <body>
     <div class="content">
@@ -19,7 +21,7 @@
           <div class="title"><img width="103px" src="./img/kc02.png" /></div>
           <div class="img-title">
             <span>
-              <label><a href="report_ui17.html" style="color:#ffb5b4;">0份</a></label>
+              <label><a href="report_ui17.html" style="color:#ffb5b4;" id="total_person_report">0份</a></label>
               <label class="r">星盘报告</label>
             </span>
             <span>
@@ -59,6 +61,13 @@
             meta.setAttribute('name', 'viewport');
             document.head.appendChild(meta);
         }
+    </script>
+    
+    <script type="text/javascript">
+		post_ast_request('/astrology/user/count_total_report',{}, function(response){   
+			$("#total_person_report").text(response.expression);
+			
+		});
     </script>
 </body>
 </html>
