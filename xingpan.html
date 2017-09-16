@@ -106,10 +106,10 @@
    			$("#a1").attr("href", "xingpan_result_ui13.html?type=emotion&id=" + response.id);
    			$("#a2").attr("href", "xingpan_result_ui13.html?type=businese&id=" + response.id);
    			$("#a3").attr("href", "xingpan_result_ui13.html?type=relationship&id=" + response.id);
-   			
-   			$("#name").text(response.user_xingzuo_data.name);
-   			$("#birthday").text(response.user_xingzuo_data.birthDay);
-   			$("#birth_address").text(response.user_xingzuo_data.birth_address);
+   			document.title = response.user_xingzuo_data.name + "的星盘";
+   			//$("#name").text(response.user_xingzuo_data.name);
+   			//$("#birthday").text(response.user_xingzuo_data.birthDay);
+   			//$("#birth_address").text(response.user_xingzuo_data.birth_address);
    			
     	});
    	
