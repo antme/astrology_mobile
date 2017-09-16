@@ -61,16 +61,34 @@
 	   				var contens = r_data[0].body_value.split("RE_PLACE_ME_xxxxx");
 	   			
 	   				contens.forEach(function(e){
-	   					if(e.indexOf('<p>') == -1){
-	   						$("#descrption").append(' <div class="info-item_xinpan"><p>' + e + '</p></div>');
-	   					}else{
-	   						$("#descrption").append(' <div class="info-item_xinpan">' + e + '</div>');
-	   					}
+	   					appendContent(e);
 		   			});
 	
 					$("#tip").html(r_data[0].title+"解读");
 	   			}
 	       	});
+			
+			function appendContent(e){
+				
+				e  = parserContent(e);
+				
+				if(e.indexOf('<p>') == -1){
+						$("#descrption").append(' <div class="info-item_xinpan"><p>' + e + '</p></div>');
+					}else{
+						$("#descrption").append(' <div class="info-item_xinpan">' + e + '</div>');
+				}
+			}
+			
+			function parserContent(e){
+				e = e.replace("&nbsp;", "");		
+				if(e.indexOf("<br />")==1){
+					e = e.substring(7);
+				}
+				if(e.indexOf("&nbsp;")==1 || e.indexOf("<br />")==1){
+					e = parserContent(e);
+				}
+				return e;
+			}
 
 			function loadData(title){
 				$("#descrption").html("");
@@ -78,12 +96,7 @@
 					if(e.title == title){
 						var contens = e.body_value.split("RE_PLACE_ME_xxxxx");
 						contens.forEach(function(child){
-						
-							if(child.indexOf('<p>') == -1){
-								$("#descrption").append(' <div class="info-item_xinpan"><p>' + child + '</p></div>');
-							}else{
-			   					$("#descrption").append(' <div class="info-item_xinpan">' + child + '</div>');
-							}
+							appendContent(child);					
 			   			});
 						$("#tip").html(title+"解读");
 						return;
