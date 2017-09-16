@@ -54,7 +54,10 @@
     <div class="content">
         <div class="con-cj"><img width="100%" src="" id="xingpan_img" style="display:none;"/></div>
          <div class="tag_user" id="tags">
-          <span class="p" id="name"></span><span class="p" id="birthday"></span><span class="p" id="birth_address"></span></div>
+          <span class="p" id="tag1"></span><span class="p" id="tag2"></span>
+          <span class="p" id="tag3"></span><span class="p" id="tag4"></span>
+          
+          </div>
         <div class="hist2">
           <div class="btn-list1">
             <ul>
@@ -64,7 +67,7 @@
               <li><a class="a4" id="a4" href="#" onclick="viewFutrueReport();"></a></li>
             </ul>
           </div>
-          <div class="btn-list2">
+          <div class="btn-list2"> 
             <ul>
               <li><a href="xingxiang_ui9.html">星象元素</a></li>
               <li><a href="ysln_ui10.html">能量运势</a></li>
@@ -107,9 +110,10 @@
    			$("#a2").attr("href", "xingpan_result_ui13.html?type=businese&id=" + response.id);
    			$("#a3").attr("href", "xingpan_result_ui13.html?type=relationship&id=" + response.id);
    			document.title = response.user_xingzuo_data.name + "的星盘";
-   			//$("#name").text(response.user_xingzuo_data.name);
-   			//$("#birthday").text(response.user_xingzuo_data.birthDay);
-   			//$("#birth_address").text(response.user_xingzuo_data.birth_address);
+   			$("#tag1").text(response.tag1);
+   			$("#tag2").text(response.tag2);
+   			$("#tag3").text(response.tag3);
+   			$("#tag4").text(response.tag4);
    			
     	});
    	

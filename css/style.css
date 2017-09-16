@@ -1,6 +1,6 @@
 html,body,div,span,ul,li,a,label,table,tr,td,input,button{border: 0;margin: 0;padding: 0;}
 a{text-decoration: none;}
-body{font-size: 14px;font-weight: 100;}
+body{font-size: 15px;font-weight: 100;}
 ul{list-style-type: none}
 .con-ti{height: 5em;background-color: #dbedff;text-align: center;padding:10px 0;}
 .con-cj{padding:10px 20px;}
@@ -199,15 +199,15 @@ ul{list-style-type: none}
 .tag{text-align: center;font-size: 12px;margin-top:20px;}
 .tag span.p{display:inline-block;color: #fff;background-color: #595797;border-radius: 8px;padding:1px 10px;}
 
-.tag_user{font-size: 12px; color: #fff;background-color: #595797;}
-.tag_user span.p{display:inline-block;color: #fff;background-color: #595797;padding:1px 10px;}
+.tag_user{font-size: 15px; color: #fff; text-align:center;}
+.tag_user span.p{display:inline-block;color: #fff;background-color: #eac059;padding:5px 5px;margin:5px 5px;}
 
 .user-info{border-top:10px solid #595797;text-align: center;}
 .user-info .title{font-size: 18px;margin:10px 0;color: #595797;}
 .user-info .user-list{margin-bottom:10px;}
-.user-info .user-list span{display: inline-block;width:100px;height: auto;margin:0 5px;}
-.user-info .user-list span div{width:94px;height: 94px;border-radius: 47px;overflow: hidden;}
-.user-info .user-list span label{font-size: 10px;display: block;margin-top:5px;color: #595797;}
+.user-info .user-list span{display: inline-block;height: auto;margin:0 5px;}
+.user-info .user-list span div{width:90px;height: 85px;border-radius: 47px;overflow: hidden;}
+.user-info .user-list span label{font-size: 14px;display: block;margin-top:5px;color: #595797;}
 .user-info .grwx2{margin:10px;height:40px;line-height:40px;border-radius: 16px;color: #fff;text-align: center;background-color: #6a6aaa;font-size: 16px;}
 .user-info .text{margin:10px;text-align: left;color: #595797;}
 .see-btn{width:100%;text-align:center;height: 60px;line-height: 60px;background-color: #595797;color: #fff;font-size: 20px;font-weight: 300;position: fixed;left:0px;bottom: 0px;}
