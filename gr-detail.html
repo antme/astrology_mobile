@@ -164,7 +164,12 @@
   	              var str = JSON.stringify(date);
   	              str = JSON.parse(str);
   	              if(this.objId!==""){
-  	                $("#address01").text(str.province + " " + str.city +" " + str.region);
+  	            	var address = str.province + " " + str.city +" " + str.region;
+  	            	if(address.length > 13){
+  	            		$("#address01").text(str.province + " " + str.city + "...");
+  	            	}else{
+  	                	$("#address01").text(str.province + " " + str.city +" " + str.region);
+  	            	}
   	              }
   	              return date;
   	          },
