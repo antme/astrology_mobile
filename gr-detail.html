@@ -136,7 +136,8 @@
         picker2.show();
         timer = 'birthday';
       });
-      
+      var address1_id_list = "";
+      var address2_id_list = "";
       post_ast_request('/astrology/user/get',{}, function(response){
     		
   		if(response.name){
@@ -148,8 +149,8 @@
   			 
   			 $("#add_input_1").val(response.birth_address);
   			 $("#add_input_2").val(response.live_address);
-  			
-  			
+  			 address1_id_list = response.region_id_list.split("#")[0];
+  			 address2_id_list = response.region_id_list.split("#")[1];
   			  
   			 var sex = response.sex;
   			 if(sex == "女"){
@@ -170,6 +171,7 @@
   	            	}else{
   	                	$("#address01").text(str.province + " " + str.city +" " + str.region);
   	            	}
+  	            	address1_id_list = date.region_id_list;
   	              }
   	              return date;
   	          },
@@ -187,15 +189,21 @@
   	          },
   	          isSecondLevel: false
   	      });
+  		  abc1.h_provinceIndex = address1_id_list.split("_")[0];
+  		  abc1.h_cityIndex = address1_id_list.split("_")[1];
+  		  abc1.h_regionIndex = address1_id_list.split("_")[2];
   	      
   	      var abc2= $("body").address({
   	          objId:'add_input_2',
   	          complete: function (date) {
+  	        	  console.log(date);
   	              var str = JSON.stringify(date);
+  	              console.log(abc2.h_provinceIndex);
   	              str = JSON.parse(str);
   	              if(this.objId!==""){
   	                $("#address02").text(str.province + " " + str.city +" " + str.region);
   	              }
+  	              address2_id_list = date.region_id_list;
   	              return date;
   	          },
   	          onInit: function () {
@@ -212,6 +220,9 @@
   	          },
   	          isSecondLevel: false
   	      });
+  	      abc2.h_provinceIndex = address2_id_list.split("_")[0];
+  		  abc2.h_cityIndex = address2_id_list.split("_")[1];
+  		  abc2.h_regionIndex = address2_id_list.split("_")[2];
   	    
   	      $("#address01_div").click(function(){
   	          abc1.show();

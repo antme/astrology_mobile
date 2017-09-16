@@ -77,7 +77,8 @@ function submitUserInfo(){
 		birthDay:birthday,
 		birth_address:address01,
 		live_address:address02,
-		sex:sex
+		sex:sex,
+		region_id_list: address1_id_list+"#"+address2_id_list
 	  }
   
 	  $.post(url_path + '/astrology/user/add',data, function(response){
