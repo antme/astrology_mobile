@@ -149,8 +149,11 @@
   			 
   			 $("#add_input_1").val(response.birth_address);
   			 $("#add_input_2").val(response.live_address);
-  			 address1_id_list = response.region_id_list.split("#")[0];
-  			 address2_id_list = response.region_id_list.split("#")[1];
+  			 
+  			 if(response.region_id_list){
+	  			 address1_id_list = response.region_id_list.split("#")[0];
+	  			 address2_id_list = response.region_id_list.split("#")[1];
+  			 }
   			  
   			 var sex = response.sex;
   			 if(sex == "女"){
