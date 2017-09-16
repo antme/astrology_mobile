@@ -136,7 +136,7 @@
     			$("#dialog2_title").text("请选择你正在纠结的问题");
     			$("#dialog2").show();
     		}else{   	
-    			zhanxing();
+    			
     			if(can_pay){
 		    		post_ast_request("/astrology/order/reqPreOrderId", {}, function(response){
 		    			console.log(response);
@@ -147,7 +147,7 @@
 					        	signType: 'MD5',
 					            paySign: response.paySign,
 					            success: function (payres) {
-					            	
+					            	zhanxing();
 					            },					            
 					            complete: function(){
 					            	
