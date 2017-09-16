@@ -44,9 +44,9 @@ ul{list-style-type: none}
 .con-cn .con-two a.c-t-2{float: right;margin-right: 10px;}
 .hist{height:60px;line-height: 60px;text-align: center;border-top:6px solid #6a68ab;color: #595797;font-size: 18px;}
 .hist2{height:200px;text-align: center;border-top:6px solid #6a68ab;color: #595797; }
-.hist2 .btn-list1{margin-top:1em;overflow: hidden;}
+.hist2 .btn-list1{margin-top:1em;overflow: hidden;margin-left:5px;}
 .hist2 .btn-list1 li{float: left;width:25%;text-align: center;}
-.hist2 .btn-list1 li a{display: inline-block;background: url('../img/btn01.png') no-repeat; background-size: 27em;width:5.1em;height:6em;}
+.hist2 .btn-list1 li a{display: inline-block;background: url('../img/btn01.png') no-repeat; background-size: 26em;width:6em;height:6em;}
 .hist2 .btn-list1 li a.a1{background-position: 0 0;}
 .hist2 .btn-list1 li a.a2{background-position: -102px 0;}
 .hist2 .btn-list1 li a.a3{background-position: -204px 0;}
