@@ -81,6 +81,7 @@ ul{list-style-type: none}
 .detail-info{margin-top:10px;}
 .detail-info .info-item{margin:10px 20px;padding:5px; padding-top:15px; border-radius: 5px;background-color: #daedff;color:#595797; line-height:1.5;}
 .detail-info .info-item .cn{text-indent: 2em;}
+.detail-info .info-item_xinpan{margin:10px 20px;padding:5px;  border-radius: 5px;background-color: #daedff;color:#595797; line-height:1.5;}
 
 .grxx{position: absolute;width:300px;height:200px;left:50%;margin-left: -150px;top:30%;margin-top:-100px;text-align:center;}
 .grwx{position: absolute;left: 14px;right:14px;bottom:7em;height:60px;line-height:60px;border-radius: 16px;color: #fff;text-align: center;background-color: #6a6aaa;font-size: 16px;}

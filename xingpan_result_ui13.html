@@ -61,7 +61,7 @@
 	   				var contens = r_data[0].body_value.split("RE_PLACE_ME_xxxxx");
 	   			
 	   				contens.forEach(function(e){
-		   				$("#descrption").append(' <div class="info-item">' + e + '</div>');
+		   				$("#descrption").append(' <div class="info-item_xinpan">' + e + '</div>');
 		   			});
 	
 					$("#tip").html(r_data[0].title+"解读");
@@ -74,7 +74,7 @@
 					if(e.title == title){
 						var contens = e.body_value.split("RE_PLACE_ME_xxxxx");
 						contens.forEach(function(child){
-			   				$("#descrption").append(' <div class="info-item">' + child + '</div>');
+			   				$("#descrption").append(' <div class="info-item_xinpan">' + child + '</div>');
 			   			});
 						$("#tip").html(title+"解读");
 						return;
