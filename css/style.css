@@ -220,3 +220,8 @@ ul{list-style-type: none}
     margin: 26px 0px;
 }
 .pgwModal .pm-body .pm-content{text-align: center;padding: 30px 10px;}
+
+
+.picker .picker-panel .wheel-wrapper .wheel .wheel-scroll .wheel-item {
+    font-weight: bold;
+}
