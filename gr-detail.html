@@ -189,9 +189,12 @@
   	          },
   	          isSecondLevel: false
   	      });
-  		  abc1.h_provinceIndex = address1_id_list.split("_")[0];
-  		  abc1.h_cityIndex = address1_id_list.split("_")[1];
-  		  abc1.h_regionIndex = address1_id_list.split("_")[2];
+  		 
+  		 if(address1_id_list!=""){
+	  		  abc1.h_provinceIndex = address1_id_list.split("_")[0];
+	  		  abc1.h_cityIndex = address1_id_list.split("_")[1];
+	  		  abc1.h_regionIndex = address1_id_list.split("_")[2];
+  		 }
   	      
   	      var abc2= $("body").address({
   	          objId:'add_input_2',
@@ -220,9 +223,12 @@
   	          },
   	          isSecondLevel: false
   	      });
-  	      abc2.h_provinceIndex = address2_id_list.split("_")[0];
-  		  abc2.h_cityIndex = address2_id_list.split("_")[1];
-  		  abc2.h_regionIndex = address2_id_list.split("_")[2];
+  	      
+  	      if(address2_id_list!=""){
+	  	      abc2.h_provinceIndex = address2_id_list.split("_")[0];
+	  		  abc2.h_cityIndex = address2_id_list.split("_")[1];
+	  		  abc2.h_regionIndex = address2_id_list.split("_")[2];
+  	      }
   	    
   	      $("#address01_div").click(function(){
   	          abc1.show();
