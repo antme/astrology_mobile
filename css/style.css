@@ -181,10 +181,10 @@ ul{list-style-type: none}
 .l-t span.r{background-color: #ffbab9;color:#595797;}
 .l-t span.g{background-color: #a0f3ff;color:#595797;}
 
-.i-list{margin:0px 20px;}
+/*.i-list{margin:0px 20px;}*/
 .i-list li{margin-bottom: 10px;background-color: #daedff;border-radius: 16px;color:#595797;padding:10px;}
 .i-list li .title{font-size: 20px;text-align: center;}
-.i-list li .text{font-size: 16px;text-indent: 2em; line-height: 1.5;}
+.i-list li .text{font-size: 16px; line-height: 1.5;}
 
 .y-list{margin:10px 20px;text-align: center;}
 .y-list li{margin-bottom: 10px;background-color: #daedff;border-radius: 16px;color:#595797;padding:10px;}
@@ -230,3 +230,10 @@ ul{list-style-type: none}
 .picker .picker-panel .wheel-wrapper .wheel .wheel-scroll .wheel-item {
     font-weight: bold;
 }
+
+.xx_info_item{padding: 5px;border-radius: 5px;}
+.xx-info{border-top:10px solid #595797;text-align: center;}
+.xx-info .title{font-size: 18px;margin:10px 0;color: #595797;}
+
+.xx-info .grwx2{margin:10px;height:40px;line-height:40px;border-radius: 16px;color: #fff;text-align: center;background-color: #6a6aaa;font-size: 16px;}
+.xx-info .text{margin:10px;text-align: left;background-color: #daedff;line-height:1.5;    padding:2px 15px;color: #595797;font-size:15px;}
