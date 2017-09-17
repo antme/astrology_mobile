@@ -59,7 +59,7 @@
 			var contens = content.split("RE_PLACE_ME_xxxxx");
 			contens.forEach(function(child){
 				appendContent(id, child);					
-				});
+			});
 		}
 	
 		
@@ -76,7 +76,8 @@
 		}
 		
 		function parserContent(content){
-			content=content.replace("&nbsp;", "");		
+			content=content.replace("&nbsp;", "");	
+			content = content.replace(new RegExp("<br />","gm"),"")  
 			if(content.indexOf("<br />")==1){
 				content= content.substring(7);
 			}
