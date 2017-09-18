@@ -149,29 +149,32 @@
     		if(questionId==""){
     			$("#dialog2_title").text("请选择你正在纠结的问题");
     			$("#dialog2").show();
-    		}else{   	    			
-    			if(can_pay){
-		    		post_ast_request("/astrology/order/reqPreOrderId", {}, function(response){
-		    			console.log(response);
-					        wx.chooseWXPay({
-					        	timestamp: response.timestamp,
-					        	nonceStr: response.nonceStr,
-					        	package:  response.package,
-					        	signType: 'MD5',
-					            paySign: response.paySign,
-					            success: function (payres) {
-					            	zhanxing();
-					            },					            
-					            complete: function(){
-					            	
-					            }
-					        });			        			
-			        });
+    		}else{   	
+    			if(q_count <3){
+    				zhanxing();
     			}else{
-    				$("#dialog2_title").text("微信支付初始化失败,请刷新后再试");
-        			$("#dialog2").show();
-    			}
-    			
+	    			if(can_pay){
+			    		post_ast_request("/astrology/order/reqPreOrderId", {}, function(response){
+						        wx.chooseWXPay({
+						        	timestamp: response.timestamp,
+						        	nonceStr: response.nonceStr,
+						        	package:  response.package,
+						        	signType: 'MD5',
+						            paySign: response.paySign,
+						            success: function (payres) {
+						            	zhanxing();
+						            },					            
+						            complete: function(){
+						            	
+						            }
+						        });			        			
+				        });
+	    			}else{
+	    				$("#dialog2_title").text("微信支付初始化失败,请刷新后再试");
+	        			$("#dialog2").show();
+	    			}
+	    			
+	    		}
     		}
     	}
     	
