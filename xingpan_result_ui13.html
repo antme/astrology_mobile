@@ -54,7 +54,7 @@
 	        
 			post_ast_request('/astrology/astrology/read_result',data, function(response){   
 	   			response.forEach(function(e){
-	   				$("#tag").append('<li onclick="loadData(\'' + e.title +  '\');"><a href="#">' + e.title + '</a></li>');
+	   				$("#tag").append('<li class="tag_title" id="' + e.nid + '_title" onclick="loadData(\'' + e.title +  '\', \'' + e.nid +  '\');"><a href="#">' + e.title + '</a></li>');
 	   			});
 	   			r_data = response;
 	   			if(r_data.length>0){
@@ -90,7 +90,10 @@
 				return e;
 			}
 
-			function loadData(title){
+			function loadData(title, id){
+				$(".tag_title a").css("background-color","#daedff");
+				
+				$("#" +id + "_title").find("a").css("background-color","#ffb5b4");
 				$("#descrption").html("");
 				r_data.forEach(function(e){
 					if(e.title == title){
