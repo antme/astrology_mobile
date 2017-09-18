@@ -7,7 +7,7 @@ ul{list-style-type: none}
 .con-u2{line-height: 5em;}
 .con-u3{height: auto;}
 /*height: 5em;line-height: 5em;*/
-.con-u3 .title{font-size: 21px;text-align: center;color: #595797;margin:26px 0px;}
+.con-u3 .title{font-size: 21px;text-align: center;color: #595797;padding-top:26px;}
 .con-u3 .a-list li{margin-top:15px;text-align: center;padding:1px 0px;}
 .con-u3 .a-list li a{display:inline-block;width:210px;height:2.5em;line-height: 2.5em;background-color: #6a68ab;border-radius:1.25em;color: #fff;}
 .con-u3 .a-list li a.last{background-color:#dbedff; }
@@ -16,7 +16,7 @@ ul{list-style-type: none}
 .con-u7 .left{position:absolute;left:40px;top:50px;}
 .con-u7 .right{position:absolute;right:40px;top:50px;}
 
-.con-cn{padding:0px 10px;}
+.con-cn{padding:0px 10px; margin-top:15px;}
 @media screen and (min-width: 400px) { 
    .con-cn{padding:10px 10px;}
    .a-list{padding:10px 0px;}
@@ -168,7 +168,8 @@ ul{list-style-type: none}
 .grxx-list li{background-color: #ffb5b4;border-radius: 16px;height: 51px;margin-top:5px;line-height: 51px;color:#595797;}
 .grxx-list li label{font-size:16px;margin-left:16px;float: left;font-weight: 300;}
 .grxx-list li a{margin-right:16px;float:right;margin-top:5px;}
-.f20{font-size:20px;}
+.f20{font-size:20px;    height: 40px;
+    padding-top: 15px;}
 .f16{font-size:16px;}
 
 .grbg-list{margin:17px 13px;}
