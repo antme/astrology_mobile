@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<title>占星骰子</title>
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/weui.css">
+
+<script type="text/javascript" src="./js/path.js"></script>
+<script type="text/javascript" src="./js/common.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+
+</head>
+<body >
+
+
+
+    <div class="content">
+        <div class="con-ti con-u2" id="question_expand_div">
+        	<div class="" id="" onclick="expandQuestion();"> <div class="question_title_1" id="title_1"></div>
+        	
+        	</div>
+        </div>
+     
+      
+        <div class="con-cn" style="display:none;">
+          <div class="con-fist">
+             <a><img src="./img/u1.png" id="xingxin_img"/></a>
+          </div>
+          <div class="con-two">
+                       <a class="c-t-1"><img src="./img/u3.png" id="xingzuo_img"></a>
+          
+             <a class="c-t-2"><img src="./img/u2.png" id="gw_img"></a>
+          </div>
+         
+          
+          <div class="con-btn see" style="display:none;"  id="see_div">
+            <label class="t" onclick="showjiedu();" id="view_label">查看解读</label>
+          </div>
+        </div>
+        <div class="hist">
+          <a href="touzi_history_ui7.html">查看骰子历史记录</a>
+        </div>
+    </div>
+     <div class="floot-menu">
+      <ul>
+        <li class="menu-s">
+          <a href="/astrology_mobile/index.html"><label>首页</label></a>
+        </li>
+        <li class="menu-g">
+          <a href="/astrology_mobile/gr.html"><label>个人星盘</label></a>
+        </li>
+        <li class="menu-l">
+          <a  href="/astrology_mobile/two_peple_ui15.html"><label>两人合盘</label></a>
+        </li>
+        <li class="menu-z">
+          <a  href="/astrology_mobile/my_info_ui16.html"><label>个人中心</label></a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="weui_dialog_alert" id="dialog2" style="display: none;">
+    <div class="weui_mask"></div>
+    <div class="weui_dialog">
+        <div class="weui_dialog_bd" style="margin-top:20px;" id="dialog2_title"></div>
+        <div class="weui_dialog_ft">
+            <a href="javascript:;" class="weui_btn_dialog primary" onclick='$("#dialog2").hide();'>确定</a>
+        </div>
+    </div> 
+	</div>
+
+
+    <script type="text/javascript" src="./js/zepto.min.js"></script>
+    <script type="text/javascript" src="./js/common.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    
+    <script>
+    
+    	var params = GetRequestParameters();
+    	var questionId=params['question_id'];
+    	var question_name = decodeURI(params['question_name']);
+    	$("#title_1").text(question_name);
+    	
+  
+    		var data = {
+    				"question_id" : questionId,
+    				"question_name" : question_name
+    		}    		
+    		post_ast_request('/astrology/question/zhanxing',data, function(response){
+    			$("#title").html($("#"+questionId).html());
+				//$("#question_expand_div").hide();
+	    	
+	    	
+	    		$("#xingxin_img").attr("src",response.xingzuo.uri);
+	    		$("#gw_img").attr("src",response.gw.uri);
+	    		$("#xingzuo_img").attr("src",response.xingxing.uri);
+	    		$(".con-cn").show();
+		    	
+	    		$("#see_div").show();
+	    		xingzuo_id = response.xingzuo.entity_id;
+	    		xingxin_id = response.xingxing.entity_id;
+	    		gongwei_id = response.gw.entity_id;
+	    		
+	    		if(response.jx.field_zhanxingjidaan_value){
+	    			$("#view_label").text(response.jx.field_zhanxingjidaan_value);
+	    		}
+	    		
+	    		if(response.jx.field_zhanxingxiongdaan_value){
+	    			$("#view_label").text(response.jx.field_zhanxingxiongdaan_value);
+	    		}
+	    		
+	    		
+    			
+    		});
+    
+   
+    	
+    	function showjiedu(){
+			window.location.href="touzi_jiedu_ui6.2.html?question_id=" + questionId + "&xingzuo_id=" +xingzuo_id + "&xingxin_id=" + xingxin_id + "&gongwei_id=" + gongwei_id + "$question_name=" + question_name;
+    	}
+   
+    
+    </script>
+    <script>
+        if (window.screen.width <=360 || document.body.clientWidth <=360) {
+            var meta = document.createElement('meta');
+            meta.setAttribute('content', 'width=device-width,initial-scale=0.9,maximum-scale=0.9,user-scalable=0');
+            meta.setAttribute('name', 'viewport');
+            document.head.appendChild(meta);
+        }
+    </script>
+</body>
+</html>

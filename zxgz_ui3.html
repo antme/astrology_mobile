@@ -53,9 +53,7 @@
             <label>￥9.9/次</label>
           </div>
           
-          <div class="con-btn see" style="display:none;"  id="see_div">
-            <label class="t" onclick="showjiedu();">查看解读</label>
-          </div>
+         
         </div>
         <div class="hist">
           <a href="touzi_history_ui7.html">查看骰子历史记录</a>
@@ -108,7 +106,7 @@
 				if(e.is_allowed_today){
     				$("#question_list").append("<li onclick=\"selectQuestion('" + e.uuid + "');\"><a id='" + e.uuid + "'>" + e.title  + "</a></li>");	
 				}else{
-					$("#question_list").append("<li  onclick=\"tipNotAllowMsg();\"><a style=\"color:#f1d0c5;\" id='" + e.uuid + "'>" + e.title  + "</a></li>");	
+					$("#question_list").append("<li  onclick=\"tipNotAllowMsg('" + e.uuid + "');\"><a style=\"color:#f1d0c5;\" id='" + e.uuid + "'>" + e.title  + "</a></li>");	
 				}
     		});
 		});
@@ -127,7 +125,7 @@
     		$("#question_list_div").hide();
     		
     	}
-    	
+ 	
     	
     	function expandQuestion(){
     		$("#expand").hide();
@@ -137,13 +135,11 @@
     	}
     	
     	
-    	
     	function makezxgz(){
     		if(questionId==""){
     			$("#dialog2_title").text("请选择你正在纠结的问题");
     			$("#dialog2").show();
-    		}else{   	
-    			
+    		}else{   	    			
     			if(can_pay){
 		    		post_ast_request("/astrology/order/reqPreOrderId", {}, function(response){
 		    			console.log(response);
@@ -170,40 +166,18 @@
     	}
     	
 
-    	function zhanxing(){
-    		var data = {
-    				"question_id" : questionId,
-    				"question_name" : question_name
-    		}    		
-    		post_ast_request('/astrology/question/zhanxing',data, function(response){
-    			$("#title").html($("#"+questionId).html());
-				$("#question_expand_div").hide();
-	    		$(".con-two").show();
-	    		$(".con-fist").show();
-	    		$("#question_list_div").hide();
-	    		$("#question_expand_div_2").show();
-	    		$("#see_div").show();
-	    		$("#choose_div").hide();
-	    	
-	    		$("#xingxin_img").attr("src",response.xingzuo.uri);
-	    		$("#gw_img").attr("src",response.gw.uri);
-	    		$("#xingzuo_img").attr("src",response.xingxing.uri);
-	    		
-	    		xingzuo_id = response.xingzuo.entity_id;
-	    		xingxin_id = response.xingxing.entity_id;
-	    		gongwei_id = response.gw.entity_id;
-    			
-    		});
-    		  
+    	function zhanxing(){    	
+			window.location.href="zxgz_ui4.html?question_id=" + questionId + "&question_name=" + question_name; 		  
     	}
     	
-    	function tipNotAllowMsg(){
-    		$("#dialog2_title").text("每个问题每天只能占卜一次，请明天再来哦!");
-			$("#dialog2").show();
+    	function tipNotAllowMsg(id){
+			questionId = id;
+    		question_name = $("#" + questionId).html();
+    		window.location.href="zxgz_ui4.html?question_id=" + questionId + "&question_name=" + question_name;   		
     	}
     	
     	function showjiedu(){
-			window.location.href="touzi_jiedu_ui6.2.html?questionId=" + questionId + "&xingzuo_id=" +xingzuo_id + "&xingxin_id=" + xingxin_id + "&gongwei_id=" + gongwei_id + "$question_name=" + question_name;
+			window.location.href="touzi_jiedu_ui6.2.html?question_id=" + questionId + "&xingzuo_id=" +xingzuo_id + "&xingxin_id=" + xingxin_id + "&gongwei_id=" + gongwei_id + "&question_name=" + question_name;
     	}
    
     
