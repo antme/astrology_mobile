@@ -82,9 +82,11 @@
 			
 			$("#xingxin_title").html(response.xingxing.name);
 			$("#gongwei_title").html(response.gw.name+"解读");
-			$("#gongwei_description").html(response.gw.descrption);
+			$("#gongwei_description").html(response.gw.descrption.replace(new RegExp("RE_PLACE_ME_xxxxx","gm"),""));
+		
+			
 			$("#xingzuo_title").html(response.xingzuo.name+"解读");
-			$("#xingzuo_description").html(response.xingzuo.descrption);
+			$("#xingzuo_description").html(response.xingzuo.descrption.replace(new RegExp("RE_PLACE_ME_xxxxx","gm"),""));
 			
 			$("#content").show();
 		 

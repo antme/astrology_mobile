@@ -77,7 +77,7 @@
 		
 		function parserContent(content){
 			content=content.replace("&nbsp;", "");	
-			content = content.replace(new RegExp("<br />","gm"),"")  
+			content = content.replace(new RegExp("<br />","gm"),"" );
 			if(content.indexOf("<br />")==1){
 				content= content.substring(7);
 			}
