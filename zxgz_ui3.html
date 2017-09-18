@@ -50,7 +50,7 @@
           </div>
           <div class="con-btn" id="choose_div">
             <label class="t" onclick="makezxgz();">占星骰子帮你选</label>
-            <label>￥9.9/次</label>
+            <label id="money_tip"></label>
           </div>
           
          
@@ -97,11 +97,21 @@
     	var xingxin_id="";
     	var gongwei_id="";
     	var question_name = "";
+    	var q_count = 0;
     	
     	loadWeiXinConfig();
     	
 		post_ast_request('/astrology/question/list',{}, function(response){
-			response.forEach(function(e){
+			q_count = response.q_count;
+			
+			if(q_count>=3){
+				
+				$("#money_tip").text("￥9.9/次");
+				
+			}else{
+				$("#money_tip").text("免费");
+			}
+			response.rows.forEach(function(e){
 				
 				if(e.is_allowed_today){
     				$("#question_list").append("<li onclick=\"selectQuestion('" + e.uuid + "');\"><a id='" + e.uuid + "'>" + e.title  + "</a></li>");	
