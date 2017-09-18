@@ -41,8 +41,8 @@ function post_ast_request(url, data, callback){
 function submitUserInfo(){
 	  var birthday = $("#birthday").text();
 	  var name = $("#name").val();
-	  var address01 = $("#address01").text();
-	  var address02 = $("#address02").text();
+	  var address01 = $("#add_input_1").val();
+	  var address02 = $("#add_input_2").val();
 	  
 	  if(name == ""){
 		  $.pgwModal({

@@ -143,13 +143,15 @@
   		if(response.name){
   			 $("#name").val(response.name);
   			
-  			 
-  			 $("#address01").text(response.birth_address);
-  			 $("#address02").text(response.live_address);
-  			 
   			 $("#add_input_1").val(response.birth_address);
   			 $("#add_input_2").val(response.live_address);
   			 
+  
+  			 $("#address01").text(loadAddress(response.birth_address));
+  		
+              $("#address02").text(loadAddress(response.live_address));
+
+ 
   			 if(response.region_id_list){
 	  			 address1_id_list = response.region_id_list.split("#")[0];
 	  			 address2_id_list = response.region_id_list.split("#")[1];
@@ -163,17 +165,15 @@
   		}
   		
   		 var abc1 = $("body").address({
-  	          objId:'add_input_1',
+  	          objId:'address01',
   	          complete: function (date) {
   	              var str = JSON.stringify(date);
   	              str = JSON.parse(str);
   	              if(this.objId!==""){
   	            	var address = str.province + " " + str.city +" " + str.region;
-  	            	if(address.length > 13){
-  	            		$("#address01").text(str.province + " " + str.city + "...");
-  	            	}else{
-  	                	$("#address01").text(str.province + " " + str.city +" " + str.region);
-  	            	}
+  	  	  			 $("#add_input_1").val(address); 
+  	            	
+  	            	$("#address01").text(loadAddress(address));
   	            	address1_id_list = date.region_id_list;
   	              }
   	              return date;
@@ -200,15 +200,17 @@
   		 }
   	      
   	      var abc2= $("body").address({
-  	          objId:'add_input_2',
+  	          objId:'address02',
   	          complete: function (date) {
   	        	  console.log(date);
   	              var str = JSON.stringify(date);
   	              console.log(abc2.h_provinceIndex);
   	              str = JSON.parse(str);
-  	              if(this.objId!==""){
-  	                $("#address02").text(str.province + " " + str.city +" " + str.region);
-  	              }
+  	              var address = str.province + " " + str.city +" " + str.region;
+               
+  	                $("#add_input_2").val(address);
+  	              $("#address02").text(loadAddress(address));
+  	          
   	              address2_id_list = date.region_id_list;
   	              return date;
   	          },
@@ -242,6 +244,13 @@
   	      })
   	      
   		});
+      
+      function loadAddress(address){
+    	  if(address.length > 13){
+			return address.substring(0,13);    		  
+    	  }
+    	  return address;
+      }
       
     </script>
     <script>
