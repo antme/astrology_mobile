@@ -69,23 +69,35 @@
 				
 				e  = parserContent(e);
 				
-				if((e.indexOf("座女生")==-1 && e.indexOf("男女生")==-1) || (e.indexOf("座女生")!=-1 && r_data.sex=="女") || (e.indexOf("座男生")!=-1 && r_data.sex=="男")){
+				if(r_data.sex=="女"){
+					if(e.indexOf("座男生")==-1){
+				
+						if(e.indexOf('<p>') == -1){
+								$("#descrption").append(' <div class="info-item_xinpan"><p>' + e + '</p></div>');
+							}else{
+								$("#descrption").append(' <div class="info-item_xinpan">' + e + '</div>');
+						}
 					
-				
-					if(e.indexOf('<p>') == -1){
-							$("#descrption").append(' <div class="info-item_xinpan"><p>' + e + '</p></div>');
-						}else{
-							$("#descrption").append(' <div class="info-item_xinpan">' + e + '</div>');
 					}
-				
+				}else{
+					if(e.indexOf("座女生")==-1){
+						
+						if(e.indexOf('<p>') == -1){
+								$("#descrption").append(' <div class="info-item_xinpan"><p>' + e + '</p></div>');
+							}else{
+								$("#descrption").append(' <div class="info-item_xinpan">' + e + '</div>');
+						}
+					
+					}
 				}
+			
 			}
 			
 			function parserContent(e){
 				e = e.replace("&nbsp;", "");	
-				e = e.replace("<br />", "");
-				if(e.indexOf("<br />")==1){
-					e = e.substring(7);
+			
+				if(e.indexOf("<br />")>-1 && e.indexOf("<br />") <=3){
+					e = e.replace("<br />", "");
 				}
 				if(e.indexOf("&nbsp;")==1 || e.indexOf("<br />")==1){
 					e = parserContent(e);
