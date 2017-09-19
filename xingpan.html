@@ -54,6 +54,12 @@
     <div class="content">
         <div class="con-cj"><img width="100%" src="" id="xingpan_img" style="display:none;"/></div>
         
+         <div class="users_tag_xingpan" id="tags1">
+          <span class="p" id="name"></span><span class="p" id="sex"></span>
+          <span class="p" id="birthday"></span><span class="users_tag_xingpan_p1" id="" onclick="loadReportPage();">查看其他星盘>></span>
+          
+        </div>
+        
          <div class="tag_xingpan" id="tags">
           <span class="p" id="tag1"></span><span class="p" id="tag2"></span>
           <span class="p" id="tag3"></span><span class="p" id="tag4"></span>
@@ -116,7 +122,15 @@
    			$("#tag3").text(response.tag3);
    			$("#tag4").text(response.tag4);
    			
+   			$("#name").text(response.user_xingzuo_data.name);
+   			$("#sex").text(response.user_xingzuo_data.sex);
+   			$("#birthday").text(response.user_xingzuo_data.birthDay.split(" ")[0].replace(new RegExp("-","gm"),"."));
+   			
     	});
+		
+		function loadReportPage(){
+			window.location.href="report_ui17.html";
+		}
    	
        </script>
     <script>
