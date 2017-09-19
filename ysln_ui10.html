@@ -61,10 +61,10 @@
 			$("#xingxing_img").attr("src","/sites/default/files/xz/" + response[0].field_xingxing_value +".png");
 			
 			$("#nengliang_dingwei").html(response[0].field_nengliangdingwei_value);
-			
+	
 			$("#xingzhi").html(response[0].field_nengliangxingzhi_value);
 			$("#fangxiang").html(response[0].field_nengliangfangxiang_value);
-			$("#xingge").html(response[0].field_xingzuoxinggejiyu_value);
+			$("#xingge").html(response[0].field_xingzuoxinggejiyu_value.replace(new RegExp("RE_PLACE_ME_xxxxx","gm"),""));
 			
 			$(".img").show();
 		});
