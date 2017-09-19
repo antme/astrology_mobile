@@ -150,7 +150,7 @@ ul{list-style-type: none}
 .jd-list li .left{display: inline-block;position: absolute;left:20px;top:20px;}
 .jd-list li .right{display: inline-block;margin-left:132px;margin-right:26px;margin-top:20px;margin-bottom:26px;color:#fff;}
 .jd-list li .right .title{font-size:16px;}
-.jd-list li .right .text{font-size:10px;}
+.jd-list li .right .text{font-size:15px;}
 .jd-detail-list{margin:13px;}
 .jd-detail-list li{margin-top:5px;padding:20px;background-color: #90b2f0;border-radius: 16px;color:#fff;}
 .ask-list{margin:13px;}
@@ -192,7 +192,7 @@ ul{list-style-type: none}
 .y-list li .title{font-size: 20px;}
 .y-list li .img{margin-top:17px;}
 .y-list li .text{font-size: 14px;}
-.y-list li .top17{margin-top:17px;font-weight: 300;}
+.y-list li .top17{margin-top:17px;font-weight: 300;font-size:16px;    letter-spacing: 1px;}
 .y-list li .top17-2{font-weight: 300;font-size: 84px;}
 .y-list li .t-i{text-align: left;margin-top:20px;}
 .y-list li .t-i div{text-indent: 2em;}
@@ -222,7 +222,7 @@ ul{list-style-type: none}
 .user-info .user-list span div{width:95px;border-radius: 47px;overflow: hidden;}
 .user-info .user-list span label{font-size: 15px;display: block;margin-top:5px;color: #595797;}
 .user-info .grwx2{margin:10px;height:40px;line-height:40px;border-radius: 16px;color: #fff;text-align: center;background-color: #6a6aaa;font-size: 16px;}
-.user-info .text{margin:10px;text-align: left;background-color: #daedff;line-height:1.5;    padding:15px 15px;
+.user-info .text{text-align: left;background-color: #daedff;line-height:1.5;    padding:15px 15px;
     color: #595797;
     letter-spacing:1px;
     font-size:16px;
