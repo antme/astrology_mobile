@@ -53,13 +53,13 @@
 	        
 	        
 			post_ast_request('/astrology/astrology/read_result',data, function(response){   
-	   			response.forEach(function(e){
+	   			response.results.forEach(function(e){
 	   				$("#tag").append('<li class="tag_title" id="' + e.nid + '_title" onclick="loadData(\'' + e.title +  '\', \'' + e.nid +  '\');"><a href="#">' + e.title + '</a></li>');
 	   			});
 	   			r_data = response;
-	   			if(r_data.length>0){
+	   			if(r_data.results.length>0){
 	   				
-	   				loadData(r_data[0].title, r_data[0].nid)
+	   				loadData(r_data.results[0].title, r_data.results[0].nid)
 
 	   				
 	   			}
@@ -69,15 +69,21 @@
 				
 				e  = parserContent(e);
 				
-				if(e.indexOf('<p>') == -1){
-						$("#descrption").append(' <div class="info-item_xinpan"><p>' + e + '</p></div>');
-					}else{
-						$("#descrption").append(' <div class="info-item_xinpan">' + e + '</div>');
+				if((e.indexOf("座女生")==-1 && e.indexOf("男女生")==-1) || (e.indexOf("座女生")!=-1 && r_data.sex=="女") || (e.indexOf("座男生")!=-1 && r_data.sex=="男")){
+					
+				
+					if(e.indexOf('<p>') == -1){
+							$("#descrption").append(' <div class="info-item_xinpan"><p>' + e + '</p></div>');
+						}else{
+							$("#descrption").append(' <div class="info-item_xinpan">' + e + '</div>');
+					}
+				
 				}
 			}
 			
 			function parserContent(e){
-				e = e.replace("&nbsp;", "");		
+				e = e.replace("&nbsp;", "");	
+				e = e.replace("<br />", "");
 				if(e.indexOf("<br />")==1){
 					e = e.substring(7);
 				}
@@ -92,7 +98,7 @@
 				
 				$("#" +id + "_title").find("a").css("background-color","#ffb5b4");
 				$("#descrption").html("");
-				r_data.forEach(function(e){
+				r_data.results.forEach(function(e){
 					if(e.title == title){
 						var contens = e.body_value.split("RE_PLACE_ME_xxxxx");
 						contens.forEach(function(child){
