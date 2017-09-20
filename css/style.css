@@ -16,7 +16,7 @@ ul{list-style-type: none}
 .con-u7 .left{position:absolute;left:40px;top:50px;}
 .con-u7 .right{position:absolute;right:40px;top:50px;}
 
-.con-cn{padding:0px 10px; margin-top:10px;}
+.con-cn{padding:0px 10px; margin-top:5px;}
 @media screen and (min-width: 400px) { 
    .con-cn{padding:10px 10px;}
    .a-list{padding:10px 0px;}
