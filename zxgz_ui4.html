@@ -24,11 +24,22 @@
     <div class="content">
         <div class="con-ti con-u2" id="question_expand_div">
         	<div class="" id="" onclick="expandQuestion();"> <div class="question_title_1" id="title_1"></div>
-        	
+        	<img height="20px" src="./img/expand.png"  id="expand"/>
         	</div>
         </div>
      
-      
+       <div class="con-ti con-u3" id="question_list_div" style="display:none;">
+        	
+          <div class="a-list" style="height: 21em; display: inline-block; overflow: hidden;">
+            <ul  id="question_list">
+              
+            </ul>
+            <ul>
+            	<li><a class="last"><img height="20px" src="./img/b01.png" /></a></li>
+            </ul>
+          </div>
+        </div>
+        
         <div class="con-cn" style="display:none;">
           <div class="con-fist">
              <a><img src="./img/u1.png" id="xingxin_img"/></a>
@@ -43,6 +54,12 @@
           <div class="con-btn see" style="display:none;"  id="see_div">
             <label class="t" onclick="showjiedu();" id="view_label">查看解读</label>
           </div>
+          
+        <div class="con-btn" id="choose_div" style="display:none;">
+            <label class="t" onclick="makezxgz();">占星骰子帮你选</label>
+            <label id="money_tip"></label>
+          </div>
+          
            <div class=""  id="" style="    color: #595797; text-align: center;  margin-top: -15px;     font-size: 12px;">
             <label class="t1" onclick="showjiedu();" id="view_label_detai">详细解读>></label>
           </div>
@@ -84,9 +101,11 @@
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     
     <script>
-    
+    	var q_count = 0;
+		loadWeiXinConfig();
     	var params = GetRequestParameters();
     	var questionId=params['question_id'];
+    	var previours_questionId = questionId;
     	var question_name = decodeURI(params['question_name']);
     	$("#title_1").text(question_name);
     	
@@ -119,15 +138,104 @@
 	    		}
 	    		
 	    		
+	    		post_ast_request('/astrology/question/list',{}, function(response){
+	    			q_count = response.q_count;
+	    			
+	    			response.rows.forEach(function(e){
+	    				
+	    				if(e.is_allowed_today){
+	        				$("#question_list").append("<li onclick=\"selectQuestion('" + e.uuid + "');\"><a id='" + e.uuid + "'>" + e.title  + "</a></li>");	
+	    				}else{
+	    					$("#question_list").append("<li  onclick=\"tipNotAllowMsg('" + e.uuid + "');\"><a style=\"color:#f1d0c5;\" id='" + e.uuid + "'>" + e.title  + "</a></li>");	
+	    				}
+	        		});
+	    		});
+	       
+	    		
+	    		
     			
     		});
     
    
     	
     	function showjiedu(){
-			window.location.href="touzi_jiedu_ui6.2.html?question_id=" + questionId + "&xingzuo_id=" +xingzuo_id + "&xingxin_id=" + xingxin_id + "&gongwei_id=" + gongwei_id + "$question_name=" + question_name;
+			window.location.href="touzi_jiedu_ui6.2.html?question_id=" + previours_questionId + "&xingzuo_id=" +xingzuo_id + "&xingxin_id=" + xingxin_id + "&gongwei_id=" + gongwei_id + "$question_name=" + question_name;
     	}
    
+    	
+    	function selectQuestion(id){
+    		questionId = id;
+    		question_name = $("#" + questionId).html();
+    		$("#question_list a").css("background-color","#6a68ab");
+    		$("#"+id).css("background-color","#ffb6b7");
+    		$("#title_1").text(question_name);
+    		
+    		$("#expand").show();
+    		$(".con-two").show();
+    		$(".con-fist").show();
+    		$("#question_list_div").hide();
+    		
+			$("#choose_div").show();
+			$("#see_div").hide();
+			if(q_count>=3){
+				
+				$("#money_tip").text("￥9.9/次");
+				
+			}else{
+				$("#money_tip").text("免费");
+			}
+    		
+    	}
+    	
+    	function makezxgz(){
+    		if(questionId==""){
+    			$("#dialog2_title").text("请选择你正在纠结的问题");
+    			$("#dialog2").show();
+    		}else{   	
+    			if(q_count <3){
+    				zhanxing();
+    			}else{
+	    			if(can_pay){
+			    		post_ast_request("/astrology/order/reqPreOrderId", {}, function(response){
+						        wx.chooseWXPay({
+						        	timestamp: response.timestamp,
+						        	nonceStr: response.nonceStr,
+						        	package:  response.package,
+						        	signType: 'MD5',
+						            paySign: response.paySign,
+						            success: function (payres) {
+						            	zhanxing();
+						            },					            
+						            complete: function(){
+						            	
+						            }
+						        });			        			
+				        });
+	    			}else{
+	    				$("#dialog2_title").text("微信支付初始化失败,请刷新后再试");
+	        			$("#dialog2").show();
+	    			}
+	    			
+	    		}
+    		}
+    	}
+
+    	function zhanxing(){    	
+			window.location.href="zxgz_ui4.html?question_id=" + questionId + "&question_name=" + question_name; 		  
+    	}
+    	function tipNotAllowMsg(id){
+			questionId = id;
+    		question_name = $("#" + questionId).html();
+    		window.location.href="zxgz_ui4.html?question_id=" + questionId + "&question_name=" + question_name;   		
+    	}
+
+    	function expandQuestion(){
+    		$("#expand").hide();
+    		$(".con-two").hide();
+    		$(".con-fist").hide();
+    		$("#question_list_div").show();
+    	}
+    	
     
     </script>
     <script>
