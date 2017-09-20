@@ -117,10 +117,20 @@
    			$("#a2").attr("href", "xingpan_result_ui13.html?type=businese&id=" + response.id);
    			$("#a3").attr("href", "xingpan_result_ui13.html?type=relationship&id=" + response.id);
    			document.title = response.user_xingzuo_data.name + "的星盘";
-   			$("#tag1").text(response.tag1);
-   			$("#tag2").text(response.tag2);
-   			$("#tag3").text(response.tag3);
-   			$("#tag4").text(response.tag4);
+   			
+   			var tags = response.tags;
+   			tags.forEach(function(e, index){
+   				if(index == 0){
+   		   			$("#tag1").text(e);
+
+   				}else if(index == 1){
+   					$("#tag2").text(e);
+   				}else if(index == 2){
+   					$("#tag3").text(e);
+   				}
+   				
+   			});
+   	
    			
    			$("#name").text(response.user_xingzuo_data.name);
    			$("#sex").text(response.user_xingzuo_data.sex);
