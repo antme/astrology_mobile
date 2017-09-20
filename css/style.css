@@ -100,7 +100,7 @@ ul{list-style-type: none}
 .form-item .item-l{float: left;margin-left: 10px;font-size: 18px; text-align:center;}
 .form-item .item-l .text_1{margin-left:5px;}
 .form-item .item-l .i{width:15px;display: inline-block}
-.form-item .item-l img,.form-item .item-r img{vertical-align: sub}
+.form-item .item-l img,.form-item .item-r img{vertical-align: sub; padding-bottom:2px;}
 .form-item .item-r{float: right;margin-right: 15px;}
 .form-item .item-r span{background-color: transparent; 
     text-align: right;
