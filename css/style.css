@@ -3,7 +3,7 @@ a{text-decoration: none;}
 body{font-size: 15px;font-weight: 100;}
 ul{list-style-type: none}
 .con-ti{height: 5em;background-color: #dbedff;text-align: center;}
-.con-cj{padding:10px 20px;}
+.con-cj{padding-top:5px; padding-left:20px; padding-right:20px;}
 .con-u2{line-height: 5em;}
 .con-u3{height: auto;}
 /*height: 5em;line-height: 5em;*/
