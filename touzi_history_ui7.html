@@ -99,6 +99,7 @@
 	    }
 	    
 	    function createQuestionList(zx_date){
+	    	$("#question_list").html("");
 	    	if(last_zx_date!=zx_date){
 	    		 post_ast_request('/astrology/question/listHistoryQuestionName',{"zx_date":zx_date}, function(response){   
 	    			 
