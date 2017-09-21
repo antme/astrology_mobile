@@ -209,7 +209,6 @@ ul{list-style-type: none}
 .tag_user{font-size: 15px; color: #fff; text-align:center; margin-top:-13px;}
 
 .tag_xingpan{font-size: 12px; color: #fff; text-align:center; margin-top:-13px;}
-.tag_xingpan span.p{display:inline-block;color: #6a68ab;padding:5px 5px;margin:5px 5px;}
 
 .users_tag_xingpan{font-size: 13px; color: #fff; text-align:right; margin-top:-13px; margin-right: 32px; font-weight: bolder;}
 .users_tag_xingpan span.p{display:inline-block;color: #6a68ab;padding:10px 3px;}
@@ -271,3 +270,15 @@ ul{list-style-type: none}
     width: 20%;
 }
 
+.tag_xingpan img{
+	
+	width:15px;
+	height:15px;
+	    vertical-align: sub;
+}
+
+.tag_xingpan span.p{}
+
+.tag_xingpan_2{
+	display:inline-block;color: #6a68ab;padding:5px 5px;margin:5px 5px;
+}
