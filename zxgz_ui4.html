@@ -129,11 +129,11 @@
 	    		xingxin_id = response.xingxing.entity_id;
 	    		gongwei_id = response.gw.entity_id;
 	    		
-	    		if(response.jx.field_zhanxingjidaan_value){
+	    		if(response.jx && response.jx.field_zhanxingjidaan_value){
 	    			$("#view_label").text(response.jx.field_zhanxingjidaan_value);
 	    		}
 	    		
-	    		if(response.jx.field_zhanxingxiongdaan_value){
+	    		if(response.jx && response.jx.field_zhanxingxiongdaan_value){
 	    			$("#view_label").text(response.jx.field_zhanxingxiongdaan_value);
 	    		}
 	    		
