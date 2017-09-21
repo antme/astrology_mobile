@@ -31,8 +31,8 @@ ul{list-style-type: none}
 }
 
 .con-cn li{float: left;width:33%;margin-top:21px;text-align: center}
-.con-cn li a{display: inline-block;width:80px;height:75px;}
-.con-cn li img{width:80px;}
+.con-cn li a{display: inline-block; padding:5px 10px;}
+.con-cn li img{width:95%;}
 .con-cn .con-btn{height:60px;border-radius: 16px;background-color: #6a68ab;color: #fff;margin:19px 0px;text-align: center}
 .con-cn .con-btn label{display: inline-block;width: 100%;}
 .con-cn .con-btn label.t{font-size: 18px;margin:4px 0;}
@@ -258,3 +258,16 @@ ul{list-style-type: none}
 
 .xx-info .grwx2{margin:10px;height:40px;line-height:40px;border-radius: 16px;color: #fff;text-align: center;background-color: #6a6aaa;font-size: 16px;}
 .xx-info .text{margin:10px;text-align: left;background-color: #daedff;line-height:1.5;    padding:2px 15px;color: #595797;font-size:16px;     letter-spacing: 1px;}
+
+._date_top_ul{
+	width: 100%;
+    height: 20px;
+    margin-top: -10px;
+}
+
+._date_top {
+	float: left;
+    text-align: center;
+    width: 20%;
+}
+

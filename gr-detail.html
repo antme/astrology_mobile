@@ -133,9 +133,13 @@
       });
   
       $("#textdatetime").click(function(){
-        picker2.show();
-        timer = 'birthday';
-      });
+        	picker2.show();
+       		timer = 'birthday';
+        
+	        if($("#date_tip").length == 0){
+	        	$('<ul id="date_tip" class="_date_top_ul"><li class="_date_top">年</li><li class="_date_top">月</li><li class="_date_top">日</li><li class="_date_top">时</li><li class="_date_top">分</li></ul>').insertAfter( ".picker-choose" );
+	        }
+        });
       var address1_id_list = "";
       var address2_id_list = "";
       post_ast_request('/astrology/user/get',{}, function(response){
