@@ -31,7 +31,7 @@ ul{list-style-type: none}
 }
 
 .con-cn li{float: left;width:33%;margin-top:18px;text-align: center}
-.con-cn li a{display: inline-block; padding:5px 10px;}
+.con-cn li a{display: inline-block; padding:5px 13px;}
 .con-cn li img{width:90%;}
 .con-cn .con-btn{height:60px;border-radius: 16px;background-color: #6a68ab;color: #fff;margin:19px 0px;text-align: center}
 .con-cn .con-btn label{display: inline-block;width: 100%;}
