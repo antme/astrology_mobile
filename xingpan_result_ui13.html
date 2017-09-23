@@ -22,7 +22,7 @@
            
           </ul>
         </div>
-        <div class="t-no">点击标签，查看感情密码的组合解读</div>
+        <div class="t-no" id="t-no"></div>
         <div class="sBtn" id="tip">查 看 解 读</div>
         <div class="detail-info" id="descrption">
          
@@ -43,12 +43,16 @@
 	        var type = urlparameters["type"];
 	        if(type == "emotion"){
 	        	document.title = "感情密码";
+	        	$("#t-no").text("点击标签，查看感情密码的组合解读");
 	        }else  if(type == "businese"){
 	        	document.title = "事业密码";
+	        	$("#t-no").text("点击标签，查看事业密码的组合解读");
 	        } else  if(type == "relationship"){
 	        	document.title = "人际关系";
+	        	$("#t-no").text("点击标签，查看人际关系的组合解读");
 	        } else  if(type == "fortune"){
 	        	document.title = "财富密码";
+	        	$("#t-no").text("点击标签，查看财富密码的组合解读");
 	        } 
 	        
 	        
