@@ -68,7 +68,7 @@
 			function appendContent(e){
 				
 				e  = parserContent(e);
-				
+				e = e.replace(new RegExp("<br />","gm"),"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
 				if(r_data.sex=="女"){
 					if(e.indexOf("座男生")==-1){
 				
