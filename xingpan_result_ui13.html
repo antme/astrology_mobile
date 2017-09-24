@@ -75,6 +75,10 @@
 				var n=(e.split('<br />')).length;
 				if(n > 2){
 					e = e.replace("<br />","<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+				}else if(n==2){
+					if(e.split('<br />')[1].length > 7){
+						e = e.replace("<br />","<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+					}
 				}
 				if(r_data.sex=="女"){
 					if(e.indexOf("座男生")==-1){
