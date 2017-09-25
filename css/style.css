@@ -229,7 +229,7 @@ ul{list-style-type: none}
     letter-spacing:1px;
     font-size:16px;
     text-indent:2em;
-    display: inline-table;
+    display: inline-block;
     word-break: break-all;
 }
 .see-btn{width:100%;text-align:center;height: 60px;line-height: 60px;background-color: #595797;color: #fff;font-size: 20px;font-weight: 300;position: fixed;left:0px;bottom: 0px;}
@@ -285,4 +285,11 @@ ul{list-style-type: none}
 
 .tag_xingpan_2{
 	display:inline-block;color: #6a68ab;padding:5px 5px;margin:5px 5px;
+}
+
+.story_span{
+	display: inline-block;
+    padding: 3px 5px;
+    float: right;
+    width: 100%;
 }

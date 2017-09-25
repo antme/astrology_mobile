@@ -127,7 +127,9 @@
     		});
     		
     		results[0].stories.forEach(function(e){
-    			var content = e.stories.replace(new RegExp("<br />","gm"),"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+    
+				
+    			var content = e.stories.replace(new RegExp("<br />","gm"),"<br /><span class=\"story_span\"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
     			$("#story_list").append("<div class='story_info_item'>" + content + "</div>")
 
     		});
