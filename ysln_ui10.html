@@ -32,7 +32,7 @@
             </li>
             <li>
                 <div class="title">能量方向</div>
-                <div class="title top17" id="fangxiang"></div>
+                <div class="title top18" id="fangxiang"></div>
             </li>
             <li>
                 <div class="title">性格寄语</div>
@@ -64,7 +64,13 @@
 	
 			$("#xingzhi").html(response[0].field_nengliangxingzhi_value);
 			$("#fangxiang").html(response[0].field_nengliangfangxiang_value);
-			$("#xingge").html(response[0].field_xingzuoxinggejiyu_value.replace(new RegExp("RE_PLACE_ME_xxxxx","gm"),""));
+			
+			var e = response[0].field_xingzuoxinggejiyu_value.replace(new RegExp("RE_PLACE_ME_xxxxx","gm"),"");
+			var n=(e.split('<br />')).length;
+			
+			e = e.replace(new RegExp("<br />","gm"),"<br /><span class=\"story_span\"></span>&nbsp;&nbsp;&nbsp;&nbsp;");
+		
+			$("#xingge").html(e);
 			
 			$(".img").show();
 		});
