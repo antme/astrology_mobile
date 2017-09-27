@@ -63,13 +63,26 @@
 	   			r_data = response;
 	   			if(r_data.results.length>0){
 	   				
+	   				r_data.results.forEach(function(e){
+						//if(e.title == title){
+							console.log(e);
+							var contens = e.body_value.split("RE_PLACE_ME_xxxxx");
+							contens.forEach(function(child){
+								appendContent(child, e.nid);					
+				   			});
+							
+							//return;
+						//}
+						
+					});
+	   				
 	   				loadData(r_data.results[0].title, r_data.results[0].nid)
 
 	   				
 	   			}
 	       	});
 			
-			function appendContent(e){
+			function appendContent(e, id){
 				
 				e  = parserContent(e);
 				var n=(e.split('<br />')).length;
@@ -84,9 +97,9 @@
 					if(e.indexOf("座男生")==-1){
 				
 						if(e.indexOf('<p>') == -1){
-								$("#descrption").append(' <div class="info-item_xinpan"><p>' + e + '</p></div>');
+								$("#descrption").append(' <div class="info-item_xinpan ' + id + '"><p>' + e + '</p></div>');
 							}else{
-								$("#descrption").append(' <div class="info-item_xinpan">' + e + '</div>');
+								$("#descrption").append(' <div class="info-item_xinpan ' + id + '">' + e + '</div>');
 						}
 					
 					}
@@ -94,9 +107,9 @@
 					if(e.indexOf("座女生")==-1){
 						
 						if(e.indexOf('<p>') == -1){
-								$("#descrption").append(' <div class="info-item_xinpan"><p>' + e + '</p></div>');
+								$("#descrption").append(' <div class="info-item_xinpan ' + id + '"><p>' + e + '</p></div>');
 							}else{
-								$("#descrption").append(' <div class="info-item_xinpan">' + e + '</div>');
+								$("#descrption").append(' <div class="info-item_xinpan ' + id + '">' + e + '</div>');
 						}
 					
 					}
@@ -120,18 +133,12 @@
 				$(".tag_title a").css("background-color","#daedff");
 				
 				$("#" +id + "_title").find("a").css("background-color","#ffb5b4");
-				$("#descrption").html("");
-				r_data.results.forEach(function(e){
-					if(e.title == title){
-						var contens = e.body_value.split("RE_PLACE_ME_xxxxx");
-						contens.forEach(function(child){
-							appendContent(child);					
-			   			});
-						$("#tip").html(title+"解读");
-						return;
-					}
-					
-				});
+				
+				$("#tip").html(title+"解读");
+				$(".info-item_xinpan").hide();
+				$("." + id).show();
+				//$("#descrption").html("");
+				
 			}
        </script>
       <script>
