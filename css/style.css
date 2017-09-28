@@ -228,7 +228,7 @@ ul{list-style-type: none}
 .user-info .user-list span div{width:95px;border-radius: 47px;overflow: hidden;}
 .user-info .user-list span label{font-size: 15px;display: block;margin-top:5px;color: #595797;}
 .user-info .grwx2{margin:10px;height:40px;line-height:40px;border-radius: 16px;color: #fff;text-align: center;background-color: #6a6aaa;font-size: 16px; margin-top:20px;}
-.user-info .text{text-align: left;background-color: #daedff;line-height:1.5;    padding:15px 15px;
+.user-info .text{text-align: justify;background-color: #daedff;line-height:1.5;    padding:15px 15px;
     color: #595797;
     letter-spacing:1px;
     font-size:16px;
