@@ -297,3 +297,10 @@ ul{list-style-type: none}
     float: right;
     width: 100%;
 }
+
+
+.xingxiang_span{
+	display: block;
+    padding: 5px 5px;
+    width: 100%;
+}
