@@ -90,6 +90,7 @@ ul{list-style-type: none}
     text-indent:1.7em;
     display:none;
     font-size:16px;
+    text-align: justify;
 }
 
 .grxx{position: absolute;width:300px;height:200px;left:50%;margin-left: -150px;top:30%;margin-top:-100px;text-align:center;}
@@ -196,7 +197,7 @@ ul{list-style-type: none}
 .y-list li .title{font-size: 20px;}
 .y-list li .img{margin-top:17px;}
 .y-list li .text{font-size: 14px;}
-.y-list li .top17{margin-top:17px;font-weight: 300;font-size:16px;    letter-spacing: 1px; text-indent:2em;line-height: 1.5;}
+.y-list li .top17{margin-top:17px;font-weight: 300;font-size:16px;    letter-spacing: 1px; text-indent:2em;line-height: 1.5;     padding: 0px 15px;}
 .y-list li .top18{margin-top:17px;font-weight: 300;font-size:16px;    letter-spacing: 1px; line-height: 1.5;}
 
 .y-list li .top17-2{font-weight: 300;font-size: 84px;}
@@ -263,7 +264,7 @@ ul{list-style-type: none}
 .xx-info .title{font-size: 18px;margin:10px 0;color: #595797;}
 
 .xx-info .grwx2{margin:10px;height:40px;line-height:40px;border-radius: 16px;color: #fff;text-align: center;background-color: #6a6aaa;font-size: 16px;}
-.xx-info .text{text-align: left;background-color: #daedff;line-height:1.5;    padding:2px 15px;color: #595797;font-size:16px;     text-indent:2em; letter-spacing: 1px;}
+.xx-info .text{text-align: justify;background-color: #daedff;line-height:1.5;    padding:2px 15px;color: #595797;font-size:16px;     text-indent:2em; letter-spacing: 1px;}
 
 ._date_top_ul{
 	width: 100%;
