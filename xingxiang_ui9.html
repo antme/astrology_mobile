@@ -72,9 +72,9 @@
 				content = content.replace(new RegExp("<p>","gm"),"");
 				content = content.replace(new RegExp("</p>","gm"),"");
 				if(content.indexOf('<p>') == -1){
-						$("#"+id).append(' <div class="text"><p>' + content + '</p></div>');
+						$("#"+id).append(' <div class="text"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + content + '</p></div>');
 					}else{
-						$("#"+id).append(' <div class="text">' + content + '</div>');
+						$("#"+id).append(' <div class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + content + '</div>');
 				}
 			}
 		}
