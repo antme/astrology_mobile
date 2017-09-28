@@ -65,7 +65,6 @@
 	   				
 	   				r_data.results.forEach(function(e){
 						//if(e.title == title){
-							console.log(e);
 							var contens = e.body_value.split("RE_PLACE_ME_xxxxx");
 							contens.forEach(function(child){
 								appendContent(child, e.nid);					
@@ -87,18 +86,19 @@
 				e  = parserContent(e);
 				var n=(e.split('<br />')).length;
 				if(n > 2){
-					e = e.replace("<br />","<br />&nbsp;&nbsp;&nbsp;");
+					e = e.replace("<br />","<br />&emsp;&emsp;");
 				}else if(n==2){
 					if(e.split('<br />')[1].length > 7){
-						e = e.replace("<br />","<br />&nbsp;&nbsp;&nbsp;");
+						e = e.replace("<br />","<br />&emsp;&emsp;");
 					}
 				}
 				if(r_data.sex=="女"){
 					if(e.indexOf("座男生")==-1){
 				
 						if(e.indexOf('<p>') == -1){
-								$("#descrption").append(' <div class="info-item_xinpan ' + id + '"><p>' + e + '</p></div>');
+								$("#descrption").append(' <div class="info-item_xinpan ' + id + '"><p>&emsp;&emsp;' + e + '</p></div>');
 							}else{
+								e = e.replace("<p>", "<p>&emsp;&emsp;");
 								$("#descrption").append(' <div class="info-item_xinpan ' + id + '">' + e + '</div>');
 						}
 					
@@ -107,8 +107,9 @@
 					if(e.indexOf("座女生")==-1){
 						
 						if(e.indexOf('<p>') == -1){
-								$("#descrption").append(' <div class="info-item_xinpan ' + id + '"><p>' + e + '</p></div>');
+								$("#descrption").append(' <div class="info-item_xinpan ' + id + '"><p>&emsp;&emsp;' + e + '</p></div>');
 							}else{
+								e = e.replace("<p>", "<p>&emsp;&emsp;");
 								$("#descrption").append(' <div class="info-item_xinpan ' + id + '">' + e + '</div>');
 						}
 					
