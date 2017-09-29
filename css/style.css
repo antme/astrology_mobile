@@ -263,7 +263,7 @@ ul{list-style-type: none}
 .xx-info .title{font-size: 18px;margin:10px 0;color: #595797;}
 
 .xx-info .grwx2{margin:10px;height:40px;line-height:40px;border-radius: 16px;color: #fff;text-align: center;background-color: #6a6aaa;font-size: 16px;}
-.xx-info .text{text-align: justify;background-color: #daedff;line-height:1.5;    padding:2px 15px;color: #595797;font-size:16px;     letter-spacing: 1px;}
+.xx-info .text{text-align: justify;background-color: #daedff;line-height:1.5;    padding:2px 15px;color: #595797;font-size:16px;     letter-spacing: 1px; display:inline-block;}
 
 ._date_top_ul{
 	width: 100%;
